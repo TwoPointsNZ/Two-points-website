@@ -121,8 +121,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero { position: relative; padding: calc(var(--head) + clamp(40px, 6vw, 84px)) 0 clamp(56px, 7vw, 100px); overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(38% 46% at -4% 46%, rgba(190, 240, 60, .30), rgba(62, 230, 176, .13) 45%, transparent 72%),
-    radial-gradient(34% 44% at 104% 60%, rgba(167, 139, 250, .26), rgba(79, 180, 255, .14) 45%, transparent 72%),
     linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 64px 64px,
     linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 64px 64px;
   -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
@@ -152,14 +150,21 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .stepper li.on > i::after { background: var(--rainbow); transform: scale(1.15); }
 .stepper li.on span { color: var(--ink); }
 @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.22); } 100% { transform: scale(1); } }
-.stepper svg { position: absolute; inset: 0; margin: auto; width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; shape-rendering: geometricPrecision; stroke-dasharray: 1.01; stroke-dashoffset: 1.01; }
-.stepper li.done > i { border-color: transparent; background: linear-gradient(135deg, #7fc400, #22C997 38%, #3A9BEA 70%, #8B6CF0); }
-.stepper li.done > i::after { transform: scale(0); }
-.stepper li.done svg { stroke-dashoffset: 0; transition: stroke-dashoffset .45s var(--ease-out) .1s; }
-.stepper li.done.crisp svg { stroke-dasharray: none; transition: none; }
-.stepper li.done > i { width: calc(var(--dot) + 6px); height: calc(var(--dot) + 6px); margin: -3px 0; }
-.stepper li.done > i::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid #3A9BEA; opacity: 0; animation: ring 1.1s var(--ease-out) .15s; }
-@keyframes ring { 0% { inset: -2px; opacity: .9; } 100% { inset: -18px; opacity: 0; border-color: #8B6CF0; } }
+.stepper .tick { position: absolute; inset: 0; margin: auto; width: 60%; height: 60%; fill: none; stroke: url(#tickg); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; shape-rendering: geometricPrecision; stroke-dasharray: 1.01; stroke-dashoffset: 1.01; overflow: visible; }
+.stepper .burst { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; fill: none; stroke: #3A9BEA; stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 1.01; stroke-dashoffset: 1.01; opacity: 0; overflow: visible; pointer-events: none; }
+.stepper .burst path:nth-child(odd) { stroke: #22C997; }
+/* finished: a dark Simple-style badge with a rainbow edge and a rainbow tick */
+.stepper li.done > i { width: calc(var(--dot) + 10px); height: calc(var(--dot) + 10px); margin: -5px 0; border: 2px solid transparent;
+  background: linear-gradient(160deg, #272c23, #111410) padding-box, var(--ring) border-box; animation: land .5s var(--ease-out); }
+.stepper li.done > i::after { content: none; }
+.stepper li.done .tick { stroke-dashoffset: 0; transition: stroke-dashoffset .5s var(--ease-out) .12s; }
+.stepper li.done.crisp .tick { stroke-dasharray: none; transition: none; }
+.stepper li.done .burst { animation: burst .75s var(--ease-out) .3s both; }
+.stepper li.done > i::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid #3A9BEA; opacity: 0; animation: ring 1s var(--ease-out) .25s; }
+.stepper li.done > span { color: var(--ink); }
+@keyframes land { 0% { transform: scale(.7); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
+@keyframes ring { 0% { inset: -2px; opacity: .95; border-color: #22C997; } 100% { inset: -16px; opacity: 0; border-color: #8B6CF0; } }
+@keyframes burst { 0% { opacity: 1; stroke-dashoffset: 1.01; } 55% { opacity: 1; stroke-dashoffset: 0; } 100% { opacity: 0; stroke-dashoffset: -1.01; } }
 
 /* stage: facts + film */
 .stage { margin-top: clamp(26px, 3.4vw, 44px); padding: clamp(10px, 1.4vw, 18px); border-radius: 30px; background: var(--canvas); display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: clamp(10px, 1.4vw, 18px); transform-origin: 50% 0; }
@@ -384,7 +389,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .stepper { --dot: 22px; }
   .stepper span { font-size: 11.5px; font-weight: 700; white-space: normal; line-height: 1.2; }
   .stepper li > i::after { width: 7px; height: 7px; }
-  .stepper svg { width: 16px; height: 16px; }
   .stage { border-radius: 24px; }
   .stage-facts dl { grid-template-columns: 1fr; }
   .stage-film { min-height: 0; aspect-ratio: 4 / 3.4; }
