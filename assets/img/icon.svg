@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Two Points">
   <defs>
-    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FD400"/><stop offset=".38" stop-color="#22C997"/><stop offset=".7" stop-color="#3A9BEA"/><stop offset="1" stop-color="#8B6CF0"/></linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0FC9A0"/><stop offset=".38" stop-color="#1893E8"/><stop offset=".7" stop-color="#5647EE"/><stop offset="1" stop-color="#DC47A0"/></linearGradient>
     <linearGradient id="bg" x1="0" y1="0" x2=".4" y2="1"><stop offset="0" stop-color="#272c23"/><stop offset="1" stop-color="#111410"/></linearGradient>
-    <radialGradient id="glow" cx="0" cy="1" r="1"><stop offset="0" stop-color="#3EE6B0" stop-opacity=".24"/><stop offset=".6" stop-color="#3EE6B0" stop-opacity="0"/></radialGradient>
-    <linearGradient id="peaks" x1="11" y1="46" x2="50" y2="24" gradientUnits="userSpaceOnUse" gradientTransform="scale(20.5718) translate(25.789 -17.042)"><stop offset="0" stop-color="#AAEE00"/><stop offset=".36" stop-color="#2FD9A4"/><stop offset=".68" stop-color="#3FA9F5"/><stop offset="1" stop-color="#9B7CF6"/></linearGradient>
+    <radialGradient id="glow" cx="0" cy="1" r="1"><stop offset="0" stop-color="#1FA9FF" stop-opacity=".24"/><stop offset=".6" stop-color="#1FA9FF" stop-opacity="0"/></radialGradient>
+    <linearGradient id="peaks" x1="11" y1="46" x2="50" y2="24" gradientUnits="userSpaceOnUse" gradientTransform="scale(20.5718) translate(25.789 -17.042)"><stop offset="0" stop-color="#14E0B4"/><stop offset=".36" stop-color="#1A9CF2"/><stop offset=".68" stop-color="#5E50F5"/><stop offset="1" stop-color="#E44FA8"/></linearGradient>
   </defs>
   <rect x="1.4" y="1.4" width="61.2" height="61.2" rx="17" fill="url(#bg)" stroke="url(#ring)" stroke-width="2.8"/>
   <rect x="2.8" y="2.8" width="58.4" height="58.4" rx="15.6" fill="url(#glow)"/>
