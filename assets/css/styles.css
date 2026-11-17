@@ -107,7 +107,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .header::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; z-index: 2; background: var(--rainbow-line); pointer-events: none; }
 .header-ink { position: absolute; left: 0; top: 0; height: 100%; width: max(150px, calc(max((100vw - var(--max)) / 2, var(--gutter)) + 46px)); max-width: none;
   object-fit: cover; object-position: right center; opacity: .2; pointer-events: none; user-select: none;
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%), linear-gradient(180deg, #000 0%, #000 50%, transparent 80%); mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%), linear-gradient(180deg, #000 0%, #000 50%, transparent 80%); -webkit-mask-composite: source-in; mask-composite: intersect; }
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%); mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%); }
 .brand { position: relative; }
 @media (max-width: 860px) { .header-ink { width: auto; object-fit: initial; } }
 .header-in { position: relative; z-index: 1; display: flex; align-items: center; gap: 22px; height: var(--head); }
@@ -130,7 +130,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   background:
     linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 64px 64px,
     linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, transparent calc(var(--head) + 14px), #000 calc(var(--head) + 70px), #000 62%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0, transparent calc(var(--head) + 14px), #000 calc(var(--head) + 70px), #000 62%, transparent 100%);
   opacity: .8; }
 .hero-title { margin-top: clamp(14px, 1.8vw, 24px); font-size: clamp(42px, 9.5vw, 138px); line-height: .94; font-weight: 800; letter-spacing: -.05em; display: grid; justify-items: start; }
 .mask { display: inline-block; overflow: hidden; padding: .04em .06em .16em 0; margin-bottom: -.12em; }
@@ -323,6 +323,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- tattoo flash: Joe's own ink, laid out like a shop flash page ---------- */
 .flash { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.hero .flash { -webkit-mask-image: linear-gradient(180deg, transparent 0, transparent calc(var(--head) + 14px), #000 calc(var(--head) + 70px)); mask-image: linear-gradient(180deg, transparent 0, transparent calc(var(--head) + 14px), #000 calc(var(--head) + 70px)); }
 .flash .sheet { position: absolute; inset: -8% 0; width: 100%; height: 116%; max-width: none; object-fit: cover; opacity: .07; transform: translate3d(0, var(--dy, 0px), 0); will-change: transform; user-select: none; }
 .js .hero .sheet { opacity: 0; transition: opacity 1.8s var(--ease) .9s; }
 .js.is-loaded .hero .sheet { opacity: .07; }
