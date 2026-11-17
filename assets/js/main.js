@@ -40,6 +40,13 @@
     io.observe(el);
   });
 
+  /* ---- sound wave: bars rise in from the centre line ---- */
+  const wave = $('[data-wave]');
+  if (wave) {
+    $$('rect', wave).forEach((b, k) => b.style.setProperty('--k', k));
+    io.observe(wave);
+  }
+
   /* ---- words ink in with scroll ---- */
   const quote = $('[data-words]');
   let words = [];
@@ -123,6 +130,7 @@
   const cards = $$('.pcard');
   const reel = $('[data-reel]');
   const parallax = reduce ? [] : $$('[data-parallax]');
+  const drifters = reduce ? [] : $$('[data-drift]');
   const sections = $$('main section[id]');
   const navLinks = $$('.nav a[href^="#"]');
   let ticking = false;
@@ -163,6 +171,12 @@
       const t = clamp((vh - r.top) / (vh + r.height));
       const travel = Math.max(0, reel.scrollWidth - innerWidth + 40);
       reel.style.transform = `translate3d(${(20 - t * travel).toFixed(1)}px, 0, 0)`;
+    }
+
+    for (const el of drifters) {
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) continue;
+      el.style.setProperty('--dy', `${(r.top * parseFloat(el.dataset.drift)).toFixed(1)}px`);
     }
 
     for (const el of parallax) {
