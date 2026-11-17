@@ -133,10 +133,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
     linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 64px 64px;
   -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%), radial-gradient(calc((var(--inkw) + 70px) / 2) 80px at 0 var(--head), transparent 55%, #000 100%); mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%), radial-gradient(calc((var(--inkw) + 70px) / 2) 80px at 0 var(--head), transparent 55%, #000 100%); -webkit-mask-composite: source-in; mask-composite: intersect;
   opacity: .8; }
-.hero-title { margin-top: clamp(14px, 1.8vw, 24px); font-size: clamp(40px, 7.4vw, 108px); line-height: .94; font-weight: 800; letter-spacing: -.05em; display: grid; justify-items: start; }
+.hero-title { margin-top: clamp(14px, 1.8vw, 24px); font-size: clamp(56px, 10vw, 144px); line-height: .94; font-weight: 800; letter-spacing: -.05em; display: grid; justify-items: start; }
 .mask { display: inline-block; overflow: hidden; padding: .04em .06em .16em 0; margin-bottom: -.12em; }
 .mask > span { display: inline-block; }
-.hero-title .mask-wrap { max-width: 12.5em; }
+.hero-title .mask-wrap { font-size: .36em; line-height: 1.12; letter-spacing: -.03em; max-width: 24em; margin-bottom: .1em; }
 .hero-title .mask-wrap > span { text-wrap: balance; }
 .hero-title .rb-word { padding-right: .02em; }
 .hero-title .rb-word i { display: inline-block; width: .17em; height: .17em; margin-left: .05em; border-radius: 50%; background: #DC47A0; font-size: inherit; text-indent: -9em; overflow: hidden; vertical-align: baseline; }
@@ -397,7 +397,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @media (max-width: 620px) {
   .header-btn { display: none; }
   .menu-btn { margin-left: auto; }
-  .hero-title { font-size: 10.6vw; }
+  .hero-title { font-size: 15vw; }
+  .hero-title .mask-wrap { font-size: .45em; }
   .btn-row { display: grid; grid-template-columns: 1fr 1fr; }
   .btn-row .btn { padding: 0 12px; font-size: 15px; }
   .stepper { --dot: 22px; }
