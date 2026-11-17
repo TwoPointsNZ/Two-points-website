@@ -10,13 +10,50 @@
   /* ---- page load ---- */
   requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('is-loaded')));
 
-  /* stepper walks through the job once, then rests on the last step */
-  const steps = $$('.stepper li');
-  const walk = (i) => {
-    steps.forEach((s, k) => { s.classList.toggle('on', k <= i); s.classList.toggle('now', k === i); });
-    if (i < steps.length - 1) setTimeout(() => walk(i + 1), 620);
-  };
-  if (steps.length) reduce ? walk(steps.length - 1) : setTimeout(() => walk(0), 1100);
+  /* stepper: runner travels left to right, steps pop as it passes, last one ticks + pulses, then loops */
+  const stepper = $('.stepper');
+  if (stepper) {
+    const items = $$('li', stepper);
+    const n = items.length;
+    const setP = (p) => stepper.style.setProperty('--p', p.toFixed(4));
+    if (reduce) {
+      setP(1); items.forEach((li) => li.classList.add('on')); items[n - 1].classList.add('done');
+    } else {
+      const TRAVEL = 3400, HOLD = 1500, RESET = 500;
+      let t0 = null, last = -1;
+      const ease = (x) => (x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2);
+      const tick = (now) => {
+        if (t0 === null) t0 = now;
+        const t = now - t0;
+        if (t < TRAVEL) {
+          const p = ease(t / TRAVEL);
+          setP(p);
+          stepper.style.setProperty('--ro', 1);
+          const reached = Math.floor(p * (n - 1) + 0.02);
+          if (reached !== last) {
+            for (let k = 0; k <= reached && k < n; k++) items[k].classList.add('on');
+            last = reached;
+          }
+        } else if (t < TRAVEL + HOLD) {
+          if (!items[n - 1].classList.contains('done')) {
+            setP(1); items.forEach((li) => li.classList.add('on'));
+            items[n - 1].classList.add('done');
+            stepper.style.setProperty('--ro', 0);
+          }
+        } else if (t < TRAVEL + HOLD + RESET) {
+          if (items[0].classList.contains('on')) {
+            items.forEach((li) => li.classList.remove('on', 'done'));
+            setP(0);
+          }
+        } else {
+          items.forEach((li) => li.classList.remove('on', 'done'));
+          t0 = now; last = -1;
+        }
+        requestAnimationFrame(tick);
+      };
+      setTimeout(() => requestAnimationFrame(tick), 1100);
+    }
+  }
 
   /* hero film */
   const video = $('.hero-video');
