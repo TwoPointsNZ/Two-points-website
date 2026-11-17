@@ -67,6 +67,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .label .count { color: var(--ink-3); letter-spacing: 0; font-variant-numeric: tabular-nums; }
 .rb { background: var(--rainbow-deep); -webkit-background-clip: text; background-clip: text; color: transparent; width: fit-content; }
 .rbl { background: var(--rainbow-line); -webkit-background-clip: text; background-clip: text; color: transparent; width: fit-content; }
+.ast { display: inline-block; margin-left: .04em; font-weight: 800; transform: translateY(-.08em); background: var(--rainbow-line); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .rb-word { background: var(--rainbow-word); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .ref { font: 500 12px/1 var(--mono); color: var(--ink-3); letter-spacing: .02em; }
 .mk { background: var(--marker) no-repeat left center / 100% 100%; border-radius: 7px; padding: .08em .34em; margin-inline: -.34em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
