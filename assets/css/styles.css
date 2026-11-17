@@ -305,20 +305,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .footer-line { height: 1px; background: var(--band-line); margin: 26px 0 18px; }
 .footer-bot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--band-ink-2); }
 
-/* ---------- tattoo flash: Joe's own ink, redrawn ---------- */
+/* ---------- tattoo flash: Joe's own ink, laid out like a shop flash page ---------- */
 .flash { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-.flash .t { position: absolute; opacity: .075; transform: translate3d(0, var(--dy, 0px), 0) rotate(var(--r, 0deg)); will-change: transform; user-select: none; }
-.hero .t-blade { right: -2%; top: 9%; height: min(78%, 780px); width: auto; }
-.hero .t-moon { right: 27%; top: 13%; width: clamp(120px, 12vw, 190px); }
-.hero .t-fork { right: 19%; top: 46%; height: clamp(170px, 20vw, 290px); width: auto; }
-.hero .t-wave { left: -3%; top: 56%; width: clamp(420px, 46vw, 760px); opacity: .06; }
-.js .hero .t { opacity: 0; transition: opacity 1.6s var(--ease) calc(.9s + var(--i, 0) * .18s); }
-.js.is-loaded .hero .t { opacity: .075; }
-.js.is-loaded .hero .t-wave { opacity: .06; }
-.flash-dark .t { filter: invert(1); opacity: .06; }
-.contact .t-blade { left: 34%; top: 4%; height: min(620px, 70%); width: auto; }
-.contact .t-moon { right: 4%; top: 6%; width: 170px; }
-.contact .t-fork { left: 3%; bottom: 22%; height: 230px; width: auto; }
+.flash .sheet { position: absolute; right: -4%; top: 6%; width: min(1500px, 112%); max-width: none; height: auto; opacity: .085; transform: translate3d(0, var(--dy, 0px), 0); will-change: transform; user-select: none; }
+.js .hero .sheet { opacity: 0; transition: opacity 1.8s var(--ease) .9s; }
+.js.is-loaded .hero .sheet { opacity: .085; }
+.flash-dark .sheet { filter: invert(1); opacity: .07; top: 2%; right: -10%; }
+@media (max-width: 860px) {
+  .flash .sheet { width: 210%; right: -95%; top: 4%; }
+  .flash-dark .sheet { width: 200%; right: -60%; }
+}
 
 /* the sound wave signs off the About story */
 .wave { color: var(--ink); margin: 6px 0 -4px; max-width: 520px; }
@@ -343,9 +339,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .stage-facts dl { grid-template-columns: 1fr 1fr; }
   .safety-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .about-photo { aspect-ratio: 16 / 11; max-width: 640px; }
-  .hero .t-moon { right: 6%; top: 8%; }
-  .hero .t-fork { display: none; }
-  .contact .t-blade { left: auto; right: -6%; }
 }
 @media (max-width: 860px) {
   :root { --head: 68px; }
@@ -401,7 +394,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
   .js [data-reveal], .js [data-load], .js .mask > [data-load] { opacity: 1; transform: none; }
   .js [data-mk], .beats .mk { background-size: 100% 100%; }
-  .js .hero .t { opacity: .075; }
+  .js .hero .sheet { opacity: .085; }
   .js .wave-svg rect { transform: none; }
   .quote .w { color: var(--ink); opacity: 1; }
 }
