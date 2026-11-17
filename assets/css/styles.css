@@ -151,20 +151,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .stepper li.on span { color: var(--ink); }
 @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.22); } 100% { transform: scale(1); } }
 .stepper .tick { position: absolute; inset: 0; margin: auto; width: 60%; height: 60%; fill: none; stroke: url(#tickg); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; shape-rendering: geometricPrecision; stroke-dasharray: 1.01; stroke-dashoffset: 1.01; overflow: visible; }
-.stepper .burst { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; fill: none; stroke: #5647EE; stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 1.01; stroke-dashoffset: 1.01; opacity: 0; overflow: visible; pointer-events: none; }
-.stepper .burst path:nth-child(odd) { stroke: #1893E8; }
 /* finished: a dark Simple-style badge with a rainbow edge and a rainbow tick */
 .stepper li.done > i { width: calc(var(--dot) + 10px); height: calc(var(--dot) + 10px); margin: -5px 0; border: 2px solid transparent;
   background: linear-gradient(160deg, #272c23, #111410) padding-box, var(--ring) border-box; animation: land .5s var(--ease-out); }
 .stepper li.done > i::after { content: none; }
 .stepper li.done .tick { stroke-dashoffset: 0; transition: stroke-dashoffset .5s var(--ease-out) .12s; }
 .stepper li.done.crisp .tick { stroke-dasharray: none; transition: none; }
-.stepper li.done .burst { animation: burst .75s var(--ease-out) .3s both; }
 .stepper li.done > i::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid #5647EE; opacity: 0; animation: ring 1s var(--ease-out) .25s; }
 .stepper li.done > span { color: var(--ink); }
 @keyframes land { 0% { transform: scale(.7); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
 @keyframes ring { 0% { inset: -2px; opacity: .95; border-color: #1893E8; } 100% { inset: -16px; opacity: 0; border-color: #DC47A0; } }
-@keyframes burst { 0% { opacity: 1; stroke-dashoffset: 1.01; } 55% { opacity: 1; stroke-dashoffset: 0; } 100% { opacity: 0; stroke-dashoffset: -1.01; } }
 
 /* stage: facts + film */
 .stage { margin-top: clamp(26px, 3.4vw, 44px); padding: clamp(10px, 1.4vw, 18px); border-radius: 30px; background: var(--canvas); display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: clamp(10px, 1.4vw, 18px); transform-origin: 50% 0; }
