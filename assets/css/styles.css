@@ -104,6 +104,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .progress i { display: block; height: 100%; background: var(--rainbow-line); transform-origin: left; transform: scaleX(0); }
 .header { position: fixed; inset: 0 0 auto 0; z-index: 50; background: var(--band); color: var(--band-ink); }
 .header { overflow: hidden; }
+.header::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; z-index: 2; background: var(--rainbow-line); pointer-events: none; }
 .header-ink { position: absolute; left: 0; top: 0; height: 100%; width: max(150px, calc(max((100vw - var(--max)) / 2, var(--gutter)) + 46px)); max-width: none;
   object-fit: cover; object-position: right center; opacity: .2; pointer-events: none; user-select: none;
   -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%); mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%); }
