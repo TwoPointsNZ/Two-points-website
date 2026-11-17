@@ -17,7 +17,7 @@
     const n = items.length;
     const setP = (p) => stepper.style.setProperty('--p', p.toFixed(4));
     if (reduce) {
-      setP(1); items.forEach((li) => li.classList.add('on')); items[n - 1].classList.add('done');
+      setP(1); items.forEach((li) => li.classList.add('on')); items[n - 1].classList.add('done', 'crisp');
     } else {
       const TRAVEL = 3400, HOLD = 1500, RESET = 500;
       let t0 = null, last = -1;
@@ -38,15 +38,16 @@
           if (!items[n - 1].classList.contains('done')) {
             setP(1); items.forEach((li) => li.classList.add('on'));
             items[n - 1].classList.add('done');
+            setTimeout(() => items[n - 1].classList.add('crisp'), 650);
             stepper.style.setProperty('--ro', 0);
           }
         } else if (t < TRAVEL + HOLD + RESET) {
           if (items[0].classList.contains('on')) {
-            items.forEach((li) => li.classList.remove('on', 'done'));
+            items.forEach((li) => li.classList.remove('on', 'done', 'crisp'));
             setP(0);
           }
         } else {
-          items.forEach((li) => li.classList.remove('on', 'done'));
+          items.forEach((li) => li.classList.remove('on', 'done', 'crisp'));
           t0 = now; last = -1;
         }
         requestAnimationFrame(tick);
@@ -211,7 +212,7 @@
     }
 
     for (const el of drifters) {
-      const r = el.parentElement.getBoundingClientRect();
+      const r = (el.closest('.flash') || el.parentElement).getBoundingClientRect();
       if (r.bottom < -200 || r.top > vh + 200) continue;
       el.style.setProperty('--dy', `${(r.top * parseFloat(el.dataset.drift)).toFixed(1)}px`);
     }
