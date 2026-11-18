@@ -348,9 +348,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- tattoo flash: Joe's own ink, laid out like a shop flash page ---------- */
 .flash { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
 .hero .flash { -webkit-mask-image: radial-gradient(calc((var(--inkw) + 70px) / 2) 80px at 0 var(--head), transparent 55%, #000 100%); mask-image: radial-gradient(calc((var(--inkw) + 70px) / 2) 80px at 0 var(--head), transparent 55%, #000 100%); }
-.flash .sheet { position: absolute; inset: -8% 0; width: 100%; height: 116%; max-width: none; object-fit: cover; opacity: .07; transform: translate3d(0, var(--dy, 0px), 0); will-change: transform; user-select: none; }
+.flash .sheet { position: absolute; inset: -8% 0; width: 100%; height: 116%; max-width: none; object-fit: cover; opacity: .03; transform: translate3d(0, var(--dy, 0px), 0); will-change: transform; user-select: none; }
 .js .hero .sheet { opacity: 0; transition: opacity 1.8s var(--ease) .9s; }
-.js.is-loaded .hero .sheet { opacity: .07; }
+.js.is-loaded .hero .sheet { opacity: .03; }
 .flash-dark .sheet { filter: invert(1); opacity: .06; transform: translate3d(0, var(--dy, 0px), 0) scaleX(-1); }
 .flash picture { display: contents; }
 
@@ -450,7 +450,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
   .js [data-reveal], .js [data-load], .js .mask > [data-load], .js .hero-title .rb-word i { opacity: 1; transform: none; }
   .js [data-mk], .beats .mk { background-size: 100% 100%; }
-  .js .hero .sheet { opacity: .07; }
+  .js .hero .sheet { opacity: .03; }
   .js .wave-svg { clip-path: none; }
   .quote .w { color: var(--ink); opacity: 1; }
 }
