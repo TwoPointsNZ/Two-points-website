@@ -315,6 +315,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .band::before { content: ""; position: absolute; z-index: -1; left: 0; bottom: 0; width: min(900px, 90%); height: 70%; background: var(--band-glow); opacity: .5; animation: breathe 10s ease-in-out infinite alternate; }
 @keyframes breathe { from { opacity: .32; transform: scale(1); } to { opacity: .6; transform: scale(1.08); } }
 .band::before { transform-origin: 0 100%; }
+.band::before { -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 100%), linear-gradient(0deg, #000 0%, #000 35%, transparent 100%); mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 100%), linear-gradient(0deg, #000 0%, #000 35%, transparent 100%); -webkit-mask-composite: source-in; mask-composite: intersect; }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(36px, 6vw, 96px); align-items: start; }
 .contact .lede { margin-top: 22px; color: var(--band-ink-2); }
 .contact-links { display: grid; margin-top: 34px; border-top: 1px solid var(--band-line); }
@@ -355,9 +356,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* the sound wave signs off the About story */
 .wave { color: var(--ink); margin: 6px 0 -4px; max-width: 520px; }
 .wave-svg { width: 100%; height: auto; display: block; }
-.wave-svg rect { transform-box: fill-box; transform-origin: 50% 50%; }
-.js .wave-svg rect { transform: scaleY(.06); transition: transform .7s var(--ease-out); transition-delay: calc(var(--k, 0) * 4ms); }
-.js .wave.is-in .wave-svg rect { transform: none; }
+.js .wave-svg { clip-path: inset(0 100% 0 0); transition: clip-path 1.8s var(--ease-out) .2s; }
+.js .wave.is-in .wave-svg { clip-path: inset(0 0 0 0); }
 
 /* ---------- motion: things only arrive ---------- */
 .js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease) calc(var(--i, 0) * 90ms), transform 1s var(--ease-out) calc(var(--i, 0) * 90ms); }
@@ -450,6 +450,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .js [data-reveal], .js [data-load], .js .mask > [data-load], .js .hero-title .rb-word i { opacity: 1; transform: none; }
   .js [data-mk], .beats .mk { background-size: 100% 100%; }
   .js .hero .sheet { opacity: .07; }
-  .js .wave-svg rect { transform: none; }
+  .js .wave-svg { clip-path: none; }
   .quote .w { color: var(--ink); opacity: 1; }
 }
