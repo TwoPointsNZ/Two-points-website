@@ -9,6 +9,14 @@
 
   /* ---- page load ---- */
   requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('is-loaded')));
+  const heroTitle = document.querySelector('.hero-title');
+  if (heroTitle) {
+    if (reduce) heroTitle.classList.add('settled', 'dot-in');
+    else {
+      setTimeout(() => heroTitle.classList.add('settled'), 1350);
+      setTimeout(() => heroTitle.classList.add('dot-in'), 1500);
+    }
+  }
 
   /* stepper: runner travels left to right, steps pop as it passes, last one ticks + pulses, then loops */
   const stepper = $('.stepper');
