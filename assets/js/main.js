@@ -60,7 +60,12 @@
         }
         requestAnimationFrame(tick);
       };
-      setTimeout(() => requestAnimationFrame(tick), 1100);
+      // start only once the headline's full stop has dropped in and pulsed
+      let started = false;
+      const start = () => { if (!started) { started = true; requestAnimationFrame(tick); } };
+      const dot = document.querySelector('.hero-title .rb-word i');
+      if (dot) dot.addEventListener('animationend', (e) => { if (e.animationName === 'dotring') setTimeout(start, 150); });
+      setTimeout(start, 4200);
     }
   }
 
