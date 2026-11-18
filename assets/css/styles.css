@@ -180,7 +180,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .stage-facts dl { display: grid; gap: 16px; }
 .stage-facts dt { font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-3); margin-bottom: 5px; }
 .stage-facts dd { font-size: 17px; font-weight: 700; letter-spacing: -.01em; padding-left: .34em; }
-.stage-note { text-align: left; text-wrap: pretty; hyphens: none; }
+.stage-note { --nw: min(270px, 100% + 8px); width: var(--nw); max-width: none; margin-left: calc((100% - var(--nw)) / 2); margin-right: 0; text-align: justify; text-justify: inter-word; text-wrap: wrap; hyphens: none; }
 .stage-note > .ast:first-child { margin-left: -.62em; width: .62em; }
 .stage-note { margin-top: auto; padding-top: 18px; font-size: 14px; color: var(--ink-2); border-top: 1px solid var(--line); }
 .stage-facts dl { margin-bottom: 20px; }
