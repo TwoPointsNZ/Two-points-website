@@ -13,8 +13,16 @@
   if (heroTitle) {
     if (reduce) heroTitle.classList.add('settled', 'dot-in');
     else {
-      setTimeout(() => heroTitle.classList.add('settled'), 1350);
-      setTimeout(() => heroTitle.classList.add('dot-in'), 1500);
+      // only unclip the headline once its last line has fully landed, then drop the full stop
+      const lastLine = heroTitle.querySelector('.mask:last-child > [data-load]');
+      let done = false;
+      const settle = () => {
+        if (done) return; done = true;
+        heroTitle.classList.add('settled');
+        setTimeout(() => heroTitle.classList.add('dot-in'), 120);
+      };
+      if (lastLine) lastLine.addEventListener('transitionend', (e) => { if (e.propertyName === 'transform') settle(); });
+      setTimeout(settle, 2200);
     }
   }
 
