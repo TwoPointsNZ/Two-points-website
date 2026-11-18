@@ -111,7 +111,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   object-fit: cover; object-position: right center; opacity: .2; pointer-events: none; user-select: none;
   -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%); mask-image: linear-gradient(90deg, #000 0%, #000 66%, transparent 96%); }
 .brand { position: relative; }
-.header-ink-r { left: auto; right: 0; object-position: left center; -webkit-mask-image: linear-gradient(270deg, #000 0%, #000 66%, transparent 96%); mask-image: linear-gradient(270deg, #000 0%, #000 66%, transparent 96%); }
+.header-ink-r { left: auto; right: 0; object-position: right center; -webkit-mask-image: linear-gradient(270deg, #000 0%, #000 66%, transparent 96%); mask-image: linear-gradient(270deg, #000 0%, #000 66%, transparent 96%); }
 @media (max-width: 860px) { .header-ink { width: auto; object-fit: initial; } .header-ink-r { opacity: .14; } }
 .header-in { position: relative; z-index: 1; display: flex; align-items: center; gap: 22px; height: var(--head); }
 .brand { display: flex; align-items: center; gap: 14px; flex: none; }
