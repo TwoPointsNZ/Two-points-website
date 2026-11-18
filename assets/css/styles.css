@@ -258,9 +258,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* projects: "the drop" — each job photo abseils down over the last as you scroll */
 .drop { position: relative; height: calc(var(--n) * 80vh + 30vh); }
 .projects .section-head { margin-bottom: 0; }
-.drop-pin { position: sticky; top: 0; height: 100vh; height: 100svh; padding-top: calc(var(--head) + clamp(20px, 3vh, 36px)); display: flex; align-items: flex-start; overflow: hidden; }
-.drop-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(28px, 5vw, 84px); align-items: center; }
-.drop-frame { position: relative; height: min(70svh, 640px); border-radius: 28px; overflow: hidden; background: var(--band); box-shadow: var(--shadow-lift); isolation: isolate; }
+.drop-pin { position: sticky; top: 0; height: 100vh; height: 100svh; padding: calc(var(--head) + clamp(20px, 3vh, 40px)) 0 clamp(20px, 4vh, 48px); display: flex; flex-direction: column; overflow: hidden; }
+.drop-head .section-head { margin-bottom: clamp(18px, 3.4vh, 40px); }
+.drop-grid { flex: 1 1 auto; min-height: 0; width: 100%; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); grid-template-rows: minmax(0, 1fr); gap: clamp(28px, 5vw, 84px); align-items: center; }
+.drop-frame { position: relative; height: 100%; max-height: 640px; align-self: stretch; border-radius: 28px; overflow: hidden; background: var(--band); box-shadow: var(--shadow-lift); isolation: isolate; }
 .drop-img { position: absolute; inset: 0; margin: 0; clip-path: inset(0 0 calc(var(--h, 1) * 100%) 0); }
 .drop-img[data-first] { --h: 0; }
 .drop-img img { width: 100%; height: 100%; object-fit: cover; transform: translateY(calc((1 - var(--r, 1)) * -8%)) scale(calc(1.14 - .14 * var(--r, 1))); transform-origin: 50% 0; }
@@ -348,10 +349,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- tattoo flash: Joe's own ink, laid out like a shop flash page ---------- */
 .flash { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
 .hero .flash { -webkit-mask-image: radial-gradient(calc((var(--inkw) + 70px) / 2) 80px at 0 var(--head), transparent 55%, #000 100%); mask-image: radial-gradient(calc((var(--inkw) + 70px) / 2) 80px at 0 var(--head), transparent 55%, #000 100%); }
-.flash .sheet { position: absolute; inset: -8% 0; width: 100%; height: 116%; max-width: none; object-fit: cover; opacity: .03; transform: translate3d(0, var(--dy, 0px), 0); will-change: transform; user-select: none; }
+.flash .sheet { position: absolute; inset: -8% 0; width: 100%; height: 116%; max-width: none; object-fit: cover; opacity: .014; transform: translate3d(0, var(--dy, 0px), 0); will-change: transform; user-select: none; }
 .js .hero .sheet { opacity: 0; transition: opacity 1.8s var(--ease) .9s; }
-.js.is-loaded .hero .sheet { opacity: .03; }
-.flash-dark .sheet { filter: invert(1); opacity: .06; transform: translate3d(0, var(--dy, 0px), 0) scaleX(-1); }
+.js.is-loaded .hero .sheet { opacity: .014; }
+.flash-dark .sheet { filter: invert(1); opacity: .025; transform: translate3d(0, var(--dy, 0px), 0) scaleX(-1); }
 .flash picture { display: contents; }
 
 /* the sound wave signs off the About story */
@@ -414,8 +415,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .beats li.is-on { display: flex; animation: rise .5s var(--ease-out) both; }
   .panel { grid-template-columns: 1fr; }
   .panel-img { aspect-ratio: 4 / 3; }
-  .drop-grid { grid-template-columns: 1fr; gap: 16px; align-content: start; }
-  .drop-frame { height: 46svh; border-radius: 24px; }
+  .drop-grid { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; gap: 14px; align-content: stretch; }
+  .drop-head .section-head { gap: 8px; margin-bottom: 16px; }
+  .drop-head .h2 { font-size: 30px; }
+  .drop-frame { height: 100%; border-radius: 24px; }
   .drop-info { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: start; }
   .drop-count { grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; gap: 4px; }
   .drop-num { font-size: 60px; }
@@ -450,7 +453,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
   .js [data-reveal], .js [data-load], .js .mask > [data-load], .js .hero-title .rb-word i { opacity: 1; transform: none; }
   .js [data-mk], .beats .mk { background-size: 100% 100%; }
-  .js .hero .sheet { opacity: .03; }
+  .js .hero .sheet { opacity: .014; }
   .js .wave-svg { clip-path: none; }
   .quote .w { color: var(--ink); opacity: 1; }
 }
