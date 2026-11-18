@@ -255,17 +255,30 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- projects: stacking cards ---------- */
 .projects { background: var(--page); padding-bottom: clamp(40px, 5vw, 70px); }
 .projects .h2 { max-width: 16em; }
-.stack { display: grid; gap: 26px; }
-.pcard { position: sticky; top: calc(var(--head) + 22px + var(--n) * 14px); }
-.pcard-in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); height: min(520px, calc(100svh - var(--head) - 120px)); border-radius: 28px; overflow: hidden; background: #fff; border: 1px solid var(--outline); box-shadow: var(--shadow-card), 0 -18px 40px -30px rgba(16, 24, 40, .28); transform-origin: 50% 0; will-change: transform; }
-.pcard-img { overflow: hidden; background: var(--soft); min-height: 0; }
-.pcard-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
-.pcard:hover .pcard-img img { transform: scale(1.04); }
-.pcard-body { padding: clamp(22px, 3.6vw, 56px); display: flex; flex-direction: column; justify-content: center; gap: 14px; min-width: 0; }
-.pcard-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: clamp(6px, 2vw, 28px); }
-.pcard-body h3 { font-size: clamp(26px, 3.4vw, 48px); line-height: 1.05; font-weight: 800; letter-spacing: -.04em; text-wrap: balance; }
-.pcard-body p { font-size: clamp(15px, 1.3vw, 18px); color: var(--ink-2); max-width: 36ch; }
-.pcard .tags { margin-top: 8px; }
+/* projects: "the drop" — each job photo abseils down over the last as you scroll */
+.drop { position: relative; height: calc(var(--n) * 80vh + 30vh); margin-top: clamp(-40px, -3vw, -20px); }
+.drop-pin { position: sticky; top: 0; height: 100vh; height: 100svh; padding-top: var(--head); display: flex; align-items: center; overflow: hidden; }
+.drop-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(28px, 5vw, 84px); align-items: center; }
+.drop-frame { position: relative; height: min(70svh, 640px); border-radius: 28px; overflow: hidden; background: var(--band); box-shadow: var(--shadow-lift); isolation: isolate; }
+.drop-img { position: absolute; inset: 0; margin: 0; clip-path: inset(0 0 calc(var(--h, 1) * 100%) 0); }
+.drop-img[data-first] { --h: 0; }
+.drop-img img { width: 100%; height: 100%; object-fit: cover; transform: translateY(calc((1 - var(--r, 1)) * -8%)) scale(calc(1.14 - .14 * var(--r, 1))); transform-origin: 50% 0; }
+.drop-edge { position: absolute; z-index: 3; left: 0; right: 0; top: calc(var(--e, 0) * 100%); height: 3px; margin-top: -1.5px; background: var(--rainbow-line); opacity: var(--eo, 0); box-shadow: 0 0 0 1px rgba(255, 255, 255, .35); pointer-events: none; }
+.drop-frame .film-ref { z-index: 4; }
+.drop-count { display: flex; align-items: flex-end; gap: 10px; line-height: 1; }
+.drop-num { display: block; height: 1em; overflow: hidden; font-size: clamp(76px, 10vw, 160px); font-weight: 800; letter-spacing: -.055em; }
+.drop-col { display: flex; flex-direction: column; transform: translateY(calc(var(--idx, 0) * -1em)); transition: transform .8s var(--ease-out); }
+.drop-col b { display: block; height: 1em; line-height: 1; background: var(--rainbow-word); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .04em; }
+.drop-of { font: 500 14px/1 var(--mono); color: var(--ink-3); padding-bottom: .9em; letter-spacing: .04em; }
+.drop-texts { display: grid; margin-top: clamp(18px, 3vh, 34px); }
+.drop-text { grid-area: 1 / 1; display: grid; gap: 12px; align-content: start; opacity: 0; transform: translateY(-22px); transition: opacity .45s var(--ease), transform .7s var(--ease-out); pointer-events: none; }
+.drop-text.is-on { opacity: 1; transform: none; pointer-events: auto; transition-delay: .08s; }
+.drop-text h3 { font-size: clamp(28px, 3.3vw, 48px); line-height: 1.05; font-weight: 800; letter-spacing: -.04em; text-wrap: balance; }
+.drop-text p { font-size: clamp(15px, 1.3vw, 18px); color: var(--ink-2); max-width: 36ch; }
+.drop-text .tags { margin-top: 4px; }
+.drop-dots { display: flex; gap: 8px; margin-top: clamp(20px, 4vh, 40px); }
+.drop-dots i { width: 22px; height: 4px; border-radius: 4px; background: var(--line); transition: width .5s var(--ease-out), background .4s; }
+.drop-dots i.is-on { width: 48px; background: var(--rainbow-line); }
 
 /* ---------- reel ---------- */
 .reel { overflow: hidden; padding: clamp(40px, 6vw, 90px) 0 clamp(20px, 3vw, 40px); }
@@ -400,9 +413,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .beats li.is-on { display: flex; animation: rise .5s var(--ease-out) both; }
   .panel { grid-template-columns: 1fr; }
   .panel-img { aspect-ratio: 4 / 3; }
-  .pcard-in { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; height: min(560px, calc(100svh - var(--head) - 110px)); border-radius: 24px; }
-  .pcard-top { margin-bottom: 4px; }
-  .pcard-body { gap: 10px; }
+  .drop-grid { grid-template-columns: 1fr; gap: 16px; align-content: center; }
+  .drop-frame { height: 46svh; border-radius: 24px; }
+  .drop-info { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: start; }
+  .drop-count { grid-row: 1 / span 2; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .drop-num { font-size: 60px; }
+  .drop-of { padding: 0; font-size: 12px; }
+  .drop-texts { margin-top: 2px; }
+  .drop-text { gap: 8px; }
+  .drop-text h3 { font-size: 24px; }
+  .drop-text p { font-size: 14.5px; }
+  .drop-dots { grid-column: 2; margin-top: 12px; }
 }
 @media (max-width: 620px) {
   .header-btn { display: none; }

@@ -178,7 +178,13 @@
   /* ---- scroll loop ---- */
   const bar = $('.progress i');
   const stage = $('.stage');
-  const cards = $$('.pcard');
+  const drop = $('[data-drop]');
+  const dropImgs = drop ? $$('.drop-img', drop) : [];
+  const dropTexts = drop ? $$('.drop-text', drop) : [];
+  const dropDots = drop ? $$('.drop-dots i', drop) : [];
+  const dropCol = drop ? $('.drop-col', drop) : null;
+  const dropEdge = drop ? $('.drop-edge', drop) : null;
+  let dropIdx = 0;
   const reel = $('[data-reel]');
   const parallax = reduce ? [] : $$('[data-parallax]');
   const drifters = reduce ? [] : $$('[data-drift]');
@@ -204,17 +210,27 @@
       setDescent(clamp(-r.top / (r.height - vh)));
     }
 
-    // stacked project cards: the one underneath eases back
-    if (!reduce) {
-      cards.forEach((card, i) => {
-        const next = cards[i + 1];
-        const inner = card.firstElementChild;
-        if (!next) return;
-        const a = card.getBoundingClientRect(), b = next.getBoundingClientRect();
-        const t = clamp(1 - (b.top - a.top) / a.height);
-        inner.style.transform = `scale(${(1 - t * 0.05).toFixed(4)})`;
-        inner.style.filter = t > 0.01 ? `brightness(${(1 - t * 0.07).toFixed(3)})` : '';
-      });
+    // projects: each photo abseils down over the last
+    if (drop && dropImgs.length) {
+      const r = drop.getBoundingClientRect();
+      const n = dropImgs.length;
+      const p = clamp(-r.top / Math.max(1, r.height - vh)) * (n - 1);
+      let idx = 0, edge = 0, edgeOn = 0;
+      for (let k = 1; k < n; k++) {
+        const local = clamp((p - (k - 1) - 0.12) / 0.76);
+        const s = local * local * (3 - 2 * local);
+        dropImgs[k].style.setProperty('--h', (1 - s).toFixed(4));
+        dropImgs[k].style.setProperty('--r', s.toFixed(4));
+        if (s > 0.5) idx = k;
+        if (s > 0.001 && s < 0.999) { edge = s; edgeOn = 1; }
+      }
+      if (dropEdge) { dropEdge.style.setProperty('--e', edge.toFixed(4)); dropEdge.style.setProperty('--eo', edgeOn); }
+      if (idx !== dropIdx) {
+        dropIdx = idx;
+        dropTexts.forEach((t, k) => t.classList.toggle('is-on', k === idx));
+        dropDots.forEach((d, k) => d.classList.toggle('is-on', k === idx));
+        if (dropCol) dropCol.style.setProperty('--idx', idx);
+      }
     }
 
     if (reel && !reduce) {
