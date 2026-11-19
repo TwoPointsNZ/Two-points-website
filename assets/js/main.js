@@ -6,6 +6,15 @@
   var $$ = function (s, c) { return [].slice.call((c || document).querySelectorAll(s)); };
   var clamp = function (v) { return Math.min(1, Math.max(0, v)); };
 
+  /* Photos still on their way show the icon until they arrive. Ones already loaded just appear. */
+  $$('.ph img').forEach(function (img) {
+    if (img.complete && img.naturalWidth) return;
+    var box = img.parentNode;
+    box.classList.add('wait');
+    var done = function () { box.classList.add('loaded'); };
+    img.addEventListener('load', done); img.addEventListener('error', done);
+  });
+
   /* Hero film: plays only while it is on screen */
   var video = $('.film video');
   if (video && !calm && 'IntersectionObserver' in window) {
@@ -153,7 +162,7 @@
   /* Reveal each part once as it scrolls into view. Parts arriving together come in one after another. */
   if (!calm && 'IntersectionObserver' in window) {
     root.classList.add('anim');
-    var parts = $$('section .head, .card, .point, .tower-card, .simple, .simple-list > div, .product, .steps li:not(.rail), .fact, .badge, .strip img, .story > *, .contact');
+    var parts = $$('section .head, .card, .point, .tower-card, .simple, .simple-list > div, .product, .steps li:not(.rail), .fact, .badge, .strip .ph, .story > *, .contact');
     parts.forEach(function (el) { el.classList.add('rv'); });
     var io = new IntersectionObserver(function (entries) {
       entries.filter(function (e) { return e.isIntersecting; })
