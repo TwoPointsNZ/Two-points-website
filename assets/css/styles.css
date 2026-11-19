@@ -168,6 +168,15 @@ section { padding-block: 104px 0; }
 .simple .eyebrow { color: var(--band-ink-2); }
 .simple h2 { margin-top: 12px; font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; line-height: 1.04; }
 .simple .quiet { color: var(--band-ink-2); }
+/* the glow drifts and breathes slowly, like the ones on the Simple site */
+.simple::before { transform-origin: 30% 70%; animation: simple-glow 13s ease-in-out infinite; will-change: transform, opacity; }
+@keyframes simple-glow {
+  0%, 100% { transform: translate(0, 0) scale(.92); opacity: .75; }
+  35% { transform: translate(9%, -7%) scale(1.14); opacity: 1; }
+  70% { transform: translate(3%, 4%) scale(1.02); opacity: .85; } }
+.simple-btn { margin-top: 26px; color: #fff; background: linear-gradient(#1d211a, #1d211a) padding-box, linear-gradient(135deg, #8FD400 0%, #22C997 38%, #3A9BEA 70%, #8B6CF0 100%) border-box; }
+.simple-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s ease; }
+.simple-btn:hover svg { transform: translate(2px, -2px); }
 .simple-copy p { margin-top: 16px; font-size: 16.5px; color: var(--band-ink-2); max-width: 46ch; }
 .simple-list { border-top: 1px solid var(--band-line); }
 .simple-list > div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; align-items: baseline; padding: 17px 0; border-bottom: 1px solid var(--band-line); }
@@ -311,4 +320,5 @@ html.anim .rv.in { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
   .drop, .hero h1 .rdot.end { animation: none; }
   .btn, .shot img { transition: none; }
+  .simple::before { animation: none; }
 }
