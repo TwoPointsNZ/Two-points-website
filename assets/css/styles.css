@@ -96,6 +96,30 @@ h2 .quiet { display: inline-block; }
 .trust dd { margin-top: 5px; font-size: 17px; font-weight: 800; letter-spacing: -.015em; }
 .footnote { margin-top: 16px; font-size: 13.5px; color: var(--ink-2); max-width: 76ch; }
 
+/* ── The shop page ── */
+.shop-hero h1 { font-size: clamp(44px, 8.6vw, 112px); line-height: .96; letter-spacing: -.05em; }
+.shop-hero h1 .quiet { display: inline-block; }
+.products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 22px; }
+.product { display: grid; gap: 8px; align-content: start; }
+.pshot { border-radius: 22px; background: var(--soft); aspect-ratio: 1; display: grid; place-items: center; margin-bottom: 10px; overflow: hidden; }
+.pshot svg { width: 82%; height: auto; transition: transform .6s var(--ease); }
+.product:hover .pshot svg { transform: translateY(-4px) scale(1.03); }
+.pmeta { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.product h3 { font-size: 19px; font-weight: 800; line-height: 1.2; }
+.product p { font-size: 15px; color: var(--ink-2); }
+.plink { display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; font-size: 14.5px; font-weight: 800; justify-self: start; }
+.plink svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s ease; }
+.plink:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.plink:hover svg { transform: translateX(3px); }
+.gear { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; border-top: 1px solid var(--line); }
+.gear-item { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; gap: 18px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.gtile { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; border: 1.5px solid transparent; background: linear-gradient(160deg, #272c23, #111410) padding-box, var(--ring) border-box; }
+.gtile svg { width: 24px; height: 24px; fill: none; stroke: #f2f4ef; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.gear-item h3 { font-size: 18px; font-weight: 800; }
+.gear-item p { font-size: 14.5px; color: var(--ink-2); }
+.dibs { align-items: center; }
+.dibs .lines { margin-top: 0; }
+
 /* ── Sections ── */
 section { padding-block: 104px 0; }
 .head { display: grid; gap: 12px; max-width: 760px; margin-bottom: 38px; }
@@ -253,6 +277,8 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .hero-row, .why, .split, .story, .contact { grid-template-columns: 1fr; }
   .why, .split, .story { gap: 30px; }
   .cards.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gear { grid-template-columns: 1fr; }
   .tower-card { max-width: 420px; }
   .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .trust > div:nth-child(3) { padding-left: 0; border-left: 0; }
@@ -294,6 +320,11 @@ html.anim .rv.in { opacity: 1; transform: none; }
   section { padding-block: 72px 0; }
   .head { margin-bottom: 28px; }
   .cards { gap: 32px 14px; }
+  .products { gap: 30px 14px; }
+  .product h3 { font-size: 17px; }
+  .pmeta { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .gear-item { grid-template-columns: 46px minmax(0, 1fr); }
+  .gear-item .tag { grid-column: 2; justify-self: start; margin-top: -8px; }
   .cards.three { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
   .cards.three .card { grid-template-columns: 92px minmax(0, 1fr); column-gap: 16px; row-gap: 4px; padding: 18px 0; border-bottom: 1px solid var(--line); }
   .cards.three .shot { grid-row: 1 / span 3; aspect-ratio: 1; border-radius: 16px; margin: 0; align-self: start; }
