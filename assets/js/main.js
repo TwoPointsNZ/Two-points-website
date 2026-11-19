@@ -148,7 +148,7 @@
   /* Reveal each part once as it scrolls into view. Parts arriving together come in one after another. */
   if (!calm && 'IntersectionObserver' in window) {
     root.classList.add('anim');
-    var parts = $$('section .head, .card, .point, .tower-card, .steps li:not(.rail), .fact, .badge, .strip img, .story > *, .contact');
+    var parts = $$('section .head, .card, .point, .tower-card, .simple, .simple-list > div, .steps li:not(.rail), .fact, .badge, .strip img, .story > *, .contact');
     parts.forEach(function (el) { el.classList.add('rv'); });
     var io = new IntersectionObserver(function (entries) {
       entries.filter(function (e) { return e.isIntersecting; })
