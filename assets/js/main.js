@@ -118,7 +118,7 @@
     stepItems[stepItems.length - 1].classList.add('done');
   }
   function runSteps() {
-    var TRAVEL = 3600, HOLD = 1700, RESET = 500, t0 = null;
+    var TRAVEL = 3600, HOLD = 1900, FADE = 950, REST = 450, t0 = null;
     var last = stepItems[stepItems.length - 1];
     function tick(now) {
       if (t0 === null) t0 = now;
@@ -129,10 +129,15 @@
         stepItems.forEach(function (li, k) { if (p >= stops[k] - 0.01 && k < stepItems.length - 1) li.classList.add('on'); });
       } else if (t < TRAVEL + HOLD) {
         if (!last.classList.contains('done')) finishSteps();
-      } else if (t < TRAVEL + HOLD + RESET) {
+      } else if (t < TRAVEL + HOLD + FADE) {
+        // everything lit fades back to grey together
+        steps.classList.add('fading');
+      } else if (t < TRAVEL + HOLD + FADE + REST) {
+        // already faded out, so clearing it here cannot be seen
         if (last.classList.contains('done')) {
           stepItems.forEach(function (li) { li.classList.remove('on', 'done'); });
           steps.style.setProperty('--p', 0);
+          steps.classList.remove('fading');
         }
       } else { t0 = now; }
       requestAnimationFrame(tick);

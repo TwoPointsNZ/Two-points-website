@@ -195,15 +195,21 @@ section { padding-block: 104px 0; }
 /* How a job runs: a light travels the line, each step lights as it passes, the last one ticks */
 .steps { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .steps li { position: relative; padding-right: 26px; display: grid; gap: 6px; align-content: start; }
-.steps .ring { position: relative; z-index: 1; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 16px; border: 2px solid #d9dcd6; background: #fff; transition: border-color .3s ease; }
-.steps .ring::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #d9dcd6; transition: background .3s ease, transform .4s var(--ease); }
-.steps li.on .ring { border-color: transparent; background: linear-gradient(#fff, #fff) padding-box, var(--ring) border-box; animation: pop .45s var(--ease); }
-.steps li.on .ring::after { background: var(--rainbow); transform: scale(1.15); }
+.steps .ring { position: relative; z-index: 1; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 16px; border: 2px solid #d9dcd6; background: #fff; }
+.steps .ring::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #d9dcd6; }
+/* the lit ring, its dot and the tick sit on their own layers, so the whole line can fade back to grey before it runs again */
+.steps .ring::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid transparent; background: linear-gradient(#fff, #fff) padding-box, var(--ring) border-box; opacity: 0; transition: opacity .3s ease; }
+.steps .ring i { position: absolute; inset: 0; margin: auto; width: 8px; height: 8px; border-radius: 50%; background: var(--rainbow); opacity: 0; transform: scale(.7); transition: opacity .3s ease, transform .4s var(--ease); }
+.steps .ring b { position: absolute; inset: -2px; border-radius: 50%; border: 2px solid #1893E8; opacity: 0; pointer-events: none; }
+.steps li.on .ring { animation: pop .45s var(--ease); }
+.steps li.on .ring::before { opacity: 1; }
+.steps li.on .ring i { opacity: 1; transform: scale(1.15); }
 .steps .ring svg { position: absolute; inset: 0; margin: auto; width: 15px; height: 15px; fill: none; stroke: #4CC3FF; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0; transform: scale(.4); transition: opacity .3s ease, transform .45s cubic-bezier(.34, 1.56, .64, 1); }
-.steps li.done .ring { border-color: transparent; background: linear-gradient(160deg, #272c23, #111410) padding-box, var(--ring) border-box; }
-.steps li.done .ring::after { content: none; }
+.steps li.done .ring::before { background: linear-gradient(160deg, #272c23, #111410) padding-box, var(--ring) border-box; }
+.steps li.done .ring i { opacity: 0; }
 .steps li.done .ring svg { opacity: 1; transform: none; }
-.steps li.done .ring::before { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid #1893E8; opacity: 0; animation: ripple 1s ease-out .2s; }
+.steps li.done .ring b { animation: ripple 1s ease-out .2s; }
+.steps.fading li .ring::before, .steps.fading li .ring i, .steps.fading li .ring svg, .steps.fading .rail i { opacity: 0; transition: opacity .9s ease; }
 @keyframes pop { 40% { transform: scale(1.2); } }
 @keyframes ripple { 0% { inset: -2px; opacity: .9; } 100% { inset: -16px; opacity: 0; border-color: #DC47A0; } }
 .steps .num { font-size: 12px; color: var(--ink-3); }
