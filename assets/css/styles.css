@@ -263,6 +263,9 @@ section { padding-block: 104px 0; }
 .simple .eyebrow { color: var(--band-ink-2); }
 .simple h2 { margin-top: 12px; font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; line-height: 1.04; }
 .simple .quiet { color: var(--band-ink-2); }
+/* "Kept simple." borrows the Simple mark: the S in the icon's colours, and the dot from the Simple wordmark */
+.simple .ss { font-style: normal; background: linear-gradient(175deg, #9BE000 30%, #2FD9A4 48%, #3FA9F5 64%, #9B7CF6 80%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.simple .sdot { background: linear-gradient(45deg, #AAEE00, #3EE6B0 38%, #4FB4FF 70%, #A78BFA); }
 /* each breathes and drifts slowly on its own clock, so the two are never in step (same motion as the Simple site) */
 html.anim .simple::before { animation: simple-breathe 16s ease-in-out infinite; }
 html.anim .simple::after { scale: -1 1; animation: simple-breathe 19s ease-in-out -7s infinite reverse; }
