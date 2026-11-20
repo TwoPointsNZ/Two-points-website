@@ -162,7 +162,7 @@
   /* Reveal each part once as it scrolls into view. Parts arriving together come in one after another. */
   if (!calm && 'IntersectionObserver' in window) {
     root.classList.add('anim');
-    var parts = $$('section .head, .card, .point, .tower-card, .simple, .simple-list > div, .product, .steps li:not(.rail), .fact, .badge, .strip .ph, .story > *, .contact');
+    var parts = $$('section .head, .card, .point, .tower-card, .simple, .simple-list > div, .product, .steps li:not(.rail), .fact, .kit, .badge, .strip .ph, .story > *, .contact');
     parts.forEach(function (el) { el.classList.add('rv'); });
     var io = new IntersectionObserver(function (entries) {
       entries.filter(function (e) { return e.isIntersecting; })

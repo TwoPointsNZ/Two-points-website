@@ -182,6 +182,11 @@ section { padding-block: 104px 0; }
 /* Cards with a photograph */
 .cards { display: grid; gap: 40px 22px; }
 .cards.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* five services: three across, then two wider */
+.cards.three.five { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.cards.three.five .card { grid-column: span 2; }
+.cards.three.five .card:nth-child(n+4) { grid-column: span 3; }
+.cards.three.five .card:nth-child(n+4) .shot { aspect-ratio: 16 / 10; }
 .card { display: grid; gap: 8px; align-content: start; }
 .shot { border-radius: 22px; overflow: hidden; background: var(--soft); aspect-ratio: 4 / 3; margin-bottom: 10px; }
 .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
@@ -274,6 +279,13 @@ section { padding-block: 104px 0; }
 .fact { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .fact b { display: block; font-size: 17px; font-weight: 800; letter-spacing: -.015em; }
 .fact div span { display: block; font-size: 14.5px; color: var(--ink-2); }
+.kit { margin-top: 22px; padding: 24px 26px; border-radius: 22px; background: var(--soft); }
+.kit ul { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; }
+.kit li { position: relative; padding-left: 22px; }
+.kit li::before { content: ""; position: absolute; left: 0; top: .5em; width: 9px; height: 9px; border-radius: 50%; background: var(--rainbow); }
+.kit li b { display: block; font-size: 15.5px; font-weight: 800; letter-spacing: -.01em; }
+.kit li span { display: block; font-size: 14.5px; color: var(--ink-2); }
+.kit p { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink-3); }
 
 /* On site */
 .strip { display: grid; grid-template-columns: .7fr 1fr 1.25fr 1fr; gap: 14px; height: clamp(240px, 32vw, 400px); }
@@ -337,6 +349,11 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .hero-row, .why, .split, .story, .contact { grid-template-columns: 1fr; }
   .why, .split, .story { gap: 30px; }
   .cards.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards.three.five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards.three.five .card, .cards.three.five .card:nth-child(n+4) { grid-column: auto; }
+  .cards.three.five .card:last-child { grid-column: 1 / -1; }
+  .cards.three.five .card:nth-child(n+4) .shot { aspect-ratio: 4 / 3; }
+  .cards.three.five .card:last-child .shot { aspect-ratio: 21 / 9; }
   .products, .products.three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tower-card { max-width: 420px; }
   .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -386,7 +403,10 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .pmeta { flex-direction: column; gap: 2px; }
   .sizes button { min-width: 34px; height: 32px; padding: 0 7px; }
   .product .add { justify-self: stretch; }
-  .cards.three { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .cards.three, .cards.three.five { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .cards.three.five .card, .cards.three.five .card:nth-child(n+4), .cards.three.five .card:last-child { grid-column: auto; }
+  .cards.three.five .card:nth-child(n+4) .shot { aspect-ratio: 1; }
+  .kit { padding: 20px; }
   .cards.three .card { grid-template-columns: 92px minmax(0, 1fr); column-gap: 16px; row-gap: 4px; padding: 18px 0; border-bottom: 1px solid var(--line); }
   .cards.three .shot { grid-row: 1 / span 3; aspect-ratio: 1; border-radius: 16px; margin: 0; align-self: start; }
   .cards.three .card h3 { font-size: 18px; }
