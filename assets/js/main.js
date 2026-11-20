@@ -15,6 +15,26 @@
     img.addEventListener('load', done); img.addEventListener('error', done);
   });
 
+  /* SiteWise certificate: opens in a pop-up on the page (a PDF will not open inside every app's browser) */
+  var cert = $('#cert'), certFrom = null;
+  if (cert) {
+    var certClose = function () {
+      cert.classList.remove('open'); document.body.style.overflow = '';
+      setTimeout(function () { cert.hidden = true; }, 300);
+      if (certFrom) certFrom.focus();
+    };
+    $$('[data-cert-open]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault(); certFrom = a;
+        cert.hidden = false; document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () { requestAnimationFrame(function () { cert.classList.add('open'); }); });
+        $('.cert-close', cert).focus();
+      });
+    });
+    $$('[data-cert-close]', cert).forEach(function (b) { b.addEventListener('click', certClose); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !cert.hidden) certClose(); });
+  }
+
   /* Hero film: plays only while it is on screen */
   var video = $('.film video');
   if (video && !calm && 'IntersectionObserver' in window) {

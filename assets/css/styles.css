@@ -290,6 +290,17 @@ html.anim .simple::after { scale: -1 1; animation: simple-breathe 19s ease-in-ou
 .badge-link svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s ease; }
 .badge-link:hover span { color: var(--ink); }
 .badge-link:hover svg { transform: translate(2px, -2px); }
+.badge-link .rb { font-style: normal; }
+
+/* the certificate pop-up */
+.cert { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px 16px; }
+.cert[hidden] { display: none; }
+.cert-back { position: absolute; inset: 0; background: rgba(14, 16, 12, .74); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); opacity: 0; transition: opacity .3s ease; }
+.cert-panel { position: relative; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: min(1000px, 100%); opacity: 0; transform: translateY(-14px); transition: opacity .3s ease, transform .45s var(--ease); }
+.cert.open .cert-back, .cert.open .cert-panel { opacity: 1; transform: none; }
+.cert-panel img { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100vh - 130px); max-height: calc(100dvh - 130px); border-radius: 14px; background: #fff; box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
+.cert-close { position: absolute; top: -14px; right: -10px; z-index: 1; width: 40px; height: 40px; border: 0; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--ink); cursor: pointer; box-shadow: 0 4px 14px rgba(0, 0, 0, .25); }
+.cert-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
 .facts { border-top: 1px solid var(--line); }
 .fact { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .fact b { display: block; font-size: 17px; font-weight: 800; letter-spacing: -.015em; }
