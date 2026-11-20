@@ -6,7 +6,7 @@
   var $$ = function (s, c) { return [].slice.call((c || document).querySelectorAll(s)); };
   var clamp = function (v) { return Math.min(1, Math.max(0, v)); };
 
-  /* Photos still on their way show the icon until they arrive. Ones already loaded just appear. */
+  /* Photos still on their way get the sheen, then are drawn in. Ones already loaded just appear. */
   $$('.ph img').forEach(function (img) {
     if (img.complete && img.naturalWidth) return;
     var box = img.parentNode;
