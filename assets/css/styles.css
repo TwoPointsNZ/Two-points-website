@@ -51,6 +51,7 @@ h2 .quiet { display: inline-block; }
 h3 .tp, .lead .tp, b .tp { font-weight: inherit; }
 .tp .rdot { width: .24em; height: .24em; margin-left: .06em; }
 html.anim .rv.in .tp .rdot { animation: tp-dot .7s var(--ease) calc(var(--d, 0ms) + .55s) backwards; }
+html.anim .rv.in .tp.still .rdot { animation: none; }
 @keyframes tp-dot { from { transform: translateY(-1.1em); opacity: 0; } 35% { opacity: 1; } }
 
 /* Photos: while one loads, a grey cover with a soft sheen sits over it. When the photo arrives the cover is drawn
