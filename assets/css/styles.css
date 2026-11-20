@@ -324,7 +324,9 @@ section { padding-block: 104px 0; }
 .form .btn { justify-self: start; margin-top: 4px; }
 .form-note { font-size: 13.5px; color: var(--ink-2); }
 
-.foot { margin-top: 104px; font-size: 14px; color: var(--band-ink-2); }
+.foot { position: relative; overflow: hidden; isolation: isolate; margin-top: 104px; font-size: 14px; color: var(--band-ink-2); }
+/* the bone dagger, faded into the left of the footer and tipped toward the logo */
+.foot-ink { position: absolute; z-index: -1; left: max(6px, calc((100% - var(--wrap, 1120px)) / 2 - 116px)); top: -64px; width: auto; height: 280px; opacity: .14; transform: rotate(22deg); pointer-events: none; }
 .foot .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; flex-wrap: wrap; padding-block: 32px; }
 .foot-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; line-height: 1.5; }
 .foot .logo img { height: 36px; }
@@ -385,6 +387,7 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .foot-left { flex-direction: column; gap: 14px; }
   .foot .rule { display: none; }
   .foot-links { justify-content: center; }
+  .foot-ink { left: -4px; top: -34px; height: 330px; transform: rotate(16deg); }
 }
 @media (max-width: 640px) {
   .hero { padding-block: 40px 0; }
