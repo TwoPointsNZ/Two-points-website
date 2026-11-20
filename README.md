@@ -21,7 +21,7 @@ Upload the folder as-is to any static host (GitHub Pages, Netlify, Cloudflare Pa
 
 ## Shop
 
-`products.html` is the shop page. Its cart lives in `assets/js/shop.js`.
+`products.html` is the shop page. It is set to **Coming soon**: products are shown as a first look, with no prices, sizes or cart. The full shop (prices, sizes, cart drawer and Shopify checkout in `assets/js/shop.js`) is in the git history just before the commit "Shop: coming soon", ready to bring back.
 
 - The products, photos and prices are examples. The photos in `assets/img/shop/` are AI-generated, with the real logo placed on the merch.
 - Checkout is wired for Shopify but not connected. To connect a store: add the Headless sales channel in Shopify admin, copy its public Storefront API access token, then fill in `domain`, `storefrontToken` and the `variants` map at the top of `assets/js/shop.js`. The checkout button then creates a Shopify cart and sends the customer to Shopify's checkout.

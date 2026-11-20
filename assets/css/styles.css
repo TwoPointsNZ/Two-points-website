@@ -147,6 +147,9 @@ html.anim .rv.in .tp.still .rdot { animation: none; }
 .sizes button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
 .sizes.need button { border-color: #d6452f; }
 .product .add { align-self: flex-start; margin-top: auto; }
+/* shop not open yet: each product carries a quiet Coming soon label where the button will go */
+.product .soon { align-self: flex-start; margin-top: auto; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: var(--soft); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.product .soon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rainbow); }
 .product .sizes { margin-top: auto; }
 .product .sizes ~ .add { margin-top: 0; }
 .product > :nth-last-child(2) { margin-bottom: 8px; }
