@@ -27,6 +27,12 @@ Upload the folder as-is to any static host (GitHub Pages, Netlify, Cloudflare Pa
 - Checkout is wired for Shopify but not connected. To connect a store: add the Headless sales channel in Shopify admin, copy its public Storefront API access token, then fill in `domain`, `storefrontToken` and the `variants` map at the top of `assets/js/shop.js`. The checkout button then creates a Shopify cart and sends the customer to Shopify's checkout.
 - The checkout request has not been tested against a live store.
 
+## Hosting files
+
+- `.htaccess`: server settings for Apache/LiteSpeed hosts such as Hostinger web hosting. Forces https://www., redirects the old site's /about, /contact and /offering pages, serves `404.html` for missing pages, and turns on compression and caching.
+- `robots.txt` and `sitemap.xml`: for search engines. Update `lastmod` in the sitemap after big changes.
+- `site.webmanifest`: home-screen icon details.
+
 ## Notes
 
 - The enquiry form opens the visitor's email app addressed to Joe. To have it send directly, point the form at a form service (Formspree, Netlify Forms, Web3Forms) in `assets/js/main.js`.

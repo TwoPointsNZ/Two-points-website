@@ -1,0 +1,12 @@
+{
+  "name": "Two Points Rope Access",
+  "short_name": "Two Points",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#14170f",
+  "theme_color": "#14170f",
+  "icons": [
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
