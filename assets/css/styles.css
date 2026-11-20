@@ -250,19 +250,24 @@ section { padding-block: 104px 0; }
 
 /* Simple: the one dark panel on the page, in Simple's own colours */
 .simple { position: relative; overflow: hidden; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 64px; align-items: center; padding: 56px; border-radius: 30px; background: var(--band); color: var(--band-ink); }
-.simple::before { content: ""; position: absolute; z-index: -1; left: -18%; bottom: -70%; width: 80%; height: 150%; background: radial-gradient(closest-side, rgba(62, 230, 176, .2), rgba(79, 180, 255, .11) 50%, transparent); }
+/* Simple's own glow: one soft blob each side, in the Simple logo's rainbow split in two —
+   lime into mint at the bottom left, sky into violet at the top right */
+.simple::before, .simple::after { content: ""; position: absolute; z-index: -1; width: 95%; aspect-ratio: 1; border-radius: 50%; pointer-events: none; will-change: transform; }
+.simple::before { left: -42%; bottom: -38%; background: radial-gradient(closest-side, rgba(170, 238, 0, .26), rgba(62, 230, 176, .15) 55%, transparent); }
+.simple::after { right: -42%; top: -34%; background: radial-gradient(closest-side, rgba(79, 180, 255, .24), rgba(167, 139, 250, .19) 55%, transparent); }
 .simple-logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 26px; font-size: 21px; font-weight: 800; letter-spacing: -.03em; color: #fff; }
 .simple-logo img { width: 36px; height: 36px; }
 .simple-logo i { width: .17em; height: .17em; border-radius: 50%; margin-left: -8px; align-self: flex-end; margin-bottom: .36em; background: linear-gradient(45deg, #AAEE00, #3EE6B0 38%, #4FB4FF 70%, #A78BFA); }
 .simple .eyebrow { color: var(--band-ink-2); }
 .simple h2 { margin-top: 12px; font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; line-height: 1.04; }
 .simple .quiet { color: var(--band-ink-2); }
-/* the glow drifts and breathes slowly, like the ones on the Simple site */
-.simple::before { transform-origin: 30% 70%; animation: simple-glow 13s ease-in-out infinite; will-change: transform, opacity; }
-@keyframes simple-glow {
-  0%, 100% { transform: translate(0, 0) scale(.92); opacity: .75; }
-  35% { transform: translate(9%, -7%) scale(1.14); opacity: 1; }
-  70% { transform: translate(3%, 4%) scale(1.02); opacity: .85; } }
+/* each breathes and drifts slowly on its own clock, so the two are never in step (same motion as the Simple site) */
+html.anim .simple::before { animation: simple-breathe 16s ease-in-out infinite; }
+html.anim .simple::after { scale: -1 1; animation: simple-breathe 19s ease-in-out -7s infinite reverse; }
+@keyframes simple-breathe {
+  0%, 100% { transform: translate(0, 0) scale(.94); border-radius: 50%; opacity: .85; }
+  35% { transform: translate(6%, -8%) scale(1.1); border-radius: 54% 46% 48% 52% / 48% 54% 46% 52%; opacity: 1; }
+  70% { transform: translate(2%, 5%) scale(1.02); border-radius: 47% 53% 52% 48% / 53% 47% 53% 47%; opacity: .92; } }
 .simple-btn { margin-top: 26px; color: #fff; background: linear-gradient(#1d211a, #1d211a) padding-box, linear-gradient(135deg, #8FD400 0%, #22C997 38%, #3A9BEA 70%, #8B6CF0 100%) border-box; }
 .simple-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s ease; }
 .simple-btn:hover svg { transform: translate(2px, -2px); }
@@ -422,6 +427,9 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .portrait { border-radius: 24px; }
   .contact { padding: 24px 18px; border-radius: 24px; margin-inline: -8px; }
   .simple { padding: 30px 20px; border-radius: 24px; margin-inline: -8px; }
+  .simple::before, .simple::after { width: 170%; }
+  .simple::before { left: -95%; bottom: -22%; }
+  .simple::after { right: -95%; top: -22%; }
   .simple-list > div { grid-template-columns: 1fr; gap: 2px; }
   .form { padding: 18px; }
   .field-2 { grid-template-columns: 1fr; }
@@ -437,5 +445,5 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .ph.wait.loaded::before { animation: none; opacity: 0; transition: opacity .4s ease; }
   .ph.wait.loaded::after { display: none; }
   .btn, .shot img { transition: none; }
-  .simple::before { animation: none; }
+  .simple::before, .simple::after { animation: none !important; }
 }
