@@ -94,6 +94,7 @@ html.anim .rv.in .tp.still .rdot { animation: none; }
 .bar nav a:hover, .bar nav a.here { color: #fff; }
 .bar nav .tel { color: #fff; font-weight: 700; font-variant-numeric: tabular-nums; }
 .nav-shop { display: none; }
+.nav-card { display: none; }
 .shop-ico { position: relative; flex: none; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--band-ink); transition: background .2s ease; }
 .shop-ico:hover { background: rgba(255, 255, 255, .1); }
 .shop-ico b[hidden] { display: none; }
@@ -146,6 +147,8 @@ html.anim .rv.in .tp.still .rdot { animation: none; }
 .sizes button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
 .sizes.need button { border-color: #d6452f; }
 .product .add { align-self: flex-start; margin-top: auto; }
+.product .sizes { margin-top: auto; }
+.product .sizes ~ .add { margin-top: 0; }
 .product > :nth-last-child(2) { margin-bottom: 8px; }
 .dibs { align-items: center; }
 .dibs .lines { margin-top: 0; }
@@ -406,7 +409,16 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .foot .logo { position: static; transform: none; }
   .bar nav { position: fixed; inset: var(--head) 0 0 0; margin: 0; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0; padding: 18px 20px 40px; background: var(--band); overflow-y: auto; opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility 0s .3s; }
   .bar nav a { padding: 16px 0; font-size: clamp(28px, 8.4vw, 40px); font-weight: 800; letter-spacing: -.03em; color: var(--band-ink); border-bottom: 1px solid var(--band-line); }
-  .bar nav .tel { font-size: 21px; letter-spacing: 0; border: 0; margin-top: 10px; }
+  .bar nav .tel { display: none; }
+  /* contact card at the foot of the phone menu */
+  .bar nav .nav-card { display: block; margin-top: auto; padding: 18px 20px 20px; border: 1.5px solid transparent; border-radius: 24px; background: linear-gradient(#1d211a, #1d211a) padding-box, var(--ring) border-box; }
+  .bar nav .nav-shop { margin-bottom: 22px; }
+  .nav-card .nc-eyebrow { display: block; margin-bottom: 6px; font-size: 11.5px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--band-ink-2); }
+  .bar nav .nav-card .nc-line { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; padding: 11px 0; font-size: inherit; letter-spacing: 0; border-bottom: 1px solid var(--band-line); color: #fff; }
+  .nav-card .nc-line span { grid-column: 1; font-size: 13px; font-weight: 600; color: var(--band-ink-2); }
+  .nav-card .nc-line b { grid-column: 1; font-size: 19px; font-weight: 800; letter-spacing: -.01em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .nav-card .nc-line svg { grid-column: 2; grid-row: 1 / span 2; width: 18px; height: 18px; fill: none; stroke: var(--band-ink-2); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .bar nav .nav-card .nc-quote { display: flex; justify-content: center; margin-top: 16px; padding: 14px 20px; border: 2px solid transparent; border-bottom: 2px solid transparent; border-radius: 999px; background: linear-gradient(#fff, #fff) padding-box, var(--ring) border-box; color: var(--ink); font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
   .menu-open .bar nav { opacity: 1; visibility: visible; transition: opacity .3s ease; }
   .steps { grid-template-columns: 1fr; }
   .steps li { grid-template-columns: 26px minmax(0, 1fr); column-gap: 16px; row-gap: 2px; padding: 0 0 26px; }
