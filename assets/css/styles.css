@@ -264,7 +264,7 @@ section { padding-block: 104px 0; }
 .simple h2 { margin-top: 12px; font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; line-height: 1.04; }
 .simple .quiet { color: var(--band-ink-2); }
 /* "Kept simple." borrows the Simple mark: the S in the icon's colours, and the dot from the Simple wordmark */
-.simple .s-mark { display: inline-block; height: .7em; width: auto; vertical-align: -.04em; margin-right: .01em; }
+.simple .s-mark { display: inline-block; height: .84em; width: auto; vertical-align: -.075em; margin-right: .01em; }
 .vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .simple .sdot { background: linear-gradient(45deg, #AAEE00, #3EE6B0 38%, #4FB4FF 70%, #A78BFA); }
 /* each breathes and drifts slowly on its own clock, so the two are never in step (same motion as the Simple site) */
