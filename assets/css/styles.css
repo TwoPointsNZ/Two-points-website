@@ -326,9 +326,12 @@ section { padding-block: 104px 0; }
 
 .foot { position: relative; overflow: hidden; isolation: isolate; margin-top: 104px; font-size: 14px; color: var(--band-ink-2); }
 /* the bone dagger, faded into the left of the footer and tipped toward the logo */
-/* the dagger lives in its own frame that stops short of the logo and text, so it never sits behind them */
+/* The bone dagger. On wide screens it sits in the margin left of the logo. On phones and tablets it leans across the
+   left of the footer and its tip breaks out over the top edge, drawn in dark ink where it crosses onto the white page.
+   It never sits behind the logo or text. */
 .foot-art { position: absolute; z-index: -1; left: 0; top: 0; bottom: 0; width: max(0px, calc((100% - var(--wrap, 1120px)) / 2 + 4px)); overflow: hidden; pointer-events: none; }
 .foot-ink { position: absolute; left: 50%; top: -64px; width: auto; height: 280px; max-width: none; opacity: .14; transform: translateX(-50%) rotate(22deg); }
+.foot-out { display: none; }
 .foot .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; flex-wrap: wrap; padding-block: 32px; }
 .foot-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; line-height: 1.5; }
 .foot .logo img { height: 36px; }
@@ -390,10 +393,12 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .foot .rule { display: none; }
   .foot-links { justify-content: center; }
   .foot .wrap { padding-top: 64px; }
-  .foot-art { bottom: auto; height: 108px; width: calc(50% - 107px);
-    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent), linear-gradient(to right, #000 70%, transparent); -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to bottom, #000 55%, transparent), linear-gradient(to right, #000 70%, transparent); mask-composite: intersect; }
-  .foot-ink { top: -44px; height: 250px; transform: translateX(-46%) rotate(20deg); }
+  .foot { overflow: visible; }
+  .foot-art { inset: 0; width: auto; }
+  .foot-out { display: block; inset: auto 0 100% 0; height: var(--out, 0px); }
+  .foot-ink { left: var(--ix); top: var(--iy); height: var(--ih); transform-origin: 50% 100%; transform: rotate(var(--ir)); }
+  .foot-out .foot-ink { top: calc(var(--iy) + var(--out, 0px)); opacity: .12; }
+  .foot { --ix: -98.6px; --iy: -110.0px; --ih: 380px; --ir: 38deg; --out: 0px; }
 }
 @media (max-width: 640px) {
   .hero { padding-block: 40px 0; }
@@ -436,7 +441,7 @@ html.anim .rv.in { opacity: 1; transform: none; }
   .form .btn { justify-self: stretch; }
   .lines a { flex-direction: column; gap: 2px; }
   .lines b { text-align: left; }
-  .foot { margin-top: 72px; }
+  .foot { margin-top: 72px; --ix: -102.1px; --iy: -130.0px; --ih: 300px; --ir: 35deg; --out: 52px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
