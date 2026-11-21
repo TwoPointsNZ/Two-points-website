@@ -44,6 +44,11 @@ V=$(cat assets/css/styles.css assets/js/main.js | md5sum | cut -c1-8)
 sed -i -E "s#(styles\.css|main\.js)(\?v=[a-z0-9]+)?\"#\1?v=$V\"#" index.html products.html 404.html
 ```
 
+## Email signature
+
+- Copy page: https://www.twopoints.co.nz/email-signature.html (not linked from the site, kept out of search). Click "Copy signature", then paste into Gmail settings.
+- Its images live in `assets/email/` and must stay at those URLs, or signatures already in use will show broken images. To change a social link, phone or title, edit `email-signature.html` and re-copy.
+
 ## Hosting files
 
 - `.htaccess`: server settings for Hostinger (LiteSpeed/Apache). Forces https://www., redirects the old site's /about, /contact and /offering pages, serves `404.html` for missing pages, blocks the Git folder and notes, sets security headers (HSTS, content security policy, permissions policy) and caching. If you add a new outside service (fonts, scripts, a Shopify cart), add its domain to the content security policy or the browser will block it.
