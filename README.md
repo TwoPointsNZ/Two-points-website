@@ -23,7 +23,7 @@ Upload the folder as-is to any static host (GitHub Pages, Netlify, Cloudflare Pa
 
 `products.html` is the shop page. It is set to **Coming soon**: products are shown as a first look, with no prices, sizes or cart. The full shop (prices, sizes, cart drawer and Shopify checkout in `assets/js/shop.js`) is in the git history just before the commit "Shop: coming soon", ready to bring back.
 
-- The products, photos and prices are examples. The photos in `assets/img/shop/` are AI-generated, with the real logo placed on the merch.
+- While the shop is "coming soon", each product shows a solid silhouette (`assets/img/shop/*-soon.png`), cut from AI-generated example product images. The full-colour example photos are in the git history, before the commit "Shop: silhouettes".
 - Checkout is wired for Shopify but not connected. To connect a store: add the Headless sales channel in Shopify admin, copy its public Storefront API access token, then fill in `domain`, `storefrontToken` and the `variants` map at the top of `assets/js/shop.js`. The checkout button then creates a Shopify cart and sends the customer to Shopify's checkout.
 - The checkout request has not been tested against a live store.
 
@@ -44,7 +44,7 @@ Upload the folder as-is to any static host (GitHub Pages, Netlify, Cloudflare Pa
 ## Notes
 
 - The enquiry form opens the visitor's email app addressed to Joe. To have it send directly, point the form at a form service (Formspree, Netlify Forms, Web3Forms) in `assets/js/main.js`.
-- All photos and video on the home page are real Two Points site footage. The only AI imagery is the example product photos on the shop page.
+- All photos and video on the home page are real Two Points site footage. The only AI-derived imagery is the product silhouettes on the shop page.
 - The logo files are the original artwork, only resized. Do not redraw or recolour them.
 - The design is a sister to the Simple website: a dark band top and bottom, a white page between, and the Alpenglow gradient used sparingly.
 - `assets/img/tattoos/` holds artwork from an earlier design. It is not used on the page.
