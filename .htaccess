@@ -61,3 +61,11 @@ RedirectMatch 404 /\.git(/|$)
 </IfModule>
 
 AddType application/manifest+json .webmanifest
+
+# The internal email-signature page: email signatures need inline styles, so this one page allows them
+<Files "email-signature.html">
+  <IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+    Header always set X-Robots-Tag "noindex, nofollow"
+  </IfModule>
+</Files>
