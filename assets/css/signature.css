@@ -17,3 +17,5 @@ h1 { margin: 8px 0 10px; font-size: 34px; font-weight: 800; letter-spacing: -.03
 .status { font-size: 14px; font-weight: 600; color: #0b6b55; }
 .tips { margin: 28px 0 0; padding: 0 0 0 18px; font-size: 14px; line-height: 1.6; color: #555b63; }
 .tips li + li { margin-top: 6px; }
+.h2 { margin: 36px 0 6px; font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
+.lead + .frame { margin-top: 0; }

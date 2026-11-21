@@ -1,6 +1,6 @@
-/* Copies the email signature as rich HTML, so it pastes into Gmail with images and links intact. */
-(function () {
-  var btn = document.getElementById('copy'), sig = document.getElementById('sig'), status = document.getElementById('status');
+/* Copies an email signature as rich HTML, so it pastes into Gmail with images and links intact. */
+function tpCopy(btnId, sigId, statusId) {
+  var btn = document.getElementById(btnId), sig = document.getElementById(sigId), status = document.getElementById(statusId);
   if (!btn || !sig) return;
   var say = function (t) { status.textContent = t; setTimeout(function () { status.textContent = ''; }, 4000); };
   var fallback = function () {
@@ -19,4 +19,6 @@
       })]).then(function () { say('Copied. Now paste it into Gmail.'); }, fallback);
     } else fallback();
   });
-})();
+}
+tpCopy('copy', 'sig', 'status');
+tpCopy('copy-m', 'sig-m', 'status-m');
