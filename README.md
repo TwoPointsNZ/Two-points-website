@@ -35,6 +35,15 @@ Upload the folder as-is to any static host (GitHub Pages, Netlify, Cloudflare Pa
 - **Email:** Google Workspace. Never change the MX records, the SPF/DKIM/DMARC TXT records (`@`, `google._domainkey`, `_dmarc`, `dc-…._spfm`) or `_domainconnect` at GoDaddy. DMARC is set to reject, so a broken record means lost mail.
 - **Certificate:** issued and renewed by Hostinger for both `twopoints.co.nz` and `www`.
 
+## Updating CSS or JS
+
+Browsers keep `styles.css` and `main.js` for up to an hour, so each page asks for them by version (`styles.css?v=…`). After any change to either file, refresh the version in `index.html`, `products.html` and `404.html` so visitors get the matching files at once:
+
+```
+V=$(cat assets/css/styles.css assets/js/main.js | md5sum | cut -c1-8)
+sed -i -E "s#(styles\.css|main\.js)(\?v=[a-z0-9]+)?\"#\1?v=$V\"#" index.html products.html 404.html
+```
+
 ## Hosting files
 
 - `.htaccess`: server settings for Hostinger (LiteSpeed/Apache). Forces https://www., redirects the old site's /about, /contact and /offering pages, serves `404.html` for missing pages, blocks the Git folder and notes, sets security headers (HSTS, content security policy, permissions policy) and caching. If you add a new outside service (fonts, scripts, a Shopify cart), add its domain to the content security policy or the browser will block it.
