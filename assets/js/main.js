@@ -202,6 +202,14 @@
       });
     }, { threshold: 0.45 });
     if (scene) { scene(0); once.observe(tower); }
+    // highlighter on the trust row: waits for the hero to finish dropping in, then sweeps once it is in view
+    var trust = $('.trust');
+    if (trust) new IntersectionObserver(function (entries, o) {
+      if (!entries[0].isIntersecting) return;
+      o.disconnect();
+      var wait = Math.max(0, 1500 - performance.now());
+      setTimeout(function () { trust.classList.add('hl-on'); }, wait + 150);
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.4 }).observe(trust);
     // the steps can be taller than a phone screen, so start them as soon as the first rows are in view
     if (steps) new IntersectionObserver(function (entries, o) {
       if (!entries[0].isIntersecting) return;

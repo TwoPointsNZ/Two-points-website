@@ -128,6 +128,14 @@ html.anim .rv.in .tp.still .rdot { animation: none; }
 .trust > div + div { padding-left: 24px; border-left: 1px solid var(--line); }
 .trust dt { font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
 .trust dd { margin-top: 5px; font-size: 17px; font-weight: 800; letter-spacing: -.015em; }
+/* The Alpenglow highlighter (from the first design): a soft marker sweeps in behind each value, one after another */
+.mk { color: inherit; background: linear-gradient(90deg, rgba(20, 224, 180, .30), rgba(31, 169, 255, .26) 40%, rgba(106, 92, 255, .24) 72%, rgba(241, 91, 181, .26)) no-repeat left center / 100% 100%; border-radius: 7px; padding: .06em .3em; margin-inline: -.3em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+html.anim .trust:not(.hl-on) .mk { background-size: 0% 100%; }
+html.anim .trust.hl-on .mk { animation: mk-sweep .9s cubic-bezier(.25, .8, .3, 1) backwards; }
+.trust > div:nth-child(2) .mk { animation-delay: .2s !important; }
+.trust > div:nth-child(3) .mk { animation-delay: .4s !important; }
+.trust > div:nth-child(4) .mk { animation-delay: .6s !important; }
+@keyframes mk-sweep { from { background-size: 0% 100%; } }
 .footnote { margin-top: 16px; font-size: 13.5px; color: var(--ink-2); max-width: 76ch; }
 
 /* ── The shop page ── */
@@ -504,6 +512,7 @@ html.anim .rv.in { opacity: 1; transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  html.anim .trust .mk { animation: none !important; background-size: 100% 100% !important; }
   .drop, .hero h1 .rdot.end, html.anim .rv.in .tp .rdot, .ph.wait::before { animation: none; }
   .ph.wait img { transform: none; }
   .ph.wait.loaded::before { animation: none; opacity: 0; transition: opacity .4s ease; }
