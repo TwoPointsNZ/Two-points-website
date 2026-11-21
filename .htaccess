@@ -51,6 +51,13 @@ RedirectMatch 404 /\.git(/|$)
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
+  # Browsers always use the secure connection for the next 6 months
+  Header always set Strict-Transport-Security "max-age=15552000"
+  # The site never needs the camera, microphone, location or payment APIs
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  # Only the site's own files and Google Fonts may load. If the Shopify cart is switched back on,
+  # add the store's domain to connect-src.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
 </IfModule>
 
 AddType application/manifest+json .webmanifest

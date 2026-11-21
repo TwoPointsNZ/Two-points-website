@@ -47,6 +47,10 @@ h2 .quiet { display: inline-block; }
 .rbl { font-style: normal; font-weight: 700; background: var(--rainbow-line); -webkit-background-clip: text; background-clip: text; color: transparent; }
 /* the full stop in the email address: still a real full stop, coloured like the brand dot */
 .edot { font-style: normal; background: linear-gradient(45deg, #8B6CF0, #DC47A0); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nowrap { white-space: nowrap; }
+/* a short page (the 404) still fills the screen, footer at the bottom */
+.page-fill { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+.page-fill > main { flex: 1; }
 .rdot { display: inline-block; width: .17em; height: .17em; border-radius: 50%; background: linear-gradient(45deg, #8B6CF0, #DC47A0); margin-left: .05em; }
 /* "Two Points" in running text: the name in the title's gradient, with its dot */
 .tp { font-weight: 700; white-space: nowrap; background: var(--rainbow-word); -webkit-background-clip: text; background-clip: text; color: transparent; }
