@@ -22,10 +22,11 @@ RewriteRule ^(shop|store|products)/?$ /products.html [L,R=301,NE]
 RewriteRule ^index\.html$ / [L,R=301]
 </IfModule>
 
-# Keep the site's code and notes private
-<FilesMatch "^(README\.md|\.nojekyll)$">
+# Keep the site's code, notes and Git files private
+<FilesMatch "^(README\.md|\.nojekyll|\.gitignore|.*\.zip)$">
   Require all denied
 </FilesMatch>
+RedirectMatch 404 /\.git(/|$)
 
 # Compress text files
 <IfModule mod_deflate.c>
