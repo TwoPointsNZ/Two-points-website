@@ -6,14 +6,23 @@
   var $$ = function (s, c) { return [].slice.call((c || document).querySelectorAll(s)); };
   var clamp = function (v) { return Math.min(1, Math.max(0, v)); };
 
-  /* Photos still on their way get the sheen, then are drawn in. Ones already loaded just appear. */
-  $$('.ph img').forEach(function (img) {
-    if (img.complete && img.naturalWidth) return;
-    var box = img.parentNode;
-    box.classList.add('wait');
-    var done = function () { box.classList.add('loaded'); };
-    img.addEventListener('load', done); img.addEventListener('error', done);
-  });
+  /* Photos: each stays under a soft cover until it scrolls into view, then is drawn in. If it has not arrived yet,
+     the sheen plays until it does. Tied to being seen, not to loading, because phones fetch photos early. */
+  if (!calm && 'IntersectionObserver' in window) {
+    var phs = $$('.ph');
+    phs.forEach(function (box) { box.classList.add('wait'); });
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        seen.unobserve(en.target);
+        var box = en.target, img = $('img', box), fired = false;
+        var go = function () { if (fired) return; fired = true; setTimeout(function () { box.classList.add('loaded'); }, 180); };
+        if (img.complete && img.naturalWidth) go();
+        else { img.addEventListener('load', go); img.addEventListener('error', go); }
+      });
+    }, { threshold: 0.3 });
+    phs.forEach(function (box) { seen.observe(box); });
+  }
 
   /* SiteWise certificate: opens in a pop-up on the page (a PDF will not open inside every app's browser) */
   var cert = $('#cert'), certFrom = null;
