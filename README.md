@@ -27,9 +27,17 @@ Upload the folder as-is to any static host (GitHub Pages, Netlify, Cloudflare Pa
 - Checkout is wired for Shopify but not connected. To connect a store: add the Headless sales channel in Shopify admin, copy its public Storefront API access token, then fill in `domain`, `storefrontToken` and the `variants` map at the top of `assets/js/shop.js`. The checkout button then creates a Shopify cart and sends the customer to Shopify's checkout.
 - The checkout request has not been tested against a live store.
 
+## Hosting and going live
+
+- **Live site:** https://www.twopoints.co.nz, on Hostinger web hosting (website `twopoints.co.nz`).
+- **Deploys:** Hostinger auto-deploys the `main` branch from GitHub. Anything pushed to `main` is live within about 10 seconds. Work happens on a separate branch and is pushed to `main` once checked.
+- **Domain:** registered at GoDaddy, which also hosts the DNS. Only two records point at Hostinger: `A @ 46.202.138.71` and `CNAME www @`.
+- **Email:** Google Workspace. Never change the MX records, the SPF/DKIM/DMARC TXT records (`@`, `google._domainkey`, `_dmarc`, `dc-…._spfm`) or `_domainconnect` at GoDaddy. DMARC is set to reject, so a broken record means lost mail.
+- **Certificate:** issued and renewed by Hostinger for both `twopoints.co.nz` and `www`.
+
 ## Hosting files
 
-- `.htaccess`: server settings for Apache/LiteSpeed hosts such as Hostinger web hosting. Forces https://www., redirects the old site's /about, /contact and /offering pages, serves `404.html` for missing pages, and turns on compression and caching.
+- `.htaccess`: server settings for Hostinger (LiteSpeed/Apache). Forces https://www., redirects the old site's /about, /contact and /offering pages, serves `404.html` for missing pages, blocks the Git folder and notes, sets security headers (HSTS, content security policy, permissions policy) and caching. If you add a new outside service (fonts, scripts, a Shopify cart), add its domain to the content security policy or the browser will block it.
 - `robots.txt` and `sitemap.xml`: for search engines. Update `lastmod` in the sitemap after big changes.
 - `site.webmanifest`: home-screen icon details.
 
