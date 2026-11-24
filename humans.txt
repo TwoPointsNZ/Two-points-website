@@ -1,0 +1,17 @@
+/* TEAM */
+Founder, design direction: Joe Pope
+Business: Two Points Ltd, industrial rope access
+Site: https://www.twopoints.co.nz
+Location: New Zealand
+
+/* THANKS */
+Design and build: made with Claude (Anthropic)
+Job software: Simple, https://keepitsimple.co.nz
+
+/* SITE */
+Last update: 2026/11/24
+Language: English (New Zealand)
+Standards: HTML, CSS, JavaScript
+Fonts: Plus Jakarta Sans (Tokotype, SIL Open Font License)
+Photos and video: Two Points' own work
+Hosting: Hostinger

@@ -6,6 +6,9 @@ Static site for Two Points Ltd (industrial rope access). No build step.
 - `assets/css/styles.css` — design tokens and styles
 - `assets/js/main.js` — animation and interaction (no dependencies)
 - `assets/img`, `assets/video` — photos, logo, hero loop
+- `DESIGN.md` — the look in short, the rules for changes, and credits
+- `design/house-style/` — the house style as a portable Claude skill (not served on the site)
+- `humans.txt` — public credits
 
 ## Preview locally
 
@@ -55,10 +58,15 @@ sed -i -E "s#(styles\.css|main\.js)(\?v=[a-z0-9]+)?\"#\1?v=$V\"#" index.html pro
 - `robots.txt` and `sitemap.xml`: for search engines. Update `lastmod` in the sitemap after big changes.
 - `site.webmanifest`: home-screen icon details.
 
+## Design and the house-style skill
+
+- The full design system is the "Simple & Two Points House Style" artifact in Joe's Claude account. `design/house-style/` is a copy of it as a Claude skill.
+- To use it in a new project: zip the `house-style` folder and upload it in Claude (Settings, Capabilities, Skills).
+- If the design changes, update the artifact first, then refresh this copy.
+
 ## Notes
 
 - The enquiry form opens the visitor's email app addressed to Joe. To have it send directly, point the form at a form service (Formspree, Netlify Forms, Web3Forms) in `assets/js/main.js`.
 - All photos and video on the home page are real Two Points site footage. The only AI-derived imagery is the product silhouettes on the shop page.
 - The logo files are the original artwork, only resized. Do not redraw or recolour them.
 - The design is a sister to the Simple website: a dark band top and bottom, a white page between, and the Alpenglow gradient used sparingly.
-- `assets/img/tattoos/` holds artwork from an earlier design. It is not used on the page.

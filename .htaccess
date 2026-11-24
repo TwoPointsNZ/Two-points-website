@@ -23,10 +23,12 @@ RewriteRule ^index\.html$ / [L,R=301]
 </IfModule>
 
 # Keep the site's code, notes and Git files private
-<FilesMatch "^(README\.md|\.nojekyll|\.gitignore|.*\.zip)$">
+<FilesMatch "^(README\.md|DESIGN\.md|\.nojekyll|\.gitignore|.*\.zip)$">
   Require all denied
 </FilesMatch>
 RedirectMatch 404 /\.git(/|$)
+# The design kit (house-style skill) lives in the repo, not on the site
+RedirectMatch 404 ^/design(/|$)
 
 # Compress text files
 <IfModule mod_deflate.c>
