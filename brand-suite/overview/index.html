@@ -1,0 +1,147 @@
+<title>Two Points Brand Suite</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: the house letterhead. Dark band, plain white page of sections split by hairlines, dark band. Light only, as Two Points is. */
+:root{--page:#fff;--soft:#f4f4f0;--ink:#15171a;--ink-2:#555b63;--ink-3:#8b9199;--line:#e2e5e8;--band:#14170f;--band-ink:#f2f4ef;--band-ink-2:#a2a99d;
+  --c1:#14E0B4;--c2:#1FA9FF;--c3:#6A5CFF;--c4:#F15BB5;--clear-bg:#d6f7ee;--clear-ink:#0b6b55;--wait-bg:#fde7e7;--wait-ink:#b42318;
+  --glow:linear-gradient(90deg,var(--c1),var(--c2) 38%,var(--c3) 70%,var(--c4));--word:linear-gradient(90deg,#0FC9A0,#1893E8 38%,#5647EE 70%,#DC47A0);
+  --sans:"Plus Jakarta Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;color-scheme:light}
+body{background:var(--page);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+.w{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{background:var(--band);color:var(--band-ink)}
+.top{margin-top:calc(-1*env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
+.top .w{padding-block:34px 38px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--band-ink-2)}
+h1{font-size:clamp(34px,7vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.02;margin:10px 0 0;text-wrap:balance}
+h1 span{color:var(--band-ink-2)}
+.dot{display:inline-block;width:.17em;height:.17em;border-radius:50%;background:linear-gradient(135deg,var(--c3),var(--c4));margin-left:.04em}
+.top p{color:var(--band-ink-2);max-width:60ch;margin:16px 0 0;font-weight:500}
+.rule{height:3px;background:var(--glow)}
+nav{display:flex;flex-wrap:wrap;gap:8px;padding-block:18px;border-bottom:1px solid var(--line)}
+nav a{font-size:13.5px;font-weight:700;color:var(--ink);text-decoration:none;padding:9px 16px;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#0FC9A0,#1893E8 38%,#5647EE 70%,#DC47A0) border-box}
+nav a:focus-visible,a:focus-visible{outline:2px solid #1FA9FF;outline-offset:3px}
+section{padding-block:38px;border-bottom:1px solid var(--line)}
+.lab{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+h2{font-size:clamp(26px,4.4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin:6px 0 0;text-wrap:balance}
+h2 i{font-style:normal;color:var(--ink-3)} h2 b{background:var(--word);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--ink-2);max-width:65ch;margin:10px 0 22px}
+.g{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--min,300px)),1fr))}
+figure{margin:0;min-width:0}
+figure img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:var(--soft)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+figcaption{margin-top:10px;font-size:13px;color:var(--ink-2);line-height:1.45}
+figcaption b{display:block;font-size:15px;color:var(--ink);font-weight:700}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 10px;margin-left:6px;background:var(--clear-bg);color:var(--clear-ink);vertical-align:middle}
+.rows{margin:0;padding:0;list-style:none}
+.rows li{padding:14px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;align-items:center}
+.rows li:last-child{border:0}
+.rows b{font-size:15px;font-weight:700}.rows span{grid-column:1;font-size:13px;color:var(--ink-2)}
+.rows em{font-style:normal;grid-row:1/span 2;grid-column:2;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 11px;background:var(--wait-bg);color:var(--wait-ink);white-space:nowrap}
+.rows em.n{background:var(--soft);color:var(--ink-2)}
+.foot .w{padding-block:26px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:13px;color:var(--band-ink-2)}
+.foot b{color:var(--band-ink)}
+</style>
+
+<header class="band top"><div class="w">
+  <div class="eyebrow">Two Points Ltd · 25 November 2026</div>
+  <h1>The brand suite.<br><span>Seven sets, ready to send out</span><i class="dot"></i></h1>
+  <p>Both packs are now one. On top of them: stationery, email footers, business cards, leaflets, van livery, social templates, and site and workwear pieces.</p>
+</div></header>
+<div class="rule"></div>
+
+<main class="w">
+<nav aria-label="Sections"><a href="#van">Van</a><a href="#cards">Business cards</a><a href="#letters">Letterheads</a><a href="#email">Email footers</a><a href="#leaflets">Leaflets</a><a href="#social">Social</a><a href="#site">Site and workwear</a><a href="#todo">Needs your OK</a></nav>
+
+<section id="van"><div class="lab">05 · Vehicle</div><h2>Ford Transit Custom. <i>Three</i> <b>options</b><i class="dot"></i></h2>
+  <p class="sub">The van photos are computer-made blanks. The logo and lettering on them are your real vector artwork. I assumed a white van.</p>
+  <div class="g" style="--min:320px">
+    <figure><img src="img/van-b.jpg" alt="White van with two thin coloured vertical lines, phone number and logo" width="1100" height="616"><figcaption><b>B · Two lines <span class="tag">My pick</span></b>A working line and a backup line hang from two anchor points. Cheapest to make.</figcaption></figure>
+    <figure><img src="img/van-a.jpg" alt="White van with a dark lower band, a thin coloured line, logo and phone number" width="1100" height="616"><figcaption><b>A · Letterhead</b>A dark sill band with the Alpenglow line.</figcaption></figure>
+    <figure><img src="img/van-c.jpg" alt="White van with the words Two points in large lettering" width="1100" height="616"><figcaption><b>C · Headline</b>The website's opening line, readable from across the road.</figcaption></figure>
+    <figure><img src="img/van-driver.jpg" alt="Driver's side of the white van, option B" width="1100" height="616"><figcaption><b>B · Driver's side</b>Phone number still reads first.</figcaption></figure>
+    <figure><img src="img/van-dark.jpg" alt="Dark grey van with white logo and the two lines" width="1100" height="616"><figcaption><b>B on a dark van</b>If yours is grey or black.</figcaption></figure>
+    <figure><img src="img/van-rear.jpg" alt="Rear doors of the white van with logo, phone number and tagline" width="1100" height="829" loading="lazy"><figcaption><b>B · Rear doors</b>Logo left, phone right, tagline low.</figcaption></figure>
+  </div>
+  <figure style="margin-top:22px"><img src="img/spec.jpg" alt="Signwriter sheet with both sides of the van and a table of sizes" width="1100" height="778" loading="lazy"><figcaption><b>Signwriter sheet (3 pages)</b>Sizes, vinyl types, colours and vector artwork. Hand this PDF to the signwriter.</figcaption></figure>
+</section>
+
+<section id="cards"><div class="lab">03 · Business cards</div><h2>Three cards. <i>90 × 55 mm, print</i> <b>ready</b><i class="dot"></i></h2>
+  <p class="sub">Front and back of each. One PDF with bleed and crop marks.</p>
+  <div class="g" style="--min:300px">
+    <figure><div class="pair"><img src="img/cards-c1.jpg" alt="Dark card front reading Two points" width="1100" height="671"><img src="img/cards-c2.jpg" alt="White card back with name, contacts and logo" width="1100" height="671"></div><figcaption><b>C · Two lines <span class="tag">My pick</span></b>"Two points." is the thing people remember.</figcaption></figure>
+    <figure><div class="pair"><img src="img/cards-a1.jpg" alt="Dark card front with white logo" width="1100" height="671"><img src="img/cards-a2.jpg" alt="White card back with name and contacts" width="1100" height="671"></div><figcaption><b>A · Band</b>Matches the email footer.</figcaption></figure>
+    <figure><div class="pair"><img src="img/cards-b1.jpg" alt="White card front with ink logo over a dark strip" width="1100" height="671"><img src="img/cards-b2.jpg" alt="Dark card back with name and contacts" width="1100" height="671"></div><figcaption><b>B · Paper</b>The classic one.</figcaption></figure>
+  </div>
+</section>
+
+<section id="letters"><div class="lab">01 · Stationery</div><h2>Letter styles. <i>PDF and</i> <b>Word</b><i class="dot"></i></h2>
+  <p class="sub">Each comes blank, with a page 2, and with an example letter that shows the type styles. A and B also come as Word files you can type into.</p>
+  <div class="g" style="--min:240px">
+    <figure><img src="img/lh-a.jpg" alt="Letterhead with dark band top and bottom" width="1100" height="1556" loading="lazy"><figcaption><b>A · Band</b>For PDFs and professional printing. Matches your quotes.</figcaption></figure>
+    <figure><img src="img/lh-b.jpg" alt="White letterhead with ink logo and a thin coloured line" width="1100" height="1556" loading="lazy"><figcaption><b>B · Paper <span class="tag">For the office printer</span></b>Uses very little ink.</figcaption></figure>
+    <figure><img src="img/lh-c.jpg" alt="White letterhead with two thin coloured lines down the left margin" width="1100" height="1556" loading="lazy"><figcaption><b>C · Two lines</b>Matches card C and the van.</figcaption></figure>
+  </div>
+  <div class="g" style="--min:320px;margin-top:22px">
+    <figure><img src="img/slip.jpg" alt="Compliment slip" width="1100" height="515" loading="lazy"><figcaption><b>Compliment slip</b>DL size.</figcaption></figure>
+    <figure><img src="img/env.jpg" alt="Envelope front with logo and two thin lines" width="1100" height="550" loading="lazy"><figcaption><b>DL envelope</b>Tagline on the flap.</figcaption></figure>
+  </div>
+</section>
+
+<section id="email"><div class="lab">02 · Email footers</div><h2>Five footers. <i>Copy, paste, </i><b>done</b><i class="dot"></i></h2>
+  <p class="sub">Open <b>signatures.html</b>, change the name if it is for a crew member, press Copy, paste into Gmail. They only use pictures already on your website.</p>
+  <div class="g" style="--min:330px">
+    <figure><img src="img/sig1.jpg" alt="Full email footer card with logo band, name, SiteWise badge and contacts" width="1100" height="356" loading="lazy"><figcaption><b>1 · Full card</b>The one in use now.</figcaption></figure>
+    <figure><img src="img/sig2.jpg" alt="Email footer card with a Get a free quote button" width="1100" height="446" loading="lazy"><figcaption><b>2 · With quote button</b>For first contact and follow-ups.</figcaption></figure>
+    <figure><img src="img/sig3.jpg" alt="Compact email footer without the band" width="1100" height="290" loading="lazy"><figcaption><b>3 · Compact</b>Everyday emails.</figcaption></figure>
+    <figure><img src="img/sig4.jpg" alt="Three-line reply footer with a thin coloured line" width="1100" height="207" loading="lazy"><figcaption><b>4 · Reply</b>Three lines for long threads. Footer 5 is the card with no badge, for crew.</figcaption></figure>
+  </div>
+</section>
+
+<section id="leaflets"><div class="lab">04 · Leaflets</div><h2>Flyer, rack card, <i>capability</i> <b>statement</b><i class="dot"></i></h2>
+  <p class="sub">Your own job photos and your website's wording. The capability statement is the one to email to building managers and body corporates.</p>
+  <div class="g" style="--min:220px">
+    <figure><img src="img/fly1.jpg" alt="A5 flyer front with a city rope access photo" width="1100" height="1543" loading="lazy"><figcaption><b>A5 flyer · front</b></figcaption></figure>
+    <figure><img src="img/fly2.jpg" alt="A5 flyer back with reasons, services and safety facts" width="1100" height="1543" loading="lazy"><figcaption><b>A5 flyer · back</b></figcaption></figure>
+    <figure><img src="img/cap1.jpg" alt="Capability statement page 1" width="1100" height="1556" loading="lazy"><figcaption><b>Capability statement · 1</b></figcaption></figure>
+    <figure><img src="img/cap2.jpg" alt="Capability statement page 2" width="1100" height="1556" loading="lazy"><figcaption><b>Capability statement · 2</b></figcaption></figure>
+    <figure><img src="img/rack1.jpg" alt="DL rack card front" width="1100" height="2271" loading="lazy"><figcaption><b>DL rack card · front</b></figcaption></figure>
+    <figure><img src="img/rack2.jpg" alt="DL rack card back with the five job steps" width="1100" height="2271" loading="lazy"><figcaption><b>DL rack card · back</b></figcaption></figure>
+  </div>
+</section>
+
+<section id="social"><div class="lab">06 · Social</div><h2>Banners and <i>post</i> <b>templates</b><i class="dot"></i></h2>
+  <p class="sub">Sized for LinkedIn, Facebook and Instagram. Also in the folder: a Facebook cover, a story and the profile picture.</p>
+  <figure><img src="img/li.jpg" alt="LinkedIn banner reading Because ladders only go so far" width="1100" height="275" loading="lazy"><figcaption><b>LinkedIn banner</b></figcaption></figure>
+  <div class="g" style="--min:200px;margin-top:22px">
+    <figure><img src="img/p1.jpg" alt="Project post" width="1080" height="1350" loading="lazy"><figcaption><b>Project</b></figcaption></figure>
+    <figure><img src="img/p2.jpg" alt="Headline post reading Two points" width="1080" height="1350" loading="lazy"><figcaption><b>Headline</b></figcaption></figure>
+    <figure><img src="img/p3.jpg" alt="Fact post reading Your building stays open" width="1080" height="1350" loading="lazy"><figcaption><b>Fact</b></figcaption></figure>
+    <figure><img src="img/p4.jpg" alt="Before and after post template" width="1080" height="1350" loading="lazy"><figcaption><b>Before and after</b>Template: swap in your two photos.</figcaption></figure>
+  </div>
+</section>
+
+<section id="site"><div class="lab">07 · Site and workwear</div><h2>On site, <i>on the</i> <b>crew</b><i class="dot"></i></h2>
+  <div class="g" style="--min:200px;margin-top:22px">
+    <figure><img src="img/sign.jpg" alt="Site caution sign: rope access work overhead" width="1100" height="1650" loading="lazy"><figcaption><b>Site sign</b>600 × 900 mm.</figcaption></figure>
+    <figure><img src="img/id1.jpg" alt="Site ID card front" width="1100" height="1691" loading="lazy"><figcaption><b>Site ID card · front</b></figcaption></figure>
+    <figure><img src="img/id2.jpg" alt="Site ID card back" width="1100" height="1691" loading="lazy"><figcaption><b>Site ID card · back</b></figcaption></figure>
+  </div>
+  <div class="g" style="--min:320px;margin-top:22px">
+    <figure><img src="img/stick.jpg" alt="Sticker and kit label sheet" width="1100" height="778" loading="lazy"><figcaption><b>Stickers and kit labels</b></figcaption></figure>
+    <figure><img src="img/wear.jpg" alt="Workwear guide showing logo placement on tee, hoodie, vest and helmet" width="1100" height="778" loading="lazy"><figcaption><b>Workwear guide</b></figcaption></figure>
+  </div>
+</section>
+
+<section id="todo" style="border:0"><div class="lab">Before anything is printed</div><h2>Needs your <b>OK</b><i class="dot"></i></h2>
+  <ul class="rows" style="margin-top:18px">
+    <li><b>What colour is the van?</b><span>I designed for white. A dark-van version is ready too.</span><em>Waiting</em></li>
+    <li><b>Wording I wrote</b><span>A few lines on the flyer, rack card, capability statement, site sign and ID card are mine, not from your website. They are listed in the README.</span><em>Waiting</em></li>
+    <li><b>Address, GST number, NZBN</b><span>None are on the letterheads. They say "New Zealand", like the website. Tell me if they should be added.</span><em>Waiting</em></li>
+    <li><b>Printed colour</b><span>Files are in screen colour. Ask the printer for a proof: bright teal and pink dull down in print.</span><em class="n">Ask printer</em></li>
+    <li><b>Email footers on your iPhone</b><span>Built the same way as your current one, but I could not test them in real Gmail from here.</span><em class="n">Test once</em></li>
+  </ul>
+</section>
+</main>
+
+<footer class="band foot"><div class="w"><span><b>Two Points Ltd</b> · Brand suite</span><span>Because ladders only go so far.</span></div></footer>

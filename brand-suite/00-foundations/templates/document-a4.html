@@ -1,0 +1,103 @@
+<!doctype html>
+<!--
+  Two Points A4 document: the quote layout. SSSPs and site completion reports use the same frame:
+  dark cover band → white page → thin footer. Open in Chrome and Print → Save as PDF (A4, margins None,
+  Background graphics ON), or draw each .sheet with html2canvas + jsPDF the way Simple does.
+
+  Rules:
+  - A4 portrait, 210 × 297 mm. Content sits 40px in from the sides.
+  - The Two Points logo, never the Simple logo (brand rule). White logo on the band.
+  - The label (QUOTATION / SITE COMPLETION REPORT / SSSP) is rainbow lettering, ONE COLOUR PER LETTER
+    (html2canvas can't draw gradient text). Bright Alpenglow on the band; deep shades on white.
+  - Mostly ink and grey. Sections are split by 1px lines, not boxes.
+  - Hairlines thinner than 1px: draw them as real PDF lines (see docs/06-documents.md), or a PDF viewer shows them thick/thin.
+  - Prices: excl. GST on each line, then Subtotal, GST 15%, Total incl. GST. Costs and margins never print.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quotation Q014 · Two Points</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+  body { margin: 0; background: #e9e9e4; font-family: var(--font-sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .sheet { width: 210mm; min-height: 297mm; margin: 24px auto; background: #fff; display: flex; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,.12); }
+  .cover { background: var(--band); color: #fff; padding: 36px 40px; display: flex; justify-content: space-between; gap: 30px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cover img { height: 56px; width: auto; display: block; margin-bottom: 18px; }
+  .doc-label { font-size: 11px; letter-spacing: .18em; font-weight: 700; margin-bottom: 8px; }
+  .doc-title { font-size: 24px; font-weight: 800; line-height: 1.2; letter-spacing: -.02em; max-width: 440px; margin: 0; }
+  .doc-address { font-size: 13px; color: rgba(255,255,255,.65); margin-top: 10px; }
+  .cover-right { text-align: right; flex-shrink: 0; min-width: 150px; }
+  .f-lbl { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-top: 12px; }
+  .f-lbl:first-child { margin-top: 0; }
+  .f-val { font-size: 14px; font-weight: 600; margin-top: 2px; }
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border-bottom: 1px solid var(--line); }
+  .metric { background: #fff; padding: 16px 20px; }
+  .m-lbl { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 700; }
+  .m-val { font-size: 17px; font-weight: 700; margin-top: 5px; }
+  .block { padding: 24px 40px; border-bottom: 1px solid var(--line); }
+  .b-lbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-2); margin-bottom: 14px; }
+  .block p { margin: 0; font-size: 13.5px; line-height: 1.65; color: var(--ink); }
+  .item { display: flex; justify-content: space-between; gap: 24px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: 0; }
+  .i-desc { font-size: 14px; font-weight: 600; }
+  .i-detail { font-size: 12px; color: var(--ink-2); margin-top: 3px; line-height: 1.5; }
+  .i-amt { font-size: 14px; font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .optional { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    background: linear-gradient(90deg, rgba(20,224,180,.18), rgba(31,169,255,.18) 38%, rgba(106,92,255,.18) 70%, rgba(241,91,181,.18)); color: #2a2a2a; vertical-align: 1px; }
+  .totals { padding: 20px 40px 24px; background: var(--soft); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .t-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-2); padding: 3px 0; font-variant-numeric: tabular-nums; }
+  .t-final { font-size: 17px; font-weight: 800; color: var(--ink); border-top: 2px solid var(--line); margin-top: 8px; padding-top: 12px; }
+  .spacer { flex: 1; }
+  .foot { display: flex; justify-content: space-between; padding: 14px 40px; border-top: 1px solid var(--line); font-size: 10.5px; color: var(--ink-3); }
+  .foot .rl { height: 2px; width: 48px; border-radius: 2px; background: var(--rainbow-line); align-self: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { size: A4; margin: 0; }
+  @media print { body { background: #fff; } .sheet { margin: 0; box-shadow: none; page-break-after: always; } }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="cover">
+    <div>
+      <img src="../logos/two-points/two-points-logo-white.png" alt="Two Points Rope Access">
+      <div class="doc-label"><span style="color:#14e0b4">Q</span><span style="color:#18cecd">U</span><span style="color:#1bbce5">O</span><span style="color:#1faafe">T</span><span style="color:#3b8cff">A</span><span style="color:#586eff">T</span><span style="color:#815cf3">I</span><span style="color:#b95bd4">O</span><span style="color:#f15bb5">N</span></div>
+      <h1 class="doc-title">Chapel roof wash and canopy treatment</h1>
+      <div class="doc-address">St Andrew's College · 347 Papanui Road, Christchurch</div>
+    </div>
+    <div class="cover-right">
+      <div class="f-lbl">Quote no.</div><div class="f-val">Q014</div>
+      <div class="f-lbl">Date</div><div class="f-val">24 November 2026</div>
+      <div class="f-lbl">Valid until</div><div class="f-val">24 December 2026</div>
+    </div>
+  </header>
+
+  <div class="metrics">
+    <div class="metric"><div class="m-lbl">Roof area</div><div class="m-val">420 m²</div></div>
+    <div class="metric"><div class="m-lbl">Access</div><div class="m-val">Rope access</div></div>
+    <div class="metric"><div class="m-lbl">Crew</div><div class="m-val">2 technicians</div></div>
+    <div class="metric"><div class="m-lbl">Time on site</div><div class="m-val">2 days</div></div>
+  </div>
+
+  <section class="block">
+    <div class="b-lbl">Scope of work</div>
+    <p>Soft wash the chapel roof and treat the bridge canopies with Purple Strike. Rope access from the ridge, so no scaffold and no machines on the lawn. Gutters cleared as we go.</p>
+  </section>
+
+  <section class="block">
+    <div class="b-lbl">Pricing</div>
+    <div class="item"><div><div class="i-desc">Roof treatment</div><div class="i-detail">420 m² · Purple Strike · 2 technicians</div></div><div class="i-amt">$2,890.00</div></div>
+    <div class="item"><div><div class="i-desc">Canopy wash</div><div class="i-detail">Bridge and chapel canopies</div></div><div class="i-amt">$640.00</div></div>
+    <div class="item"><div><div class="i-desc">Gutter clean <span class="optional">Optional</span></div><div class="i-detail">Add it on and we do it the same visit</div></div><div class="i-amt">$380.00</div></div>
+  </section>
+
+  <section class="totals">
+    <div class="t-row"><span>Subtotal excl. GST</span><span>$3,530.00</span></div>
+    <div class="t-row"><span>GST 15%</span><span>$529.50</span></div>
+    <div class="t-row t-final"><span>Total incl. GST</span><span>$4,059.50</span></div>
+  </section>
+
+  <div class="spacer"></div>
+  <footer class="foot"><span>Two Points Ltd · Christchurch · twopoints.co.nz</span><span class="rl"></span><span>Page 1 of 1</span></footer>
+</div>
+</body>
+</html>

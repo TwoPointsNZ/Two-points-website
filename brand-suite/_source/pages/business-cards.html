@@ -1,0 +1,78 @@
+<!doctype html><html lang="en-NZ"><head><meta charset="utf-8"><title>Business cards</title>
+<meta name="out" content='[
+{"type":"pdf","file":"03-business-cards/business-cards-PRINT.pdf"},
+{"type":"png","sel":".art","nth":0,"file":"03-business-cards/previews/A-band-front.png","scale":4},
+{"type":"png","sel":".art","nth":1,"file":"03-business-cards/previews/A-band-back.png","scale":4},
+{"type":"png","sel":".art","nth":2,"file":"03-business-cards/previews/B-paper-front.png","scale":4},
+{"type":"png","sel":".art","nth":3,"file":"03-business-cards/previews/B-paper-back.png","scale":4},
+{"type":"png","sel":".art","nth":4,"file":"03-business-cards/previews/C-two-lines-front.png","scale":4},
+{"type":"png","sel":".art","nth":5,"file":"03-business-cards/previews/C-two-lines-back.png","scale":4}]'>
+<link rel="stylesheet" href="../brand.css">
+<style>
+@page{size:110mm 75mm;margin:0}
+.print{--w:90mm;--h:55mm}
+.trim{padding:6mm}
+.dark{background:var(--band)}
+.name{font-size:13pt;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.role{font-size:6.6pt;color:var(--ink-2);line-height:1.45;margin-top:1.2mm}
+.dark .role{color:var(--band-ink-2)} .dark .name{color:var(--band-ink)}
+.contacts{display:flex;justify-content:space-between;font-size:6.6pt;font-weight:700;white-space:nowrap}
+.dark .contacts{color:var(--band-ink)}
+.hair{height:.25mm;background:var(--glow-line)}
+.foot{position:absolute;left:6mm;right:6mm;bottom:6mm}
+.tag{font-size:6.2pt;color:var(--band-ink-2);font-weight:500}
+.tag b{font-weight:700} 
+/* C */
+.lines{position:absolute;top:0;bottom:0;width:.3mm}
+.l1{background:linear-gradient(180deg,var(--c1),var(--c2))}
+.l2{background:linear-gradient(180deg,var(--c3),var(--c4))}
+.anchor{position:absolute;width:1.5mm;height:1.5mm;border-radius:50%}
+</style></head><body>
+
+<!-- A · BAND front -->
+<div class="print" data-name="Business card A (Band) front"><div class="art dark"><div class="trim" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
+  <img src="../../00-foundations/logos/two-points/two-points-logo-vector-white.svg" style="width:43mm;margin-top:-2mm">
+  <div class="tag" style="position:absolute;bottom:6mm">Because ladders only go <b class="rbl">so far</b><span class="dot"></span></div>
+</div></div></div>
+<!-- A · back -->
+<div class="print" data-name="Business card A (Band) back"><div class="art"><div class="trim">
+  <img src="../../00-foundations/logos/two-points/two-points-icon.svg" style="position:absolute;right:6mm;top:6mm;width:10mm">
+  <div class="name">Joe Pope</div>
+  <div class="role">Managing Director<br>IRATA Level 3 Supervisor</div>
+  <div class="foot"><div class="label" style="font-size:5pt;margin-bottom:2mm">Industrial rope access · New Zealand</div><div class="hair"></div>
+  <div class="contacts" style="margin-top:2.6mm"><span>021 0898 7180</span><span>Joe@twopoints.co.nz</span><span>twopoints.co.nz</span></div></div>
+</div></div></div>
+
+<!-- B · PAPER front -->
+<div class="print" data-name="Business card B (Paper) front"><div class="art"><div class="trim" style="display:flex;align-items:center;justify-content:center;padding-bottom:15mm">
+  <img src="../../00-foundations/logos/two-points/two-points-logo-vector-ink.svg" style="width:38mm">
+</div>
+<div class="dark" style="position:absolute;left:0;right:0;bottom:0;height:15.5mm"><div class="rule" style="height:.5mm"></div>
+  <div class="tag" style="text-align:center;margin-top:4.6mm;letter-spacing:.16em;text-transform:uppercase;font-size:5pt;font-weight:700">Industrial rope access · New Zealand</div></div>
+</div></div>
+<!-- B · back -->
+<div class="print" data-name="Business card B (Paper) back"><div class="art dark"><div class="trim">
+  <img src="../../00-foundations/logos/two-points/two-points-mountain-white.svg" style="position:absolute;right:6mm;top:6.4mm;width:11mm;opacity:.9">
+  <div class="name">Joe Pope</div>
+  <div class="role">Managing Director<br>IRATA Level 3 Supervisor</div>
+  <div class="foot"><div class="tag" style="margin-bottom:2.2mm">SiteWise Gold 2026/27</div><div class="hair"></div>
+  <div class="contacts" style="margin-top:2.6mm"><span>021 0898 7180</span><span>Joe@twopoints.co.nz</span><span>twopoints.co.nz</span></div></div>
+</div></div></div>
+
+<!-- C · TWO LINES front -->
+<div class="print" data-name="Business card C (Two lines) front"><div class="art dark">
+  <div class="lines l1" style="left:71mm"></div><div class="lines l2" style="left:74mm"></div>
+  <div class="trim" style="display:flex;flex-direction:column;justify-content:flex-end">
+  <div style="font-size:6.4pt;color:var(--band-ink-2);font-weight:500">The number one rule of rope access:</div>
+  <div style="font-size:25pt;font-weight:800;letter-spacing:-.05em;line-height:1.05;color:var(--band-ink);margin-bottom:-1.2mm">Two points<span class="dot"></span></div>
+</div></div></div>
+<!-- C · back -->
+<div class="print" data-name="Business card C (Two lines) back"><div class="art">
+  <div class="lines l1" style="left:22mm"></div><div class="lines l2" style="left:25mm"></div>
+  <div class="trim" style="padding-left:28mm">
+  <div class="name">Joe Pope</div>
+  <div class="role">Managing Director<br>IRATA Level 3 Supervisor</div>
+  <div style="position:absolute;left:28mm;bottom:6mm;font-size:6.8pt;font-weight:700;line-height:1.75">021 0898 7180<br>Joe@twopoints.co.nz<br>twopoints.co.nz</div>
+  <img src="../../00-foundations/logos/two-points/two-points-logo-vector-ink.svg" style="position:absolute;right:6mm;bottom:6mm;width:21mm">
+</div></div></div>
+<script src="../marks.js"></script></body></html>

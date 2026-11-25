@@ -1,0 +1,149 @@
+/* Two Points components. Needs tokens/tokens.css loaded first.
+   Every class starts with tp- so it never clashes with another project's CSS.
+   Works for both brands: put data-brand="simple" on <html> (or any wrapper) for the Simple rainbow. */
+
+/* ── Base ── */
+.tp { font-family: var(--font-sans); color: var(--ink); background: var(--page); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body.tp { margin: 0; }
+.tp *, .tp *::before, .tp *::after { box-sizing: border-box; }
+.tp h1, .tp h2, .tp h3 { letter-spacing: -.03em; text-wrap: balance; margin: 0; }
+.tp ::selection { background: var(--selection); }
+.tp :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
+.tp-wrap { max-width: var(--wrap, 1120px); margin: 0 auto; padding-inline: max(20px, env(safe-area-inset-left, 0px)); }
+.tp-mono { font-family: var(--font-mono); font-weight: 500; letter-spacing: -.01em; }
+.tp-num { font-variant-numeric: tabular-nums; }
+
+/* ── Lettering: colour is rare ── */
+/* rainbow words on white (deep shades, so they read) - big, bold words only (20px+, 700+) */
+.tp-rb { background: var(--rainbow-word); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .04em; margin-right: -.04em; }
+/* rainbow words on the dark band (bright shades) - labels like "Morning Update", "Quotation" */
+.tp-rbl { font-weight: 700; background: var(--rainbow-line); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* the brand full stop: "Keep it simple." / "Two Points." */
+.tp-dot { display: inline-block; width: .17em; height: .17em; border-radius: 50%; background: var(--dot); margin-left: .05em; }
+/* a soft highlighter behind a few words */
+.tp-mark { background: var(--marker) no-repeat left center / 100% 100%; border-radius: 7px; padding: .06em .3em; margin-inline: -.3em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* ── Labels ── */
+.tp-eyebrow { display: block; font-size: 11.5px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; color: var(--ink-3); }
+.tp-label { display: flex; align-items: center; gap: var(--space-2); font: 700 11px/1.3 var(--font-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
+/* a count of things owed sits RIGHT BESIDE its label */
+.tp-count { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: var(--radius-pill); background: var(--danger); color: #fff; font: 700 11px/1 var(--font-sans); letter-spacing: 0; }
+
+/* ── Buttons: things you press wear a ring ── */
+.tp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 24px; border-radius: var(--radius-pill);
+  font: 800 15.5px/1 var(--font-sans); white-space: nowrap; cursor: pointer; text-decoration: none; border: 1.5px solid transparent;
+  color: #fff; background: linear-gradient(var(--btn), var(--btn)) padding-box, var(--ring) border-box; box-shadow: var(--shadow-button);
+  transition: transform var(--dur-quick) ease, box-shadow var(--dur-quick) ease; }
+.tp-btn:hover { transform: translateY(-1px); }
+.tp-btn:active { transform: scale(.98); }
+.tp-btn.paper { color: var(--ink); background: linear-gradient(var(--page), var(--page)) padding-box, var(--ring) border-box; box-shadow: none; }
+.tp-btn.dark { color: #fff; background: linear-gradient(var(--band-2), var(--band-2)) padding-box, var(--ring) border-box; }
+.tp-btn.mirror { background: linear-gradient(var(--page), var(--page)) padding-box, var(--ring-mirror) border-box; color: var(--ink); box-shadow: none; }
+.tp-btn.alert { color: var(--waiting-ink); background: linear-gradient(var(--page), var(--page)) padding-box, var(--edge-alert) border-box; box-shadow: none; }
+.tp-btn.small { height: 38px; padding: 0 18px; font-size: 14px; }
+/* dense desk screens: rounded rectangles, one size */
+.tp-btn.rect { height: 36px; padding: 0 16px; font-size: 13px; font-weight: 700; border-radius: var(--radius-btn); }
+.tp-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The round "open" arrow: 28px, even 2px ring, white centre. Always on ONE right-hand edge. */
+.tp-go { width: 28px; height: 28px; flex: none; display: inline-grid; place-items: center; padding: 0; cursor: pointer; color: var(--ink);
+  border: 2px solid transparent; border-radius: 50%; background: linear-gradient(var(--page), var(--page)) padding-box, var(--ring) border-box; }
+.tp-go svg { display: block; width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── Tags: soft tints, dark words ── */
+.tp-tag { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; border-radius: var(--radius-pill); font: 800 12px/1 var(--font-sans); white-space: nowrap; background: var(--soft); color: var(--ink-2); }
+.tp-tag.waiting { background: var(--waiting-bg); color: var(--waiting-ink); }
+.tp-tag.clear { background: var(--clear-bg); color: var(--clear-ink); }
+.tp-tag.soon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rainbow); }
+.tp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ── Rows: title + grey detail, status + arrow on one right edge ── */
+.tp-rows { border-top: 1px solid var(--line); }
+.tp-row { display: grid; grid-template-columns: minmax(0, 1fr) auto 28px; align-items: center; gap: 12px; padding: var(--space-4) 0; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; }
+.tp-row b { display: block; font: 700 15px/1.35 var(--font-sans); color: var(--ink); }
+.tp-row > div > span { display: block; font: 400 13px/1.45 var(--font-sans); color: var(--ink-2); }
+.tp-row > :nth-child(2) { justify-self: end; }
+
+/* ── Cards (apps). Emails + documents use NO cards: lines and space instead. ── */
+.tp-card { background: var(--page); border: 1px solid var(--outline); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--space-4);
+  transition: transform var(--dur-quick) var(--ease-press), box-shadow var(--dur-quick); }
+.tp-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+.tp-card.action { border: 1.5px solid transparent; background: linear-gradient(var(--page), var(--page)) padding-box, var(--edge-alert) border-box; }
+.tp-card h3 { font: 700 15px/1.35 var(--font-sans); margin: 0 0 2px; }
+.tp-card p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--ink-2); }
+.tp-fig { font: 800 28px/1 var(--font-sans); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.tp-fig.zero { color: var(--ink-3); }
+.tp-fig.owed { color: var(--danger); }
+/* a soft panel on the page (website contact card, kit list) */
+.tp-panel { background: var(--soft); border-radius: var(--radius-hero); padding: 44px; }
+
+/* ── The letterhead: dark band, white page, dark band ── */
+.tp-letterhead { max-width: 640px; margin: 0 auto; background: var(--page); border-radius: 10px; overflow: hidden; }
+.tp-band { background: var(--band); color: var(--band-ink); padding: 28px 30px; position: relative; }
+.tp-band .tp-band-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: var(--band-ink-2); }
+.tp-band img.logo { height: 32px; width: auto; display: block; }
+.tp-band .tp-rbl { display: table; margin-top: 30px; font-size: 13.5px; } /* table = shrink to the words, so the whole run shows */
+.tp-headline { margin: 8px 0 0; font: 800 28px/1.15 var(--font-sans); letter-spacing: -.02em; color: var(--band-ink); }
+.tp-headline i { display: block; font-style: normal; color: var(--band-ink-2); }
+.tp-band.foot { padding: 20px 30px; display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--band-ink-2); }
+.tp-band.foot .rule { width: 1px; align-self: stretch; background: var(--band-line); }
+.tp-sheet { padding: 26px 30px; }
+.tp-sheet > section + section { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line); }
+/* website version: a slim sticky band with a 3px rainbow underline */
+.tp-topband { position: sticky; top: 0; z-index: 50; background: var(--band); color: var(--band-ink); }
+.tp-topband::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--rainbow-line); }
+.tp-topband.scrolled { box-shadow: var(--shadow-band); }
+.tp-bar { display: flex; align-items: center; gap: 22px; height: 68px; }
+.tp-bar nav { display: flex; align-items: center; gap: 26px; margin-left: auto; font-size: 14.5px; font-weight: 600; }
+.tp-bar nav a:not(.tp-btn) { color: var(--band-ink-2); text-decoration: none; transition: color .2s ease; }
+.tp-bar nav a:not(.tp-btn):hover { color: #fff; }
+
+/* ── Tiles: the squircle family (app icons, numbered steps) ── */
+.tp-tile { width: 40px; height: 40px; flex: none; display: inline-grid; place-items: center; border: 1.5px solid transparent; border-radius: var(--radius-squircle);
+  background: var(--tile) padding-box, var(--ring) border-box; box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--c2) 70%, transparent); }
+.tp-tile b { font: 800 16px/1 var(--font-sans); background: var(--rainbow-line); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* calendar block for a date: dark tile, rainbow top edge */
+.tp-cal { width: 52px; flex: none; text-align: center; border-radius: 10px; overflow: hidden; background: var(--band); color: var(--band-ink); padding-bottom: 7px; }
+.tp-cal::before { content: ""; display: block; height: 3px; background: var(--rainbow-line); margin-bottom: 7px; }
+.tp-cal b { display: block; font: 800 20px/1 var(--font-sans); }
+.tp-cal span { font: 700 10px/1.4 var(--font-sans); letter-spacing: 1px; text-transform: uppercase; color: var(--band-ink-2); }
+/* one rainbow progress bar */
+.tp-progress { height: 6px; border-radius: var(--radius-pill); background: var(--soft); overflow: hidden; }
+.tp-progress i { display: block; height: 100%; border-radius: inherit; background: var(--rainbow-line); }
+
+/* ── Forms ── */
+.tp-field { display: grid; gap: 7px; }
+.tp-field label { font-size: 12.5px; font-weight: 800; color: var(--ink-2); }
+.tp-field input, .tp-field textarea, .tp-field select { box-sizing: border-box; width: 100%; font: 500 16px/1.4 var(--font-sans); color: var(--ink); background: var(--page);
+  border: 1px solid #d3d7d2; border-radius: var(--radius-field); padding: 12px 14px; transition: border-color .15s ease, box-shadow .15s ease; }
+.tp-field input:focus, .tp-field textarea:focus, .tp-field select:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 14%, transparent); }
+.tp-field .bad { border-color: var(--danger); }
+
+/* ── Photos ── */
+.tp-photo { border-radius: var(--radius-panel); overflow: hidden; background: var(--soft); aspect-ratio: 4 / 3; }
+.tp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .9s var(--ease); }
+a:hover > .tp-photo img, .tp-photo:hover img { transform: scale(1.035); }
+
+/* ── Website section rhythm ── */
+.tp-section { padding-block: var(--space-8) 0; }
+.tp-head { display: grid; gap: 12px; max-width: 760px; margin-bottom: 38px; }
+.tp-head h2 { font-size: clamp(30px, 4.6vw, 50px); font-weight: 800; line-height: 1.04; }
+.tp-head p { font-size: 17.5px; color: var(--ink-2); max-width: 56ch; margin: 0; }
+.tp-quiet { color: var(--ink-3); }
+
+/* ── Motion: things arrive once, never flash out ── */
+@keyframes tp-rise { from { opacity: 0; transform: translateY(14px); } }
+.tp-rise { animation: tp-rise var(--dur) var(--ease) backwards; }
+@media (prefers-reduced-motion: reduce) {
+  .tp-btn, .tp-card, .tp-photo img { transition: none; }
+  .tp-btn:hover, .tp-card:hover { transform: none; }
+  .tp-rise { animation: none; }
+}
+
+/* ── Phones ── */
+@media (max-width: 720px) {
+  .tp-band, .tp-sheet { padding-inline: 20px; }
+  .tp-headline { font-size: 24px; }
+  .tp-panel { padding: 26px 20px; border-radius: var(--radius-panel); }
+  .tp-bar nav { display: none; }
+}

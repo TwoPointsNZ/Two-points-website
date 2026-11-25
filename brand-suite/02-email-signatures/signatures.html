@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en-NZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email footers | Two Points</title><meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15171a;--ink-2:#555b63;--line:#e2e5e8;--soft:#f4f4f0;--band:#14170f}
+*{box-sizing:border-box}body{margin:0;font-family:"Plus Jakarta Sans",Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+.band{background:var(--band);color:#f2f4ef;padding:22px 20px;border-bottom:3px solid;border-image:linear-gradient(90deg,#14E0B4,#1FA9FF 38%,#6A5CFF 70%,#F15BB5) 1}
+.band p{margin:0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#a2a99d}
+.band h1{margin:6px 0 0;font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.15}.band h1 span{color:#a2a99d}
+main{max-width:760px;margin:0 auto;padding:24px 20px 60px}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 14px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);display:block}
+input{width:100%;margin-top:5px;font:inherit;font-size:15px;padding:9px 12px;border:1px solid var(--line);border-radius:12px}
+input:focus{outline:2px solid #1FA9FF;outline-offset:2px}
+section{padding:24px 0;border-bottom:1px solid var(--line)}
+h2{margin:0;font-size:19px;font-weight:800;letter-spacing:-.02em}
+section>p{margin:4px 0 16px;color:var(--ink-2);font-size:14px;line-height:1.5}
+.pv{background:var(--soft);border-radius:14px;padding:18px;overflow-x:auto}
+.pv .mail{background:#fff;border-radius:10px;padding:16px;min-width:452px;font-family:Helvetica,Arial,sans-serif;font-size:14px;color:#15171a}
+button{margin-top:12px;font:inherit;font-weight:700;font-size:14px;min-height:44px;padding:0 20px;border-radius:999px;color:#fff;cursor:pointer;border:1.5px solid transparent;
+  background:linear-gradient(var(--ink),var(--ink)) padding-box,linear-gradient(135deg,#0FC9A0,#1893E8 38%,#5647EE 70%,#DC47A0) border-box}
+button:focus-visible{outline:2px solid #1FA9FF;outline-offset:3px}
+.ok{margin-left:10px;font-size:13px;font-weight:700;color:#0b6b55}
+ol{color:var(--ink-2);font-size:14px;line-height:1.6;padding-left:20px}
+</style></head><body>
+<div class="band"><p>Two Points · internal</p><h1>Email footers,<br><span>five to choose from.</span></h1></div>
+<main>
+  <div class="who">
+    <div><label for="f-name">Name</label><input id="f-name" value="Joe Pope"></div>
+    <div><label for="f-role">Role</label><input id="f-role" value="Managing Director"></div>
+    <div><label for="f-qual">Qualification</label><input id="f-qual" value="IRATA Level 3 Supervisor"></div>
+    <div><label for="f-phone">Phone</label><input id="f-phone" value="021 0898 7180"></div>
+    <div><label for="f-email">Email</label><input id="f-email" value="Joe@twopoints.co.nz"></div>
+  </div>
+  <div id="list"></div>
+  <section style="border:0"><h2>Putting one into Gmail</h2>
+    <ol><li>Press <b>Copy</b> under the footer you want.</li><li>Gmail on a computer: Settings (gear) → See all settings → Signature → Create new → paste → Save changes.</li>
+    <li>On your iPhone: Gmail app → Settings → your account → Signature settings → turn <b>Mobile signature off</b>, so the full footer is used.</li>
+    <li>For a crew member: change the boxes at the top first, then copy.</li></ol></section>
+</main>
+<script>
+// Every picture below is already live at twopoints.co.nz/assets/email/. Never rename or move those files.
+const U='https://www.twopoints.co.nz/assets/email/', W='https://www.twopoints.co.nz/';
+const F='font-family:Helvetica,Arial,sans-serif;';
+const tel=p=>'+64'+p.replace(/\D/g,'').replace(/^0/,'');
+const T=(inner,w)=>`<table cellpadding="0" cellspacing="0" border="0" role="presentation"${w?` width="${w}"`:''} style="border-collapse:collapse;${w?`width:${w}px;`:''}">${inner}</table>`;
+const img=(f,w,h,alt,href)=>`${href?`<a href="${href}" style="text-decoration:none;">`:''}<img src="${U}${f}" width="${w}" height="${h}" alt="${alt}" style="display:block;border:0;width:${w}px;height:${h}px;">${href?'</a>':''}`;
+const social=()=>T(`<tr>${[['s-facebook.png','Facebook','https://m.facebook.com/twopointsnz/'],['s-instagram.png','Instagram','https://www.instagram.com/twopointsnz'],['s-linkedin.png','LinkedIn','https://www.linkedin.com/company/twopointsnz/'],['s-x.png','X','https://x.com/twopointsnz']]
+  .map(([f,a,h],i)=>`${i?'<td style="width:7px;font-size:0;line-height:0;">&nbsp;</td>':''}<td valign="middle" style="padding:0;">${img(f,20,20,a,h)}</td>`).join('')}</tr>`);
+const header=()=>`<tr><td bgcolor="#14170f" style="padding:9px 16px;background-color:#14170f;border-radius:9px 9px 0 0;">${T(`<tr><td valign="middle" style="padding:0;">${img('wordmark-white.png',108,22,'Two Points Rope Access',W)}</td><td valign="middle" align="right" style="padding:0;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" align="right" style="border-collapse:collapse;"><tr><td style="padding:0;">${social()}</td></tr></table></td></tr>`,384)}</td></tr>
+<tr><td style="padding:0;font-size:0;line-height:0;">${img('rule.png',416,3,'')}</td></tr>`;
+const person=(d,badge)=>`<tr><td style="padding:12px 16px 0 16px;">${T(`<tr><td valign="middle" width="48" style="padding:2px 0 0 0;width:48px;">${img('icon-white.png',48,48,'Two Points',W)}</td>
+<td valign="middle" style="padding:0 0 0 12px;"><div style="${F}font-size:18px;line-height:22px;font-weight:bold;letter-spacing:-0.3px;color:#15171a;">${d.name}</div><div style="${F}font-size:12.5px;line-height:17px;color:#555b63;">${d.role}</div>${d.qual?`<div style="${F}font-size:11.5px;line-height:15px;color:#8b9199;">${d.qual}</div>`:''}</td>
+${badge?`<td valign="middle" align="right" width="144" style="padding:2px 0 0 0;width:144px;">${img('sitewise5.png',138,48,'SiteWise Gold 2026/27',W+'#safety')}</td>`:''}</tr>`,384)}</td></tr>`;
+const hair=`<tr><td style="padding:11px 16px 0 16px;">${T('<tr><td style="padding:0;border-top:1px solid #e9ebe6;font-size:0;line-height:0;height:1px;">&nbsp;</td></tr>',384)}</td></tr>`;
+const item=(icon,alt,href,text,align)=>`<td valign="middle" align="${align}" style="padding:0;"><table cellpadding="0" cellspacing="0" border="0" role="presentation" align="${align}" style="border-collapse:collapse;"><tr><td valign="middle" style="padding:0 5px 0 0;">${img(icon,16,16,alt,href)}</td><td valign="middle" style="padding:0;${F}font-size:11.5px;line-height:16px;white-space:nowrap;"><a href="${href}" style="color:#15171a;text-decoration:none;font-weight:bold;">${text}</a></td></tr></table></td>`;
+const contact=d=>`<tr><td style="padding:9px 16px 10px 16px;">${T(`<tr>${item('c3-phone.png','Phone','tel:'+tel(d.phone),d.phone,'left')}${item('c3-email.png','Email','mailto:'+d.email,d.email,'center')}${item('c3-web.png','Website',W,'twopoints.co.nz','right')}</tr>`,384)}</td></tr>`;
+const card=rows=>`<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:separate;${F}color:#15171a;"><tr><td bgcolor="#ffffff" style="padding:0;background-color:#ffffff;border:1px solid #e2e5e8;border-radius:10px;">${T(rows,416)}</td></tr></table>`;
+
+const SIGS=[
+ ['1 · Full card','The one in use now. Logo band, name, SiteWise badge, contacts. Best for new enquiries and quotes.',
+   d=>card(header()+person(d,true)+hair+contact(d))],
+ ['2 · Card with quote button','The full card plus a "Get a free quote" button and the tagline. Good for first contact and follow-ups.',
+   d=>card(header()+person(d,true)+hair+contact(d)+`<tr><td bgcolor="#f4f4f0" style="padding:10px 16px;background-color:#f4f4f0;border-radius:0 0 9px 9px;">${T(`<tr><td valign="middle" style="padding:0;">${img('tagline.png',184,21,'Because ladders only go so far.')}</td><td valign="middle" align="right" style="padding:0;">${img('btn-quote5.png',156,36,'Get a free quote',W+'#contact')}</td></tr>`,384)}</td></tr>`)],
+ ['3 · Compact','No band and no badge. For everyday emails with people who already know you.',
+   d=>card(`<tr><td style="padding:0;font-size:0;line-height:0;border-radius:9px 9px 0 0;">${img('rule.png',416,3,'')}</td></tr>`+person(d,false)+hair+contact(d))],
+ ['4 · Reply','Three short lines for replies and long threads. One thin Alpenglow line, no card.',
+   d=>T(`<tr><td style="padding:0 0 8px 0;font-size:0;line-height:0;">${img('rule.png',120,3,'')}</td></tr>
+<tr><td style="padding:0;${F}font-size:14px;line-height:19px;font-weight:bold;color:#15171a;">${d.name}</td></tr>
+<tr><td style="padding:0;${F}font-size:12px;line-height:17px;color:#555b63;">${d.role}, Two Points Rope Access</td></tr>
+<tr><td style="padding:2px 0 0 0;${F}font-size:12px;line-height:17px;white-space:nowrap;"><a href="tel:${tel(d.phone)}" style="color:#15171a;text-decoration:none;font-weight:bold;">${d.phone}</a><span style="color:#8b9199;">&nbsp;&nbsp;·&nbsp;&nbsp;</span><a href="${W}" style="color:#15171a;text-decoration:none;font-weight:bold;">twopoints.co.nz</a></td></tr>`,300)],
+ ['5 · Card with logo only','Band, name and contacts, with no badge. For crew members who are not the SiteWise contact.',
+   d=>card(header()+person(d,false)+hair+contact(d))],
+];
+const get=()=>({name:document.getElementById('f-name').value,role:document.getElementById('f-role').value,qual:document.getElementById('f-qual').value,phone:document.getElementById('f-phone').value,email:document.getElementById('f-email').value});
+function draw(){const d=get();document.getElementById('list').innerHTML=SIGS.map(([t,p,fn],i)=>`<section><h2>${t}</h2><p>${p}</p><div class="pv"><div class="mail"><div style="margin-bottom:14px">Regards,</div><div class="sig" id="sig${i}">${fn(d)}</div></div></div><button type="button" data-i="${i}">Copy footer ${i+1}</button><span class="ok" role="status" id="ok${i}"></span></section>`).join('');}
+document.addEventListener('input',e=>{if(e.target.matches('input'))draw()});
+document.addEventListener('click',async e=>{const b=e.target.closest('button[data-i]');if(!b)return;const el=document.getElementById('sig'+b.dataset.i),ok=document.getElementById('ok'+b.dataset.i);
+  try{await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([el.innerHTML],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})]);ok.textContent='Copied. Paste it into Gmail.'}
+  catch{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges();ok.textContent='Copied. Paste it into Gmail.'}});
+draw();
+</script></body></html>

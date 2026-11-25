@@ -1,0 +1,37 @@
+<!doctype html><html lang="en-NZ"><head><meta charset="utf-8"><title>Van concepts</title>
+<meta name="out" content='[
+{"type":"png","sel":"#sheet","file":"05-vehicle/van-concepts-A-B-C.jpg","scale":1.5,"vw":2900},
+{"type":"png","sel":"#kerb .van","file":"05-vehicle/mockups/van-B-kerb-side.jpg","scale":2},
+{"type":"png","sel":"#driver .van","file":"05-vehicle/mockups/van-B-driver-side.jpg","scale":2},
+{"type":"png","sel":"#rearB .van","file":"05-vehicle/mockups/van-B-rear.jpg","scale":2},
+{"type":"png","sel":"#cA .van","file":"05-vehicle/mockups/van-A-kerb-side.jpg","scale":2},
+{"type":"png","sel":"#cC .van","file":"05-vehicle/mockups/van-C-kerb-side.jpg","scale":2},
+{"type":"png","sel":"#rearA .van","file":"05-vehicle/mockups/van-A-rear.jpg","scale":2},
+{"type":"png","sel":"#grey .van","file":"05-vehicle/mockups/van-B-dark-van.jpg","scale":2}]'>
+<link rel="stylesheet" href="../brand.css">
+<style>body{background:#fff;width:2900px}
+#sheet{width:2900px;padding:70px;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1344px);gap:44px 72px}
+.cell h2{font-size:34px;margin:0 0 4px}.cell p{font-size:20px;color:var(--ink-2);margin-bottom:14px;max-width:1200px}
+.van{border-radius:22px}
+.tag{display:inline-block;font-size:15px;font-weight:700;background:#d6f7ee;color:#0b6b55;border-radius:99px;padding:4px 14px;margin-left:12px;vertical-align:middle;letter-spacing:0}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:46px;border-bottom:1px solid var(--line);padding-bottom:28px}
+.hd h1{font-size:64px}.hd p{font-size:21px;color:var(--ink-2);max-width:900px;text-align:right}
+</style></head><body>
+<div id="sheet">
+  <div class="hd"><h1>Van livery <span class="quiet">three</span> <span class="rb">options</span><span class="dot"></span></h1><p>Ford Transit Custom 2015. Mock-ups for choosing a direction. The van photos are computer-made blanks; the artwork on them is the real vector logo and type.</p></div>
+  <div class="grid">
+    <div class="cell" id="cA"><h2>A · Letterhead</h2><p>A dark sill band with the Alpenglow line, like the letterhead. Logo on the door, phone on the rear panel.</p></div>
+    <div class="cell" id="kerb"><h2>B · Two lines <span class="tag">Recommended</span></h2><p>A working line and a backup line hang down the side, from two anchor points. Cheapest to make, and the most "Two Points".</p></div>
+    <div class="cell" id="cC"><h2>C · Headline</h2><p>The website's opening line, big enough to read from across the road.</p></div>
+    <div class="cell" id="grey"><h2>B on a dark van</h2><p>If the van is grey or black: the same layout with the white logo.</p></div>
+    <div class="cell" id="driver"><h2>B · Driver's side</h2><p>Same parts, laid out from the front again so the phone number still reads first.</p></div>
+    <div class="cell" id="rear" style="display:flex;gap:40px"><div style="width:652px"><h2>B · Rear doors</h2><p>Logo left, phone right, tagline low.</p><div style="zoom:.558" id="rearB"></div></div><div style="width:652px" id="rearAwrap"><h2>A · Rear doors</h2><p>The line runs across both doors.</p><div style="zoom:.558" id="rearA"></div></div></div>
+  </div>
+</div>
+<script src="../van.js"></script>
+<script>
+const put=(id,h)=>document.getElementById(id).insertAdjacentHTML('beforeend',h);
+put('cA',side('A'));put('kerb',side('B'));put('cC',side('C'));put('grey',side('B',{dark:true}));put('driver',side('B',{mirror:true}));
+put('rearB',rear('B'));put('rearA',rear('A'));
+</script></body></html>

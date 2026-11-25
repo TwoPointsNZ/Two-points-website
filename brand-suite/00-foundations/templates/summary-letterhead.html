@@ -1,0 +1,66 @@
+<!doctype html>
+<!--
+  The letterhead summary: Joe's favourite look (the Morning Update, 8 Nov 2026).
+  "Professional with a touch of design flare … moderate use of colour … super premium."
+  Use it for any summary, briefing, client page or status screen. Shown here in Simple's colours;
+  remove data-brand="simple" for Two Points.
+-->
+<html lang="en-NZ" data-brand="simple">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morning Update</title>
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../css/two-points.css">
+<style>
+  body { margin: 0; background: var(--soft); padding: 24px 12px; }
+  .today { display: flex; gap: 14px; align-items: center; }
+  .today b { display: block; font-size: 15px; } .today span { font-size: 13px; color: var(--ink-2); }
+  .right { display: flex; align-items: center; gap: 10px; }
+  .pipe { display: flex; justify-content: space-between; align-items: baseline; margin: 12px 0 10px; }
+</style>
+</head>
+<body>
+<article class="tp tp-letterhead">
+  <header class="tp-band">
+    <div class="tp-band-top">
+      <img class="logo" src="../logos/simple/simple-mark.svg" alt="Simple" style="height:30px">
+      <span>Tue 24 Nov</span>
+    </div>
+    <span class="tp-rbl">Morning Update</span>
+    <h1 class="tp-headline">3 things need you,<i>2 emails are ready to send.</i></h1>
+  </header>
+
+  <div class="tp-sheet">
+    <section>
+      <div class="tp-label">On today</div>
+      <div class="today" style="margin-top:14px">
+        <div class="tp-cal"><b>24</b><span>Nov</span></div>
+        <div><b>St Andrew's College · Chapel roof</b><span>Jayden, Sam · Day 2 of 2</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="tp-label">Your to-do <span class="tp-count">3</span></div>
+      <div class="tp-rows" style="margin-top:10px">
+        <a class="tp-row" href="#"><div><b>Send 2 site reports</b><span>Washco · St Andrew's College</span></div><span class="tp-tag waiting">2 ready</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+        <a class="tp-row" href="#"><div><b>Renew a certificate</b><span>Sam · First aid · expires 30 Nov</span></div><span class="tp-tag waiting">Overdue</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+        <a class="tp-row" href="#"><div><b>Book jobs</b><span>Nothing waiting to be booked</span></div><span class="tp-tag clear">Clear</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+      </div>
+    </section>
+
+    <section>
+      <div class="tp-label">Pipeline</div>
+      <div class="pipe"><span class="tp-fig">$18,420</span><span style="font-size:13px;color:var(--ink-2)">6 quotes waiting on clients</span></div>
+      <div class="tp-progress"><i style="width:62%"></i></div>
+    </section>
+  </div>
+
+  <footer class="tp-band foot">
+    <img class="logo" src="../logos/simple/simple-mark.svg" alt="" style="height:22px">
+    <span class="rule"></span>
+    <span>Simple · for Two Points Ltd<br>Christchurch</span>
+  </footer>
+</article>
+</body>
+</html>

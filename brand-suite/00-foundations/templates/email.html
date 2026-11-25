@@ -1,0 +1,104 @@
+<!doctype html>
+<!--
+  Two Points client email: the letterhead, built for Gmail (incl. dark mode on iPhone) and Outlook.
+
+  Rules (tested on Joe's iPhone, Nov 2026). Break one and the email looks wrong in someone's inbox:
+  1. Tables + inline styles only. No <style> layout, no flexbox, no grid. (The <style> below is ONLY the Gmail dark-mode fix.)
+  2. Every dark fill is set THREE ways: bgcolor="", background-color, AND background-image:linear-gradient(c,c).
+     Gmail dark mode flips plain colours but leaves background-image alone, so the band stays dark.
+  3. All text sitting on a dark fill is white or grey, and wrapped in the two blend layers:
+     <div class="gs"><div class="gd"> … </div></div>   (needs <body class="body"> and the CSS below).
+  4. Colour only comes from PICTURES and fills: the logo, the rainbow label, the › arrows are PNGs.
+     Never coloured text (Gmail turns blue text orange in dark mode) and never dark text on a rainbow.
+  5. The white page uses plain colours, so Gmail flips it evenly to dark.
+  6. Pictures are attached and referenced as cid: (src="cid:tplogo"). Here they point at files so you can preview.
+  7. Sign off with just "Regards," (Gmail does not add a signature to mail sent over SMTP).
+  8. Gmail's own MCP/send tool strips gradients: test by sending a real email, not a pasted draft.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Site completion report · JC013</title>
+<style>u + .body .gs { background:#000; mix-blend-mode:screen; } u + .body .gd { background:#000; mix-blend-mode:difference; }</style>
+</head>
+<body class="body" style="margin:0;padding:0;background-color:#f4f4f0;">
+<!-- the hidden preview line the inbox shows under the subject -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">JC013 · Canopies is attached. Completed 21 Nov 2026.</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f4f4f0" style="background-color:#f4f4f0;">
+<tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;font-family:'Plus Jakarta Sans',Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+
+  <!-- ── Dark band (header) ── -->
+  <tr><td bgcolor="#14170f" style="background-color:#14170f;background-image:linear-gradient(#14170f,#14170f);border-radius:10px 10px 0 0;padding:26px 30px 28px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td><img src="../logos/two-points/two-points-logo-white.png" alt="Two Points" height="34" style="display:block;height:34px;width:auto;border:0;"><!-- send as cid:tplogo --></td>
+        <td align="right" style="font-size:13px;"><div class="gs"><div class="gd" style="color:#a2a99d;">21 Nov 2026</div></div></td>
+      </tr>
+    </table>
+    <!-- the rainbow label is a PICTURE (render it per-letter at 3x, transparent, ~2 KB PNG). Text fallback shown here. -->
+    <div style="margin-top:28px;font-size:13.5px;font-weight:700;"><div class="gs"><div class="gd" style="color:#f2f4ef;">Site Completion Report</div></div></div>
+    <div style="margin-top:8px;font-size:26px;line-height:1.18;font-weight:800;letter-spacing:-0.4px;"><div class="gs"><div class="gd">
+      <span style="color:#f2f4ef;">St Andrew's College,</span><br><span style="color:#a2a99d;">chapel and bridge canopies.</span>
+    </div></div></div>
+    <div style="margin-top:10px;font-size:13px;"><div class="gs"><div class="gd" style="color:#a2a99d;">347 Papanui Road, Christchurch</div></div></div>
+    <!-- a row of reference details -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;">
+      <tr>
+        <td style="padding-right:26px;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;"><div class="gs"><div class="gd" style="color:#a2a99d;">Ref</div></div></td>
+        <td style="padding-right:26px;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;"><div class="gs"><div class="gd" style="color:#a2a99d;">Completed</div></div></td>
+      </tr>
+      <tr>
+        <td style="padding-right:26px;padding-top:3px;font-size:14px;font-weight:700;"><div class="gs"><div class="gd" style="color:#f2f4ef;">JC013</div></div></td>
+        <td style="padding-right:26px;padding-top:3px;font-size:14px;font-weight:700;"><div class="gs"><div class="gd" style="color:#f2f4ef;">21 Nov 2026</div></div></td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- ── White page ── -->
+  <tr><td bgcolor="#ffffff" style="background-color:#ffffff;padding:28px 30px 8px;color:#15171a;font-size:15px;line-height:1.6;">
+    <p style="margin:0 0 14px;">Hi Ben,</p>
+    <p style="margin:0 0 14px;">The canopies at the chapel and bridge are finished. The site completion report is attached, with before and after photos.</p>
+    <p style="margin:0 0 22px;">Regards,</p>
+
+    <!-- section label + count right beside it -->
+    <div style="font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#555b63;border-top:1px solid #e2e5e8;padding-top:20px;">Attached</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;">
+      <tr>
+        <td width="44" style="padding:14px 0;border-bottom:1px solid #e2e5e8;vertical-align:middle;">
+          <!-- the PDF tile: a small dark squircle with a rainbow edge, as a picture (cid:pdftile). Plain fallback: -->
+          <div style="width:32px;height:32px;border-radius:9px;background-color:#14170f;background-image:linear-gradient(#14170f,#14170f);"></div>
+        </td>
+        <td style="padding:14px 0;border-bottom:1px solid #e2e5e8;vertical-align:middle;">
+          <div style="font-size:15px;font-weight:700;color:#15171a;">JC013 · Canopies</div>
+          <div style="font-size:13px;color:#555b63;">PDF · 2.1 MB</div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- signature card: a short rainbow line above it, as a picture or a 3px table cell with background-image -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:26px;">
+      <tr><td style="height:3px;width:56px;line-height:3px;font-size:3px;background-color:#1893E8;background-image:linear-gradient(90deg,#14E0B4,#1FA9FF 38%,#6A5CFF 70%,#F15BB5);border-radius:3px;">&nbsp;</td></tr>
+    </table>
+    <div style="margin-top:12px;font-size:15px;font-weight:800;color:#15171a;">Joe Pope</div>
+    <div style="font-size:13px;color:#555b63;line-height:1.6;">Director · Two Points Ltd<br>021 0898 7180 · twopoints.co.nz</div>
+    <div style="height:26px;line-height:26px;font-size:26px;">&nbsp;</div>
+  </td></tr>
+
+  <!-- ── Dark band (footer) ── -->
+  <tr><td bgcolor="#14170f" style="background-color:#14170f;background-image:linear-gradient(#14170f,#14170f);border-radius:0 0 10px 10px;padding:20px 30px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td style="padding-right:16px;vertical-align:middle;"><img src="../logos/two-points/two-points-logo-white.png" alt="Two Points" height="24" style="display:block;height:24px;width:auto;border:0;"></td>
+      <td style="border-left:1px solid #3a3e36;padding-left:16px;font-size:12.5px;line-height:1.5;vertical-align:middle;"><div class="gs"><div class="gd" style="color:#a2a99d;">Two Points Ltd · Rope access &amp; exterior building maintenance<br>Christchurch, New Zealand</div></div></td>
+    </tr></table>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

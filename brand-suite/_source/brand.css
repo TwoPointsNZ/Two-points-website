@@ -1,0 +1,40 @@
+/* Two Points brand suite — shared print styles. Values come from 00-foundations/tokens. */
+@font-face{font-family:"Plus Jakarta Sans";font-weight:400;src:url(fonts/plus-jakarta-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:500;src:url(fonts/plus-jakarta-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:600;src:url(fonts/plus-jakarta-sans-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:700;src:url(fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Plus Jakarta Sans";font-weight:800;src:url(fonts/plus-jakarta-sans-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500;src:url(fonts/JetBrainsMono-Medium.ttf)}
+@font-face{font-family:"JetBrains Mono";font-weight:700;src:url(fonts/JetBrainsMono-Bold.ttf)}
+:root{
+  --page:#fff;--soft:#f4f4f0;--ink:#15171a;--ink-2:#555b63;--ink-3:#8b9199;--line:#e2e5e8;
+  --band:#14170f;--band-ink:#f2f4ef;--band-ink-2:#a2a99d;
+  --c1:#14E0B4;--c2:#1FA9FF;--c3:#6A5CFF;--c4:#F15BB5;
+  --d1:#0FC9A0;--d2:#1893E8;--d3:#5647EE;--d4:#DC47A0;
+  --glow-line:linear-gradient(90deg,var(--c1) 0%,var(--c2) 38%,var(--c3) 70%,var(--c4) 100%);
+  --glow:linear-gradient(45deg,var(--c1) 0%,var(--c2) 38%,var(--c3) 70%,var(--c4) 100%);
+  --ring:linear-gradient(135deg,var(--d1) 0%,var(--d2) 38%,var(--d3) 70%,var(--d4) 100%);
+  --dot:linear-gradient(135deg,var(--c3),var(--c4));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:"Plus Jakarta Sans",sans-serif;color:var(--ink);background:#fff;font-size:10pt;line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:"JetBrains Mono",monospace;font-weight:500}
+img,svg{display:block}
+/* print sheet with bleed + crop marks: <div class="print" style="--w:90mm;--h:55mm"><div class="art">…<div class="trim">…</div></div></div> */
+.print{position:relative;width:calc(var(--w) + 20mm);height:calc(var(--h) + 20mm);page-break-after:always;break-after:page;overflow:hidden;background:#fff}
+.print .art{position:absolute;left:7mm;top:7mm;width:calc(var(--w) + 6mm);height:calc(var(--h) + 6mm);overflow:hidden;background:#fff}
+.print .trim{position:absolute;left:3mm;top:3mm;width:var(--w);height:var(--h)}
+.print i.mk{position:absolute;background:#000;display:block}
+.print .slug{position:absolute;left:10mm;bottom:1.2mm;font-size:5pt;color:#777;letter-spacing:.04em;white-space:nowrap}
+/* no-bleed sheet */
+.sheet{position:relative;width:var(--w);height:var(--h);page-break-after:always;break-after:page;overflow:hidden;background:#fff}
+.print .art.dark{background:var(--band)}
+.band{background:var(--band);color:var(--band-ink)}
+.rule{height:3px;background:var(--glow-line)}
+.label{font-size:6.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.dot{display:inline-block;width:.17em;height:.17em;border-radius:50%;background:var(--dot);margin-left:.04em;vertical-align:baseline}
+.rb{background:linear-gradient(90deg,var(--d1),var(--d2) 38%,var(--d3) 70%,var(--d4));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rbl{background:var(--glow-line);-webkit-background-clip:text;background-clip:text;color:transparent}
+.quiet{color:var(--ink-3)}
+h1,h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1.04}

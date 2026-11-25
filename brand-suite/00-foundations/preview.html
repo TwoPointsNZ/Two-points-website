@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en-NZ" data-brand="two-points">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Two Points design package</title>
+<link rel="icon" href="logos/two-points/two-points-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="css/two-points.css">
+<style>
+  body { margin: 0; }
+  .hero { padding-block: 56px 8px; }
+  .hero h1 { font-size: clamp(44px, 8vw, 96px); line-height: .98; letter-spacing: -.05em; font-weight: 800; margin-top: 14px; }
+  .hero p { margin: 18px 0 0; font-size: 19px; color: var(--ink-2); max-width: 40em; font-weight: 500; }
+  .switch { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.08); }
+  .switch button { height: 32px; padding: 0 14px; border: 0; border-radius: 999px; background: none; color: var(--band-ink-2); font: 700 13px var(--font-sans); cursor: pointer; }
+  .switch button[aria-pressed="true"] { background: var(--band-ink); color: var(--band); }
+  .switch button:disabled { opacity: .35; cursor: default; }
+  section.tp-section { padding-block: 72px 0; }
+  .sw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .sw { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--page); }
+  .sw i { display: block; height: 64px; }
+  .sw div { padding: 10px 12px; font-size: 12.5px; line-height: 1.4; }
+  .sw b { display: block; font-size: 13px; }
+  .sw code { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-2); }
+  .grads { display: grid; gap: 12px; margin-top: 22px; }
+  .grad { display: grid; grid-template-columns: 170px 1fr; gap: 16px; align-items: center; font-size: 13px; }
+  .grad i { display: block; height: 26px; border-radius: 8px; }
+  .grad code { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); }
+  .type-row { display: grid; grid-template-columns: 160px 1fr; gap: 18px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .type-row small { font-size: 12px; color: var(--ink-2); }
+  .demo { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 16px; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .logo-cell { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .logo-cell > div { height: 130px; display: grid; place-items: center; padding: 18px; }
+  .logo-cell > div.dark { background: var(--band); }
+  .logo-cell img, .logo-cell svg { max-height: 86px; max-width: 100%; }
+  .logo-cell p { margin: 0; padding: 10px 12px; font-size: 12.5px; color: var(--ink-2); border-top: 1px solid var(--line); }
+  .tpl { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .note { margin-top: 14px; font-size: 14px; color: var(--ink-2); }
+  .pfoot { margin-top: 96px; background: var(--band); color: var(--band-ink-2); font-size: 14px; }
+  .pfoot .tp-wrap { padding-block: 28px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+  .tp-bar nav.pv-nav { display: flex; gap: 10px; }
+  @media (max-width: 600px) { .tp-bar > img, .tp-bar > span { display: none !important; } .tp-bar nav.pv-nav { margin: 0 auto; } .switch button { padding: 0 10px; } }
+  [data-brand="simple"] .tp-only, [data-brand="two-points"] .simple-only { display: none !important; }
+  @media (max-width: 820px) { .twocol, .cards3 { grid-template-columns: 1fr; } .grad, .type-row { grid-template-columns: 1fr; gap: 6px; } }
+</style>
+</head>
+<body class="tp">
+
+<header class="tp-topband">
+  <div class="tp-wrap tp-bar">
+    <img class="tp-only" src="logos/two-points/two-points-wordmark-white.svg" alt="Two Points" style="height:30px;width:auto">
+    <span class="simple-only" style="display:inline-flex;align-items:center;gap:10px;font:800 21px var(--font-sans);letter-spacing:-.03em;color:#fff">
+      <img src="logos/simple/simple-mark.svg" alt="" style="width:34px;height:34px">Simple<span class="tp-dot" style="margin-left:-6px;align-self:flex-end;margin-bottom:.36em"></span>
+    </span>
+    <nav class="pv-nav">
+      <div class="switch" role="group" aria-label="Brand">
+        <button data-b="two-points" aria-pressed="true">Two Points</button>
+        <button data-b="simple" aria-pressed="false">Simple</button>
+      </div>
+      <div class="switch" role="group" aria-label="Theme">
+        <button data-t="light" aria-pressed="true">Light</button>
+        <button data-t="dark" aria-pressed="false" disabled title="Dark mode is for the Simple apps">Dark</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="tp-wrap">
+  <section class="hero">
+    <span class="tp-eyebrow">Design package · v1.0 · 24 Nov 2026</span>
+    <h1>One family, <span class="tp-rb">two accents</span><span class="tp-dot"></span></h1>
+    <p>Everything Two Points makes shares the letterhead, the neutrals, the type and the shapes. Only the logo and the
+      accent run change: <b style="color:var(--ink)">Alpenglow</b> for Two Points, the <b style="color:var(--ink)">Simple rainbow</b> for the software. Use the switch at the top.</p>
+  </section>
+
+  <!-- Logos -->
+  <section class="tp-section">
+    <div class="tp-head"><span class="tp-eyebrow">1 · Logos</span><h2>Two marks, <span class="tp-quiet">one recipe.</span></h2>
+      <p>Same squircle, same ring, same dark fill. Client documents always carry Two Points Ltd.</p></div>
+    <div class="logos">
+      <div class="logo-cell"><div class="dark"><img src="logos/two-points/two-points-logo-white.png" alt=""></div><p><b>two-points-logo-white.png</b><br>Document covers, emails</p></div>
+      <div class="logo-cell"><div style="background:#fff"><img src="logos/two-points/two-points-wordmark-ink.svg" alt=""></div><p><b>two-points-wordmark-ink.svg</b><br>On white</p></div>
+      <div class="logo-cell"><div><img src="logos/two-points/two-points-icon.svg" alt="" style="height:86px"></div><p><b>two-points-icon.svg</b><br>Favicon, app tile</p></div>
+      <div class="logo-cell"><div><img src="logos/simple/simple-mark.svg" alt="" style="height:86px"></div><p><b>simple-mark.svg</b><br>The software only</p></div>
+    </div>
+  </section>
+
+  <!-- Colour -->
+  <section class="tp-section">
+    <div class="tp-head"><span class="tp-eyebrow">2 · Colour</span><h2>Mostly ink and white. <span class="tp-quiet">Colour means something.</span></h2></div>
+    <div class="tp-label">Neutrals</div>
+    <div class="sw-grid" style="margin-top:12px">
+      <div class="sw"><i style="background:var(--page);border-bottom:1px solid var(--line)"></i><div><b>page</b><code>--page</code></div></div>
+      <div class="sw"><i style="background:var(--soft)"></i><div><b>soft</b><code>--soft</code></div></div>
+      <div class="sw"><i style="background:var(--line)"></i><div><b>line</b><code>--line</code></div></div>
+      <div class="sw"><i style="background:var(--ink-3)"></i><div><b>ink 3</b><code>--ink-3</code></div></div>
+      <div class="sw"><i style="background:var(--ink-2)"></i><div><b>ink 2</b><code>--ink-2</code></div></div>
+      <div class="sw"><i style="background:var(--ink)"></i><div><b>ink</b><code>--ink</code></div></div>
+      <div class="sw"><i style="background:var(--band)"></i><div><b>band</b><code>--band</code></div></div>
+    </div>
+    <div class="tp-label" style="margin-top:28px">Accent run · <span class="tp-only">Alpenglow</span><span class="simple-only">Simple rainbow</span></div>
+    <div class="sw-grid" style="margin-top:12px">
+      <div class="sw"><i style="background:var(--c1)"></i><div><b>Stop 1</b><code>--c1 · --d1</code></div></div>
+      <div class="sw"><i style="background:var(--c2)"></i><div><b>Stop 2</b><code>--c2 · --d2</code></div></div>
+      <div class="sw"><i style="background:var(--c3)"></i><div><b>Stop 3</b><code>--c3 · --d3</code></div></div>
+      <div class="sw"><i style="background:var(--c4)"></i><div><b>Stop 4</b><code>--c4 · --d4</code></div></div>
+      <div class="sw"><i style="background:var(--waiting-bg)"></i><div><b>waiting</b><code>--waiting-*</code></div></div>
+      <div class="sw"><i style="background:var(--clear-bg)"></i><div><b>clear</b><code>--clear-*</code></div></div>
+      <div class="sw"><i style="background:var(--danger)"></i><div><b>danger</b><code>--danger</code></div></div>
+    </div>
+    <div class="grads">
+      <div class="grad"><code>--rainbow</code><i style="background:var(--rainbow)"></i></div>
+      <div class="grad"><code>--rainbow-line</code><i style="background:var(--rainbow-line)"></i></div>
+      <div class="grad"><code>--rainbow-word</code><i style="background:var(--rainbow-word)"></i></div>
+      <div class="grad"><code>--ring</code><i style="background:var(--ring)"></i></div>
+      <div class="grad"><code>--edge-alert</code><i style="background:var(--edge-alert)"></i></div>
+    </div>
+  </section>
+
+  <!-- Type -->
+  <section class="tp-section">
+    <div class="tp-head"><span class="tp-eyebrow">3 · Type</span><h2>Plus Jakarta Sans. <span class="tp-quiet">Heavy, tight, plain.</span></h2></div>
+    <div class="type-row"><small>Section heading · 50 / 800</small><span style="font-size:clamp(30px,4.6vw,50px);font-weight:800;line-height:1.04;letter-spacing:-.03em">Three things, <span class="tp-quiet">done properly.</span></span></div>
+    <div class="type-row"><small>Headline · 28 / 800</small><span style="font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.15">3 things need you,<br><span style="color:var(--ink-3)">2 emails are ready to send.</span></span></div>
+    <div class="type-row"><small>Row title · 15 / 700</small><span style="font-size:15px;font-weight:700">Review St Andrew's College completion form</span></div>
+    <div class="type-row"><small>Body · 16 / 400</small><span>Windows, roofs and facades on buildings other people can't reach.</span></div>
+    <div class="type-row"><small>Detail · 13 / 400</small><span style="font-size:13px;color:var(--ink-2)">Jayden Taylor sent it from Simple Field · 7 Nov</span></div>
+    <div class="type-row"><small>Label · 11 / 700 caps</small><span class="tp-label">Your to-do <span class="tp-count">3</span></span></div>
+    <div class="type-row"><small>Mono · references</small><span class="tp-mono">Q014 · JC013 · SSSP-027</span></div>
+  </section>
+
+  <!-- Components -->
+  <section class="tp-section">
+    <div class="tp-head"><span class="tp-eyebrow">4 · Components</span><h2>Things you press <span class="tp-rb">wear a ring</span>.</h2></div>
+    <div class="tp-label">Buttons</div>
+    <div class="demo">
+      <button class="tp-btn">Get a quote</button>
+      <button class="tp-btn paper">See our work</button>
+      <button class="tp-btn mirror">Partner</button>
+      <button class="tp-btn alert">Incident</button>
+      <button class="tp-btn small">Small</button>
+      <button class="tp-btn rect">Desk button</button>
+      <button class="tp-go" aria-label="Open"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></button>
+    </div>
+    <div class="tp-label" style="margin-top:28px">Tags</div>
+    <div class="demo"><span class="tp-tag waiting">Overdue</span><span class="tp-tag waiting">2 ready</span><span class="tp-tag clear">Clear</span><span class="tp-tag">Day 1</span><span class="tp-tag soon">Coming soon</span></div>
+
+    <div class="twocol" style="margin-top:36px">
+      <div>
+        <div class="tp-label">Rows <span class="tp-count">2</span></div>
+        <div class="tp-rows" style="margin-top:10px">
+          <a class="tp-row" href="#"><div><b>Send 2 site reports</b><span>Washco · St Andrew's College</span></div><span class="tp-tag waiting">2 ready</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+          <a class="tp-row" href="#"><div><b>Renew a certificate</b><span>Sam · First aid · 30 Nov</span></div><span class="tp-tag waiting">Overdue</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+          <div class="tp-row"><div><b>Book jobs</b><span>Nothing waiting</span></div><span class="tp-tag clear">Clear</span><span></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="tp-label">Tiles, dates, progress</div>
+        <div class="demo">
+          <span class="tp-tile"><b>1</b></span><span class="tp-tile"><b>2</b></span><span class="tp-tile"><b>3</b></span>
+          <span class="tp-cal"><b>24</b><span>Nov</span></span>
+        </div>
+        <div class="tp-progress" style="margin-top:22px"><i style="width:62%"></i></div>
+        <div class="tp-field" style="margin-top:22px"><label for="pv">Field</label><input id="pv" placeholder="Site address"></div>
+      </div>
+    </div>
+
+    <div class="tp-label" style="margin-top:36px">Cards (apps only)</div>
+    <div class="cards3" style="margin-top:12px">
+      <div class="tp-card action"><h3>Site reports to send</h3><div class="tp-fig owed">2</div><p>Click to see who</p></div>
+      <div class="tp-card"><h3>Jobs to book</h3><div class="tp-fig zero">0</div><p>All booked</p></div>
+      <div class="tp-card"><h3>Won this month</h3><div class="tp-fig">$12,480</div><p>4 quotes accepted</p></div>
+    </div>
+  </section>
+
+  <!-- Letterhead -->
+  <section class="tp-section">
+    <div class="tp-head"><span class="tp-eyebrow">5 · The letterhead</span><h2>Dark band, white page, <span class="tp-quiet">dark band.</span></h2>
+      <p>Emails, documents, summaries and the websites all use it.</p></div>
+    <article class="tp-letterhead" style="border:1px solid var(--line)">
+      <header class="tp-band">
+        <div class="tp-band-top">
+          <img class="tp-only" src="logos/two-points/two-points-logo-white.png" alt="Two Points" style="height:34px">
+          <img class="simple-only" src="logos/simple/simple-mark.svg" alt="Simple" style="height:30px">
+          <span>Tue 24 Nov</span>
+        </div>
+        <span class="tp-rbl"><span class="tp-only">Site Completion Report</span><span class="simple-only">Morning Update</span></span>
+        <h3 class="tp-headline"><span class="tp-only">St Andrew's College,<i>chapel and bridge canopies.</i></span><span class="simple-only">3 things need you,<i>2 emails are ready to send.</i></span></h3>
+      </header>
+      <div class="tp-sheet">
+        <section>
+          <div class="tp-label">Attached</div>
+          <div class="tp-rows" style="margin-top:10px">
+            <div class="tp-row"><div><b>JC013 · Canopies</b><span>PDF · 2.1 MB</span></div><span class="tp-tag clear">Ready</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></div>
+          </div>
+        </section>
+      </div>
+      <footer class="tp-band foot"><span>Two Points Ltd · Rope access &amp; exterior building maintenance<br>Christchurch</span></footer>
+    </article>
+  </section>
+
+  <!-- Templates -->
+  <section class="tp-section">
+    <div class="tp-head"><span class="tp-eyebrow">6 · Templates</span><h2>Start from these.</h2></div>
+    <div class="tp-rows tpl-rows">
+      <a class="tp-row" href="templates/web-page.html"><div><b>Website page</b><span>Sticky band, hero, sections, contact, footer</span></div><span class="tp-tag">HTML</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+      <a class="tp-row" href="templates/document-a4.html"><div><b>A4 document</b><span>Quote layout: also the frame for SSSPs and site reports</span></div><span class="tp-tag">Print</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+      <a class="tp-row" href="templates/email.html"><div><b>Client email</b><span>Gmail-safe, dark-mode-proof letterhead</span></div><span class="tp-tag">Email</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+      <a class="tp-row" href="templates/summary-letterhead.html"><div><b>Summary</b><span>The Morning Update look, for any status page</span></div><span class="tp-tag">HTML</span><span class="tp-go"><svg viewBox="0 0 12 12"><path d="M5.4 2.2 8.6 6l-3.2 3.8"/></svg></span></a>
+    </div>
+    <p class="note">Rules and reasons are in <code>docs/</code>. Open questions are in <code>docs/decisions.md</code>.</p>
+  </section>
+</main>
+
+<footer class="pfoot"><div class="tp-wrap"><img src="logos/two-points/two-points-wordmark-white.svg" alt="Two Points" style="height:26px;width:auto"><span>Two Points design package · Christchurch</span></div></footer>
+
+<script>
+  const root = document.documentElement;
+  const band = document.querySelector('.tp-topband');
+  addEventListener('scroll', () => band.classList.toggle('scrolled', scrollY > 4), { passive: true });
+  const set = () => {
+    document.querySelectorAll('[data-b]').forEach(b => b.setAttribute('aria-pressed', b.dataset.b === root.dataset.brand));
+    document.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', b.dataset.t === (root.dataset.theme || 'light')));
+    document.querySelector('[data-t="dark"]').disabled = root.dataset.brand !== 'simple';
+  };
+  document.querySelectorAll('[data-b]').forEach(b => b.onclick = () => { root.dataset.brand = b.dataset.b; if (b.dataset.b !== 'simple') delete root.dataset.theme; set(); });
+  document.querySelectorAll('[data-t]').forEach(b => b.onclick = () => { if (b.dataset.t === 'dark') root.dataset.theme = 'dark'; else delete root.dataset.theme; set(); });
+  set();
+</script>
+</body>
+</html>
