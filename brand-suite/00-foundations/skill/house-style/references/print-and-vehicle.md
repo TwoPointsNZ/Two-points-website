@@ -23,6 +23,7 @@ A new graphic device, made for print and the van.
 | `logos/two-points/two-points-logo-vector-ink.svg` | Full logo (mountain, TWO POINTS, ROPE ACCESS) as one vector file. On white. |
 | `logos/two-points/two-points-logo-vector-white.svg` | The same in white, for the dark band. |
 | `logos/two-points/two-points-mountain-white.svg` | The mountain alone in white. |
+| `logos/two-points/two-points-icon.svg` | The icon tile. The mountain is the original, at its original line weight (an earlier copy thickened it; fixed 25 Nov 2026). |
 
 The two `-vector-` files were assembled from the original vector mountain and the original vector wordmark, placed
 using the measured positions in `two-points-logo-full-ink.svg`. Nothing was redrawn. The PNG logos are too small for a van.
