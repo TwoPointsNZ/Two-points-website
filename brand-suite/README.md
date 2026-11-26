@@ -30,6 +30,16 @@ Two ropes, drawn the way you rig them.
 - Three ways to tie the top are in `00-foundations/previews/two-ropes-options.jpg`: A figure 8s, B bunny ears (in use), C shared anchors.
 - To switch: change `ROPE_DEFAULT` in `_source/ropes.js` and rebuild.
 
+## Van wrap concepts (26 Nov 2026)
+
+Joe asked for a van that stands out: covered in illustrations like tattoos, with a mascot.
+
+- `05-vehicle/van-wrap-concepts.jpg`: three directions (flash sleeve, blackout sleeve, kea mural) and three mascots (kea, gecko, goat).
+- **These are concept sketches made with Higgsfield, not print artwork.** Once a direction is picked, a wrap designer or illustrator needs to redraw it as full-size artwork fitted to the van's panels, with the knots and kit drawn correctly.
+- The logo and phone number on the mock-ups are the real ones, placed on top.
+- This is a deliberate exception to "colour is rare". It applies to the van and the mascot only. Documents, emails and the website stay calm.
+- The earlier plain liveries (A, B, C) are kept as a fallback.
+
 ## Choices for Joe
 
 Each has options A, B, C so you can pick. My pick is marked.
