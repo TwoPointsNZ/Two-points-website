@@ -26,8 +26,8 @@ function side(concept,{mirror=false,dark=false}={}){
     s+=`<g style="mix-blend-mode:${blend}">${T(tx(904),248,25,'021 0898 7180',{fill:ink,a:anchor})}${T(tx(905),274,14.5,'twopoints.co.nz',{fill:ink2,w:700,ls:0,a:anchor})}</g>`;
   }
   if(concept==='B'){ // Two lines: working line + backup line hanging down the side
-    { const r=ropeG('',{len:246,T:3.2,knot:dark?'#4b4d4f':'#fbfbfb',anchor:dark?'#c9cec4':'#555b63'}); s+=`<g transform="translate(${mx(826,r.w)} 196)">${r.g}</g>`; }
-    s+=`<g style="mix-blend-mode:${blend}">${T(tx(652),246,24.5,'021 0898 7180',{fill:ink,a:anchor})}${T(tx(653),273,15,'twopoints.co.nz',{fill:ink2,w:700,ls:0,a:anchor})}${T(tx(653),305,8.6,'INDUSTRIAL ROPE ACCESS',{fill:ink2,w:700,ls:1.6,a:anchor})}</g>`;
+    { const r=ropeG('',{len:246,T:2.9,knot:dark?'#4b4d4f':'#fbfbfb',anchor:dark?'#c9cec4':'#555b63'}); s+=`<g transform="translate(${mx(813,r.w)} 196)">${r.g}</g>`; }
+    s+=`<g style="mix-blend-mode:${blend}">${T(tx(650),246,23.5,'021 0898 7180',{fill:ink,a:anchor})}${T(tx(653),273,15,'twopoints.co.nz',{fill:ink2,w:700,ls:0,a:anchor})}${T(tx(653),305,8.6,'INDUSTRIAL ROPE ACCESS',{fill:ink2,w:700,ls:1.6,a:anchor})}</g>`;
     s+=`<image href="${logo}" x="${mx(905,168)}" y="214" width="168" height="83.6" style="mix-blend-mode:${blend}"/>`;
   }
   if(concept==='C'){ // Headline: the website hero on the van
@@ -46,10 +46,10 @@ function side(concept,{mirror=false,dark=false}={}){
 function rear(concept){
   const id='v'+(vn++), logo=VL+'two-points-logo-vector-ink.svg'; let s='';
   s+=`<image href="${logo}" x="330" y="165" width="210" height="104.5" style="mix-blend-mode:multiply"/>`;
-  s+=`<g style="mix-blend-mode:multiply">${T(700,214,26,'021 0898 7180',{a:'middle'})}${T(700,245,16,'twopoints.co.nz',{fill:'#555b63',w:700,ls:0,a:'middle'})}</g>`;
+  s+=`<g style="mix-blend-mode:multiply">${T(690,214,25,'021 0898 7180',{a:'middle'})}${T(690,244,16,'twopoints.co.nz',{fill:'#555b63',w:700,ls:0,a:'middle'})}</g>`;
   s+=`<g style="mix-blend-mode:multiply"><text x="437" y="478" font-family="Plus Jakarta Sans" font-weight="600" font-size="19" fill="#555b63" text-anchor="middle">Because ladders only go <tspan font-weight="800" fill="url(#${id}w)">so far</tspan></text></g><circle cx="552" cy="475" r="2.4" fill="url(#${id}d)"/>`;
   if(concept==='A') s+=`<rect x="286" y="640" width="596" height="6" fill="url(#${id}h)"/>`;
-  if(concept==='B'){ const r=ropeG('',{len:390,T:3.6,knot:'#fbfbfb',anchor:'#555b63'}); s+=`<g transform="translate(812 132)">${r.g}</g>`; }
+  if(concept==='B'){ const r=ropeG('',{len:390,T:3.3,knot:'#fbfbfb',anchor:'#555b63'}); s+=`<g transform="translate(796 132)">${r.g}</g>`; }
   return `<div class="van" style="position:relative;width:1168px;height:880px;overflow:hidden"><img src="../img/rear-white.png" style="width:1168px;height:880px">
     <svg viewBox="0 0 1168 880" width="1168" height="880" style="position:absolute;inset:0">${G(id)}${s}</svg></div>`;
 }

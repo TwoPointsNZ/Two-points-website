@@ -6,7 +6,7 @@ Added 25 November 2026 with the brand suite. Everything here is **Two Points** (
 
 A graphic device made for print and the van. Drawn by `_source/ropes.js` (one source for every piece), the way Two Points rigs them (Joe, 26 Nov 2026).
 
-- **Top:** bunny ears onto two grey anchor rings, then a figure 8. (A figure-8-loop version, `eights`, and a shared-anchor version, `shared`, are also in the file.)
+- **Top:** a grey bolt hanger and carabiner at each anchor. The bunny ears are real loops through the carabiners, into a solid figure 8 knot drawn like the stopper (filled, with its two crossing turns marked). (A figure-8-loop version, `eights`, and a shared-anchor version, `shared`, are also in the file.)
 - **Bottom:** a stopper knot with a tail left below it. The pink rope hangs a little lower than the blue one.
 - **Colour:** rope 1 fades teal → blue, rope 2 indigo → pink. Anchors are grey: they are not rope.
 - **Rules:**
