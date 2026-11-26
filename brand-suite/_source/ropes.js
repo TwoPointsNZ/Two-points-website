@@ -1,36 +1,41 @@
-// The two lines, drawn as rope rigging. One source for every piece in the suite.
-// ropeG(variant, opts) -> SVG markup (a <g>) in its own units.   ropes(variant, opts) -> a positioned <svg>.
-//   variant 'plain'  : two ropes hanging from two ring anchors (smallest sizes)
-//   variant 'rigged' : the same, plus the backup device, the descender and the technician they both hold
-//   variant 'plumb'  : two ropes that stop inside the piece with a stopper knot (for pages that can't print to the edge)
-// opts: len (rope length), T (rope thickness), gap (between rope centres, default 5T), at (0-1, where the technician sits),
-//       flecks (true = rope tracer marks, large formats only), tail ('#555b63' cow's-tail colour), unit ('mm'|'px')
+// The two ropes, drawn the way Two Points rigs them. One source for every piece in the suite.
+//   Top:    a figure 8 on each rope ('eights'), or bunny ears onto two anchors ('ears', 'shared').
+//   Bottom: a stopper knot with a tail below it.
+// The whole rig is always shown, anchor to tail: it never runs off an edge.
+// ropeG(style, opts) -> {g, w, h} SVG markup in its own units.   ropes(style, opts) -> a positioned <svg>.
+// opts: len (overall height, anchor to tail), T (rope thickness), anchor (anchor colour), knot (colour of the wrap marks = the background),
+//       unit ('mm'|'px'), style (CSS for the svg)
+const ROPE_DEFAULT='ears';           // the style in use across the suite: change here, rebuild, and every piece follows
 let ropeN=0;
-function ropeG(variant,o={}){
-  const T=o.T||1, gap=o.gap||6.5*T, len=o.len||100, pad=3*T, x1=pad, x2=pad+gap, id='rp'+(ropeN++);
-  const rR=2.1*T, ry=rR+T*.6, top=ry+rR;                    // ring anchors
-  const end1=variant==='plumb'?len-7*T:len, end2=variant==='plumb'?len-1.6*T:len;
-  const yb=top+(len-top)*(o.at??.42), yd=yb+6.5*T, yp=yd+6*T, xm=(x1+x2)/2;   // backup device, descender, technician
-  let s=`<defs><linearGradient id="${id}a" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#14E0B4"/><stop offset="1" stop-color="#1FA9FF"/></linearGradient>
-  <linearGradient id="${id}b" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6A5CFF"/><stop offset="1" stop-color="#F15BB5"/></linearGradient>
-  <linearGradient id="${id}d" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#6A5CFF"/><stop offset="1" stop-color="#F15BB5"/></linearGradient></defs>`;
-  s+=`<circle cx="${x1}" cy="${ry}" r="${rR}" fill="none" stroke="#14E0B4" stroke-width="${T}"/><circle cx="${x2}" cy="${ry}" r="${rR}" fill="none" stroke="#6A5CFF" stroke-width="${T}"/>`;
-  s+=`<rect x="${x1-T/2}" y="${top}" width="${T}" height="${end1-top}" fill="url(#${id}a)"/><rect x="${x2-T/2}" y="${top}" width="${T}" height="${end2-top}" fill="url(#${id}b)"/>`;
-  if(o.flecks) s+=`<path d="M${x1} ${top+3*T}V${end1}M${x2} ${top+6*T}V${end2}" stroke="#fff" stroke-opacity=".5" stroke-width="${T*.34}" stroke-dasharray="${T*1.1} ${T*5.4}" fill="none"/>`;
-  if(variant==='plumb') s+=`<circle cx="${x1}" cy="${end1}" r="${T*1.25}" fill="#1FA9FF"/><circle cx="${x2}" cy="${end2}" r="${T*1.25}" fill="#F15BB5"/>`;
-  if(variant==='rigged'){
-    const tail=o.tail||'#8b9199';
-    s+=`<path d="M${x2} ${yb+1.6*T}L${xm} ${yp}M${x1} ${yd+1.6*T}L${xm} ${yp}" stroke="${tail}" stroke-width="${T*.55}" stroke-linecap="round" fill="none"/>`;
-    s+=`<rect x="${x2-1.25*T}" y="${yb-1.9*T}" width="${2.5*T}" height="${3.8*T}" rx="${T*.9}" fill="#6A5CFF"/>`;          // backup device rides high
-    s+=`<rect x="${x1-1.25*T}" y="${yd-1.9*T}" width="${2.5*T}" height="${3.8*T}" rx="${T*.9}" fill="#1FA9FF"/>`;          // descender sits lower
-    s+=`<circle cx="${xm}" cy="${yp}" r="${T*1.5}" fill="url(#${id}d)"/>`;                                                   // the technician: the brand full stop
-  }
-  return {g:s,w:gap+2*pad,h:len};
+function ropeG(style,o={}){
+  if(!['eights','ears','shared'].includes(style)) style=ROPE_DEFAULT;
+  const T=o.T||1, len=o.len||100, id='rp'+(ropeN++), anchor=o.anchor||'#8b9199', bg=o.knot||'#fff';
+  const ears=style!=='eights', spread=style==='shared'?4.5*T:2.7*T;      // half-distance between a rope's two anchors
+  const gap=style==='shared'?4.2*T:(ears?9*T:6*T), pad=(ears?spread:1.8*T)+1.6*T;
+  const xs=style==='shared'?[pad+spread-gap/2,pad+spread+gap/2]:[pad,pad+gap], w=style==='shared'?2*pad+2*spread:2*pad+gap;
+  const ay=1.6*T, cols=[['#14E0B4','#1FA9FF'],['#6A5CFF','#F15BB5']];
+  let s='<defs>'+cols.map((c,i)=>`<linearGradient id="${id}${i}" gradientUnits="userSpaceOnUse" x1="0" x2="0" y1="0" y2="${len}"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient>`).join('')+'</defs>';
+  const anchors=new Set();
+  xs.forEach((x,i)=>{
+    const col=`url(#${id}${i})`, ky=ay+(ears?6.2*T:6.6*T)+(style==='shared'?i*3.4*T:0);   // top of the knot
+    const tailEnd=len-(i?0:5*T), st=tailEnd-9*T;                                          // rope 2 hangs a little lower
+    const A=style==='shared'?[pad,pad+2*spread]:(ears?[x-spread,x+spread]:[x]);
+    if(ears) A.forEach(a=>{anchors.add(a); s+=`<path d="M${a} ${ay}L${x} ${ky+.6*T}" stroke="${col}" stroke-width="${T}" stroke-linecap="round" fill="none"/>`;});
+    else { anchors.add(x); s+=`<ellipse cx="${x}" cy="${ay+2.9*T}" rx="${1.35*T}" ry="${2.9*T}" fill="none" stroke="${col}" stroke-width="${T}"/>`; }
+    // the knot: a figure 8, drawn as two crossed turns of rope
+    s+=`<g transform="rotate(-14 ${x} ${ky+2.2*T})"><ellipse cx="${x}" cy="${ky+1.15*T}" rx="${1.45*T}" ry="${1.2*T}" fill="none" stroke="${col}" stroke-width="${T*.95}"/><ellipse cx="${x}" cy="${ky+3.25*T}" rx="${1.45*T}" ry="${1.2*T}" fill="none" stroke="${col}" stroke-width="${T*.95}"/></g>`;
+    s+=`<path d="M${x} ${ky+4.4*T}V${tailEnd-T/2}" stroke="${col}" stroke-width="${T}" stroke-linecap="round" fill="none"/>`;
+    // stopper knot (a barrel of wraps) with the tail left below it
+    s+=`<rect x="${x-1.35*T}" y="${st}" width="${2.7*T}" height="${4.2*T}" rx="${T*1.1}" fill="${col}"/>`;
+    s+=`<path d="M${x-1.35*T} ${st+1.75*T}l${2.7*T} ${-.7*T}M${x-1.35*T} ${st+3.15*T}l${2.7*T} ${-.7*T}" stroke="${bg}" stroke-width="${T*.3}" fill="none"/>`;
+  });
+  anchors.forEach(a=>{ s+=`<circle cx="${a}" cy="${ay}" r="${1.25*T}" fill="${bg}" stroke="${anchor}" stroke-width="${T*.7}"/>`; });
+  return {g:s,w,h:len};
 }
-function ropes(variant,o={}){
-  const u=o.unit||'mm', r=ropeG(variant,o);
+function ropes(style,o={}){
+  const u=o.unit||'mm', r=ropeG(style,o);
   return `<svg class="ropes" viewBox="0 0 ${r.w} ${r.h}" width="${r.w}${u}" height="${r.h}${u}" style="position:absolute;overflow:visible;${o.style||''}" aria-hidden="true">${r.g}</svg>`;
 }
-// drop-in for static pages: <i data-ropes="rigged" data-len="61" data-t=".45" data-style="left:66mm;top:0"></i>
+// drop-in for static pages: <i data-ropes data-len="40" data-t=".45" data-knot="#14170f" data-style="left:66mm;top:7mm"></i>
 document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('[data-ropes]').forEach(el=>{const d=el.dataset;
-  el.outerHTML=ropes(d.ropes,{len:+d.len,T:+d.t,gap:d.gap?+d.gap:undefined,at:d.at?+d.at:undefined,flecks:d.flecks==='1',tail:d.tail,unit:d.unit||'mm',style:d.style||''})}));
+  el.outerHTML=ropes(d.ropes,{len:+d.len,T:+d.t,anchor:d.anchor,knot:d.knot,unit:d.unit||'mm',style:d.style||''})}));

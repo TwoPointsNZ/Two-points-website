@@ -22,13 +22,13 @@ Made 25 November 2026 from two packs joined into one: the **Two Points design pa
 
 ## The one new idea: the two ropes
 
-Two ring anchors, two ropes, a backup device and a descender, both holding one technician.
-The technician is the brand full stop. It is the number one rule of rope access in one picture.
+Two ropes, drawn the way you rig them.
 
-- **Rigged** (the full picture): van, business card C, LinkedIn banner, social post 2.
-- **Plumb** (ropes stop with a stopper knot): letterhead C, envelope.
-- Once per piece. Always vertical. Never a pattern.
-- The three ways it could be drawn are in `00-foundations/previews/two-lines-options.jpg`. B "Rigged" is the one in use.
+- **Top:** bunny ears onto two anchors, then a figure 8.
+- **Bottom:** a stopper knot with a tail left below it.
+- Always the whole rig, with space round it. Never cropped, never running off an edge.
+- Three ways to tie the top are in `00-foundations/previews/two-ropes-options.jpg`: A figure 8s, B bunny ears (in use), C shared anchors.
+- To switch: change `ROPE_DEFAULT` in `_source/ropes.js` and rebuild.
 
 ## Choices for Joe
 
