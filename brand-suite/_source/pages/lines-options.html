@@ -1,0 +1,31 @@
+<!doctype html><html lang="en-NZ"><head><meta charset="utf-8"><title>Two lines options</title>
+<meta name="out" content='[{"type":"png","sel":"#sheet","file":"00-foundations/previews/two-lines-options.jpg","scale":1.5,"vw":1800}]'>
+<link rel="stylesheet" href="../brand.css">
+<style>body{width:1800px}#sheet{width:1800px;padding:60px;background:#fff}
+.hd{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:36px}.hd h1{font-size:52px}.hd p{font-size:19px;color:var(--ink-2);margin-top:10px;max-width:1100px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.cell h2{font-size:26px;margin-bottom:4px}.cell p{font-size:16px;color:var(--ink-2);line-height:1.45;min-height:96px}
+.demo{position:relative;height:520px;border-radius:18px;overflow:hidden;margin-top:14px}
+.dk{background:var(--band)}.lt{background:#fff;border:1px solid var(--line)}
+.card{position:relative;height:250px;border-radius:12px;overflow:hidden;margin-top:14px;background:var(--band)}
+.card b{position:absolute;left:26px;bottom:22px;font-size:44px;font-weight:800;letter-spacing:-.05em;color:var(--band-ink)}
+.card small{position:absolute;left:27px;bottom:76px;font-size:12px;color:var(--band-ink-2)}
+.tag{display:inline-block;font-size:13px;font-weight:700;background:#d6f7ee;color:#0b6b55;border-radius:99px;padding:3px 12px;margin-left:8px;vertical-align:middle;letter-spacing:0}
+.old i{position:absolute;top:60px;bottom:0;width:3px}
+</style></head><body><div id="sheet">
+<div class="hd"><h1>The two lines, <span class="quiet">drawn</span> <span class="rb">better</span><span class="dot"></span></h1><p>Before, they were two plain stripes. These three draw them as rope rigging: ring anchors at the top, and rope that has some weight to it. Shown large, then on business card C.</p></div>
+<div class="grid">
+ <div class="cell"><h2>Before</h2><p>Two thin stripes with dots. Reads as a decoration, not as ropes.</p>
+  <div class="demo dk old"><i style="left:180px;background:linear-gradient(180deg,var(--c1),var(--c2))"></i><i style="left:204px;background:linear-gradient(180deg,var(--c3),var(--c4))"></i><i style="left:173px;top:52px;width:17px;height:17px;bottom:auto;border-radius:50%;background:var(--c1)"></i><i style="left:197px;top:52px;width:17px;height:17px;bottom:auto;border-radius:50%;background:var(--c3)"></i></div>
+  <div class="card old"><i style="left:300px;top:0;width:1.5px;background:linear-gradient(180deg,var(--c1),var(--c2))"></i><i style="left:312px;top:0;width:1.5px;background:linear-gradient(180deg,var(--c3),var(--c4))"></i><small>The number one rule of rope access:</small><b>Two points<span class="dot"></span></b></div></div>
+ <div class="cell"><h2>A · Anchored</h2><p>Two ropes hanging from two ring anchors. Thicker, with rope tracer marks at large sizes. The simplest fix.</p>
+  <div class="demo dk"><i data-ropes="plain" data-unit="px" data-len="470" data-t="7" data-flecks="1" data-style="left:150px;top:50px"></i></div>
+  <div class="card"><i data-ropes="plain" data-unit="px" data-len="240" data-t="2.4" data-style="left:286px;top:12px"></i><small>The number one rule of rope access:</small><b>Two points<span class="dot"></span></b></div></div>
+ <div class="cell"><h2>B · Rigged <span class="tag">My pick</span></h2><p>The whole rule in one picture: two anchors, two ropes, a backup device and a descender, both holding one technician. The technician is your full stop.</p>
+  <div class="demo dk"><i data-ropes="rigged" data-unit="px" data-len="470" data-t="7" data-flecks="1" data-tail="#a2a99d" data-style="left:150px;top:50px"></i></div>
+  <div class="card"><i data-ropes="rigged" data-unit="px" data-len="240" data-t="2.4" data-at=".3" data-tail="#a2a99d" data-style="left:286px;top:12px"></i><small>The number one rule of rope access:</small><b>Two points<span class="dot"></span></b></div></div>
+ <div class="cell"><h2>C · Plumb</h2><p>The ropes stop inside the page with a stopper knot, at two lengths. Good where a printer can't print to the edge.</p>
+  <div class="demo dk"><i data-ropes="plumb" data-unit="px" data-len="400" data-t="7" data-flecks="1" data-style="left:150px;top:50px"></i></div>
+  <div class="card"><i data-ropes="plumb" data-unit="px" data-len="150" data-t="2.4" data-style="left:286px;top:12px"></i><small>The number one rule of rope access:</small><b>Two points<span class="dot"></span></b></div></div>
+</div></div>
+<script src="../ropes.js"></script></body></html>

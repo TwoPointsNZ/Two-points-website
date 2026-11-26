@@ -24,7 +24,7 @@ function LH(style,{filled=false,cont=false}={}){
     ${body}
     <div class="b-foot"><span><b>Two Points Ltd</b> · Industrial rope access · New Zealand</span><span>SiteWise Gold 2026/27 · IRATA Level 3 supervised</span></div></div>`;
   return `<div class="lh lhC ${cont?'cont':''}">
-    <i class="c-line c1"></i><i class="c-line c2"></i><i class="c-dot d1"></i><i class="c-dot d2"></i>
+    ${ropes('plumb',{len:118,T:.45,style:'left:10.6mm;top:15mm'})}
     <div class="c-top">${cont?'':`<img src="${L}two-points-logo-vector-ink.svg" class="c-logo">`}</div>
     ${body}
     <div class="c-foot"><b>Two Points Ltd</b><span>021 0898 7180</span><span>Joe@twopoints.co.nz</span><span>twopoints.co.nz</span></div></div>`;

@@ -2,19 +2,23 @@
 
 Added 25 November 2026 with the brand suite. Everything here is **Two Points** (Alpenglow, mountain logo). Simple never appears.
 
-## The two lines
+## The two ropes
 
-A new graphic device, made for print and the van.
+A graphic device made for print and the van. Drawn by `_source/ropes.js` (one source for every piece).
 
-- **What:** two thin vertical Alpenglow lines hanging from two anchor dots. Line 1 fades teal → blue. Line 2 fades indigo → pink.
-- **Why:** it is the name. A working line and a backup line, from two anchor points.
-- **Where:** van, business card C, letterhead C, ID card, envelope, social post 2.
+- **What:** two ring anchors, two ropes, a backup device (indigo, rides higher) and a descender (blue, sits lower), both tied to one technician. The technician is the brand full stop (indigo → pink). Rope 1 fades teal → blue. Rope 2 fades indigo → pink.
+- **Why:** it is the number one rule of rope access, and the company's name, in one picture.
+- **Three forms:**
+  - **Rigged** (the full picture): van, business card C, LinkedIn banner, social post 2.
+  - **Plumb** (ropes stop inside the page with a stopper knot): letterhead C, envelope. For anything an office printer prints.
+  - **Plain** (rings and ropes only): the smallest uses, such as the ID card.
 - **Rules:**
   - once per piece;
-  - runs off the bottom edge;
-  - lines are thin (0.3 mm on a card, 25 mm on a van) and a few line-widths apart;
-  - never horizontal, never thicker, never a second pair;
-  - still follows "colour is rare": if the piece has the two lines, it has no other Alpenglow fill.
+  - always vertical, hanging from the top;
+  - ropes are thin: 0.4 mm on a card, 25 mm on a van, about 6 rope-widths apart;
+  - tracer marks on the ropes only at large sizes (van, banners);
+  - never horizontal, never a second pair, never a pattern;
+  - still follows "colour is rare": a piece with the ropes has no other Alpenglow fill.
 
 ## Logo files for print
 
@@ -48,8 +52,8 @@ using the measured positions in `two-points-logo-full-ink.svg`. Nothing was redr
 ## Vehicle
 
 - Three options: A Letterhead, B Two lines (recommended), C Headline.
-- Black cut vinyl for the logo and phone. Dark grey cut vinyl for small words. The two lines are digitally printed and laminated.
-- On a dark van: white logo, light grey small words, the same lines.
+- Black cut vinyl for the logo and phone. Dark grey cut vinyl for small words. The two ropes are digitally printed and laminated.
+- On a dark van: white logo, light grey small words, the same ropes.
 - Keep every part off handles, rails, rub strips and panel gaps.
 - The phone number is always the biggest lettering after the logo.
 

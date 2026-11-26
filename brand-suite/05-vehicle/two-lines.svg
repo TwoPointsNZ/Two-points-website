@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 1765" width="135mm" height="1765mm" role="img" aria-label="Two lines: working line and backup line">
-  <!-- 1 unit = 1 mm. Lines 25 mm wide, 45 mm apart, anchor discs 65 mm. Cut the length to suit the van. -->
-  <defs><linearGradient id="a" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#14E0B4"/><stop offset="1" stop-color="#1FA9FF"/></linearGradient>
-  <linearGradient id="b" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6A5CFF"/><stop offset="1" stop-color="#F15BB5"/></linearGradient></defs>
-  <rect x="20" y="32.5" width="25" height="1732.5" fill="url(#a)"/><rect x="90" y="32.5" width="25" height="1732.5" fill="url(#b)"/>
-  <circle cx="32.5" cy="32.5" r="32.5" fill="#14E0B4"/><circle cx="102.5" cy="32.5" r="32.5" fill="#6A5CFF"/>
-</svg>

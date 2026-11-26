@@ -26,8 +26,7 @@ function side(concept,{mirror=false,dark=false}={}){
     s+=`<g style="mix-blend-mode:${blend}">${T(tx(904),248,25,'021 0898 7180',{fill:ink,a:anchor})}${T(tx(905),274,14.5,'twopoints.co.nz',{fill:ink2,w:700,ls:0,a:anchor})}</g>`;
   }
   if(concept==='B'){ // Two lines: working line + backup line hanging down the side
-    s+=`<rect x="${mx(856,5)}" y="192" width="5" height="322" fill="url(#${id}v1)"/><rect x="${mx(870,5)}" y="192" width="5" height="322" fill="url(#${id}v2)"/>`;
-    s+=`<circle cx="${mx(858.5)}" cy="192" r="6.5" fill="#14E0B4"/><circle cx="${mx(872.5)}" cy="192" r="6.5" fill="#6A5CFF"/>`;
+    { const r=ropeG('rigged',{len:330,T:5,at:.52,flecks:true,tail:dark?'#c9cec4':'#555b63'}); s+=`<g transform="translate(${mx(838,r.w)} 184)">${r.g}</g>`; }
     s+=`<g style="mix-blend-mode:${blend}">${T(tx(652),246,26,'021 0898 7180',{fill:ink,a:anchor})}${T(tx(653),273,15,'twopoints.co.nz',{fill:ink2,w:700,ls:0,a:anchor})}${T(tx(653),305,8.6,'INDUSTRIAL ROPE ACCESS',{fill:ink2,w:700,ls:1.6,a:anchor})}</g>`;
     s+=`<image href="${logo}" x="${mx(905,168)}" y="214" width="168" height="83.6" style="mix-blend-mode:${blend}"/>`;
   }
@@ -50,7 +49,7 @@ function rear(concept){
   s+=`<g style="mix-blend-mode:multiply">${T(718,214,28,'021 0898 7180',{a:'middle'})}${T(718,247,17,'twopoints.co.nz',{fill:'#555b63',w:700,ls:0,a:'middle'})}</g>`;
   s+=`<g style="mix-blend-mode:multiply"><text x="437" y="478" font-family="Plus Jakarta Sans" font-weight="600" font-size="19" fill="#555b63" text-anchor="middle">Because ladders only go <tspan font-weight="800" fill="url(#${id}w)">so far</tspan></text></g><circle cx="552" cy="475" r="2.4" fill="url(#${id}d)"/>`;
   if(concept==='A') s+=`<rect x="286" y="640" width="596" height="6" fill="url(#${id}h)"/>`;
-  if(concept==='B') s+=`<rect x="838" y="126" width="5" height="520" fill="url(#${id}v1)"/><rect x="853" y="126" width="5" height="520" fill="url(#${id}v2)"/><circle cx="840.5" cy="126" r="6.5" fill="#14E0B4"/><circle cx="855.5" cy="126" r="6.5" fill="#6A5CFF"/>`;
+  if(concept==='B'){ const r=ropeG('rigged',{len:528,T:5,at:.62,flecks:true,tail:'#555b63'}); s+=`<g transform="translate(820 118)">${r.g}</g>`; }
   return `<div class="van" style="position:relative;width:1168px;height:880px;overflow:hidden"><img src="../img/rear-white.png" style="width:1168px;height:880px">
     <svg viewBox="0 0 1168 880" width="1168" height="880" style="position:absolute;inset:0">${G(id)}${s}</svg></div>`;
 }

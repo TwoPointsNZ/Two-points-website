@@ -25,7 +25,7 @@ button:focus-visible{outline:2px solid #1FA9FF;outline-offset:3px}
 .ok{margin-left:10px;font-size:13px;font-weight:700;color:#0b6b55}
 ol{color:var(--ink-2);font-size:14px;line-height:1.6;padding-left:20px}
 </style></head><body>
-<div class="band"><p>Two Points · internal</p><h1>Email footers,<br><span>five to choose from.</span></h1></div>
+<div class="band"><p>Two Points · internal</p><h1>Email footers,<br><span>built around the reply one.</span></h1></div>
 <main>
   <div class="who">
     <div><label for="f-name">Name</label><input id="f-name" value="Joe Pope"></div>
@@ -59,20 +59,23 @@ const item=(icon,alt,href,text,align)=>`<td valign="middle" align="${align}" sty
 const contact=d=>`<tr><td style="padding:9px 16px 10px 16px;">${T(`<tr>${item('c3-phone.png','Phone','tel:'+tel(d.phone),d.phone,'left')}${item('c3-email.png','Email','mailto:'+d.email,d.email,'center')}${item('c3-web.png','Website',W,'twopoints.co.nz','right')}</tr>`,384)}</td></tr>`;
 const card=rows=>`<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:separate;${F}color:#15171a;"><tr><td bgcolor="#ffffff" style="padding:0;background-color:#ffffff;border:1px solid #e2e5e8;border-radius:10px;">${T(rows,416)}</td></tr></table>`;
 
-const SIGS=[
- ['1 · Full card','The one in use now. Logo band, name, SiteWise badge, contacts. Best for new enquiries and quotes.',
-   d=>card(header()+person(d,true)+hair+contact(d))],
- ['2 · Card with quote button','The full card plus a "Get a free quote" button and the tagline. Good for first contact and follow-ups.',
-   d=>card(header()+person(d,true)+hair+contact(d)+`<tr><td bgcolor="#f4f4f0" style="padding:10px 16px;background-color:#f4f4f0;border-radius:0 0 9px 9px;">${T(`<tr><td valign="middle" style="padding:0;">${img('tagline.png',184,21,'Because ladders only go so far.')}</td><td valign="middle" align="right" style="padding:0;">${img('btn-quote5.png',156,36,'Get a free quote',W+'#contact')}</td></tr>`,384)}</td></tr>`)],
- ['3 · Compact','No band and no badge. For everyday emails with people who already know you.',
-   d=>card(`<tr><td style="padding:0;font-size:0;line-height:0;border-radius:9px 9px 0 0;">${img('rule.png',416,3,'')}</td></tr>`+person(d,false)+hair+contact(d))],
- ['4 · Reply','Three short lines for replies and long threads. One thin Alpenglow line, no card.',
-   d=>T(`<tr><td style="padding:0 0 8px 0;font-size:0;line-height:0;">${img('rule.png',120,3,'')}</td></tr>
-<tr><td style="padding:0;${F}font-size:14px;line-height:19px;font-weight:bold;color:#15171a;">${d.name}</td></tr>
+// The reply footer is the base. Everything else adds one thing to it.
+const lines=d=>`<tr><td style="padding:0;${F}font-size:14px;line-height:19px;font-weight:bold;color:#15171a;">${d.name}</td></tr>
 <tr><td style="padding:0;${F}font-size:12px;line-height:17px;color:#555b63;">${d.role}, Two Points Rope Access</td></tr>
-<tr><td style="padding:2px 0 0 0;${F}font-size:12px;line-height:17px;white-space:nowrap;"><a href="tel:${tel(d.phone)}" style="color:#15171a;text-decoration:none;font-weight:bold;">${d.phone}</a><span style="color:#8b9199;">&nbsp;&nbsp;·&nbsp;&nbsp;</span><a href="${W}" style="color:#15171a;text-decoration:none;font-weight:bold;">twopoints.co.nz</a></td></tr>`,300)],
- ['5 · Card with logo only','Band, name and contacts, with no badge. For crew members who are not the SiteWise contact.',
-   d=>card(header()+person(d,false)+hair+contact(d))],
+<tr><td style="padding:2px 0 0 0;${F}font-size:12px;line-height:17px;white-space:nowrap;"><a href="tel:${tel(d.phone)}" style="color:#15171a;text-decoration:none;font-weight:bold;">${d.phone}</a><span style="color:#8b9199;">&nbsp;&nbsp;·&nbsp;&nbsp;</span><a href="${W}" style="color:#15171a;text-decoration:none;font-weight:bold;">twopoints.co.nz</a></td></tr>`;
+const rule=`<tr><td style="padding:0 0 8px 0;font-size:0;line-height:0;">${img('rule.png',120,3,'')}</td></tr>`;
+const reply=d=>T(rule+lines(d),300);
+const SIGS=[
+ ['1 · Reply','The one you liked. A thin Alpenglow line and three short lines. Use it for everything day to day.',
+   d=>reply(d)],
+ ['2 · Reply with the icon','The same, with the Two Points icon beside it. Good for first emails to someone new.',
+   d=>T(`<tr><td colspan="2" style="padding:0 0 8px 0;font-size:0;line-height:0;">${img('rule.png',120,3,'')}</td></tr><tr><td valign="top" width="44" style="padding:2px 12px 0 0;width:44px;">${img('icon-white.png',44,44,'Two Points',W)}</td><td valign="top" style="padding:0;">${T(lines(d),244)}</td></tr>`,300)],
+ ['3 · Reply with SiteWise Gold','The same, with the SiteWise Gold badge underneath. For quotes, tenders and anyone who asks about safety.',
+   d=>T(rule+lines(d)+`<tr><td style="padding:10px 0 0 0;">${img('sitewise5.png',115,40,'SiteWise Gold 2026/27',W+'#safety')}</td></tr>`,300)],
+ ['4 · Reply with a quote button','The same, with a "Get a free quote" button underneath. For follow-ups.',
+   d=>T(rule+lines(d)+`<tr><td style="padding:10px 0 0 0;">${img('btn-quote5.png',156,36,'Get a free quote',W+'#contact')}</td></tr>`,300)],
+ ['5 · Full card','The boxed card in use now, kept in case you want it for formal emails.',
+   d=>card(header()+person(d,true)+hair+contact(d))],
 ];
 const get=()=>({name:document.getElementById('f-name').value,role:document.getElementById('f-role').value,qual:document.getElementById('f-qual').value,phone:document.getElementById('f-phone').value,email:document.getElementById('f-email').value});
 function draw(){const d=get();document.getElementById('list').innerHTML=SIGS.map(([t,p,fn],i)=>`<section><h2>${t}</h2><p>${p}</p><div class="pv"><div class="mail"><div style="margin-bottom:14px">Regards,</div><div class="sig" id="sig${i}">${fn(d)}</div></div></div><button type="button" data-i="${i}">Copy footer ${i+1}</button><span class="ok" role="status" id="ok${i}"></span></section>`).join('');}

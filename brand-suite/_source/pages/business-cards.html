@@ -11,7 +11,7 @@
 <style>
 @page{size:110mm 75mm;margin:0}
 .print{--w:90mm;--h:55mm}
-.trim{padding:6mm}
+.trim{padding:7mm 6mm 6mm}
 .dark{background:var(--band)}
 .name{font-size:13pt;font-weight:800;letter-spacing:-.02em;line-height:1.1}
 .role{font-size:6.6pt;color:var(--ink-2);line-height:1.45;margin-top:1.2mm}
@@ -22,6 +22,10 @@
 .foot{position:absolute;left:6mm;right:6mm;bottom:6mm}
 .tag{font-size:6.2pt;color:var(--band-ink-2);font-weight:500}
 .tag b{font-weight:700} 
+.sr{width:17mm;height:.5mm;background:var(--glow-line);margin-bottom:3.2mm}
+.ct{position:absolute;left:6mm;bottom:6mm;font-size:6.9pt;font-weight:700;line-height:1.7}
+.dark .ct{color:var(--band-ink)}
+.mk-br{position:absolute;right:6mm;bottom:6.6mm;width:13mm}
 /* C */
 .lines{position:absolute;top:0;bottom:0;width:.3mm}
 .l1{background:linear-gradient(180deg,var(--c1),var(--c2))}
@@ -36,11 +40,10 @@
 </div></div></div>
 <!-- A · back -->
 <div class="print" data-name="Business card A (Band) back"><div class="art"><div class="trim">
-  <img src="../../00-foundations/logos/two-points/two-points-icon.svg" style="position:absolute;right:6mm;top:6mm;width:10mm">
-  <div class="name">Joe Pope</div>
+  <div class="sr"></div><div class="name">Joe Pope</div>
   <div class="role">Managing Director<br>IRATA Level 3 Supervisor</div>
-  <div class="foot"><div class="label" style="font-size:5pt;margin-bottom:2mm">Industrial rope access · New Zealand</div><div class="hair"></div>
-  <div class="contacts" style="margin-top:2.6mm"><span>021 0898 7180</span><span>Joe@twopoints.co.nz</span><span>twopoints.co.nz</span></div></div>
+  <div class="ct">021 0898 7180<br>Joe@twopoints.co.nz<br>twopoints.co.nz</div>
+  <img src="../../00-foundations/logos/two-points/two-points-mountain-ink.svg" class="mk-br">
 </div></div></div>
 
 <!-- B · PAPER front -->
@@ -52,27 +55,25 @@
 </div></div>
 <!-- B · back -->
 <div class="print" data-name="Business card B (Paper) back"><div class="art dark"><div class="trim">
-  <img src="../../00-foundations/logos/two-points/two-points-mountain-white.svg" style="position:absolute;right:6mm;top:6.4mm;width:11mm;opacity:.9">
-  <div class="name">Joe Pope</div>
+  <div class="sr"></div><div class="name">Joe Pope</div>
   <div class="role">Managing Director<br>IRATA Level 3 Supervisor</div>
-  <div class="foot"><div class="tag" style="margin-bottom:2.2mm">SiteWise Gold 2026/27</div><div class="hair"></div>
-  <div class="contacts" style="margin-top:2.6mm"><span>021 0898 7180</span><span>Joe@twopoints.co.nz</span><span>twopoints.co.nz</span></div></div>
+  <div class="ct">021 0898 7180<br>Joe@twopoints.co.nz<br>twopoints.co.nz</div>
+  <img src="../../00-foundations/logos/two-points/two-points-mountain-white.svg" class="mk-br">
 </div></div></div>
 
 <!-- C · TWO LINES front -->
 <div class="print" data-name="Business card C (Two lines) front"><div class="art dark">
-  <div class="lines l1" style="left:71mm"></div><div class="lines l2" style="left:74mm"></div>
+  <i data-ropes="rigged" data-len="61" data-t=".42" data-at=".3" data-tail="#a2a99d" data-style="left:74mm;top:0"></i>
   <div class="trim" style="display:flex;flex-direction:column;justify-content:flex-end">
   <div style="font-size:6.4pt;color:var(--band-ink-2);font-weight:500">The number one rule of rope access:</div>
   <div style="font-size:25pt;font-weight:800;letter-spacing:-.05em;line-height:1.05;color:var(--band-ink);margin-bottom:-1.2mm">Two points<span class="dot"></span></div>
 </div></div></div>
 <!-- C · back -->
-<div class="print" data-name="Business card C (Two lines) back"><div class="art">
-  <div class="lines l1" style="left:22mm"></div><div class="lines l2" style="left:25mm"></div>
-  <div class="trim" style="padding-left:28mm">
-  <div class="name">Joe Pope</div>
+<div class="print" data-name="Business card C (Two lines) back"><div class="art"><div class="trim">
+  <div class="sr"></div><div class="name">Joe Pope</div>
   <div class="role">Managing Director<br>IRATA Level 3 Supervisor</div>
-  <div style="position:absolute;left:28mm;bottom:6mm;font-size:6.8pt;font-weight:700;line-height:1.75">021 0898 7180<br>Joe@twopoints.co.nz<br>twopoints.co.nz</div>
-  <img src="../../00-foundations/logos/two-points/two-points-logo-vector-ink.svg" style="position:absolute;right:6mm;bottom:6mm;width:21mm">
+  <div class="ct">021 0898 7180<br>Joe@twopoints.co.nz<br>twopoints.co.nz</div>
+  <img src="../../00-foundations/logos/two-points/two-points-logo-vector-ink.svg" style="position:absolute;right:6mm;bottom:6mm;width:22mm">
 </div></div></div>
+<script src="../ropes.js"></script>
 <script src="../marks.js"></script></body></html>

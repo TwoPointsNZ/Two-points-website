@@ -12,7 +12,7 @@ Made 25 November 2026 from two packs joined into one: the **Two Points design pa
 | `Two-Points-brand-guide.pdf` | The rules on three pages | Anyone making something for you |
 | `00-foundations/` | Both original packs, joined: logos, colours, type, rules, templates, the Claude skill | Claude, a designer, a developer |
 | `01-stationery/` | 3 letterheads (PDF + Word), compliment slip, envelope | You · a printer for bulk |
-| `02-email-signatures/` | 5 email footers with Copy buttons (`signatures.html`) | Paste into Gmail |
+| `02-email-signatures/` | 5 email footers with Copy buttons (`signatures.html`), built around the short "reply" one | Paste into Gmail |
 | `03-business-cards/` | 3 card designs, print-ready | Printer |
 | `04-leaflets/` | A5 flyer, DL rack card, A4 capability statement | Printer · or email the PDF |
 | `05-vehicle/` | 3 van options, signwriter sheet, vector artwork | Signwriter |
@@ -20,13 +20,15 @@ Made 25 November 2026 from two packs joined into one: the **Two Points design pa
 | `07-site-and-workwear/` | Site sign, site ID card, stickers, clothing guide | Sign maker · garment printer |
 | `_source/` | The files everything is built from | Claude (to change a design) |
 
-## The one new idea: the two lines
+## The one new idea: the two ropes
 
-Two thin Alpenglow lines hanging from two anchor dots. The working line and the backup line.
-It is the picture of the name, and it ties the set together: van, business card C, letterhead C, ID card, envelope.
+Two ring anchors, two ropes, a backup device and a descender, both holding one technician.
+The technician is the brand full stop. It is the number one rule of rope access in one picture.
 
-- Once per piece. Runs off the bottom edge.
-- Never thick, never horizontal, never more than one pair.
+- **Rigged** (the full picture): van, business card C, LinkedIn banner, social post 2.
+- **Plumb** (ropes stop with a stopper knot): letterhead C, envelope.
+- Once per piece. Always vertical. Never a pattern.
+- The three ways it could be drawn are in `00-foundations/previews/two-lines-options.jpg`. B "Rigged" is the one in use.
 
 ## Choices for Joe
 
@@ -36,8 +38,8 @@ Each has options A, B, C so you can pick. My pick is marked.
 |---|---|---|---|
 | Letterhead | A Band · B Paper · C Two lines | **B** for printing in the office, **A** for PDFs | B uses little ink. A matches the quotes. |
 | Business card | A Band · B Paper · C Two lines | **C** | "Two points." is the thing people remember. |
-| Van | A Letterhead · B Two lines · C Headline | **B** | Cheapest to make, and most "Two Points". |
-| Email footer | 1 to 5 | **1** day to day, **4** for replies | 1 is the one already in use. |
+| Van | A Letterhead · B Two ropes · C Headline | **B** | Cheapest to make, and most "Two Points". |
+| Email footer | 1 to 5 | **1** day to day, **3** for quotes | 1 is the short reply one Joe liked. 5 is the boxed card in use before. |
 
 ## Needs your OK before it is used
 
@@ -47,9 +49,10 @@ Each has options A, B, C so you can pick. My pick is marked.
 - Rack card: "without the scaffolding" and "Free quotes".
 - Capability statement: "Two Points is an industrial rope access company.", the "What you receive" section, "Tagged, tested and certified" as a safety fact.
 - Site sign: "Rope access work overhead. Technicians are working above this area. Please keep outside the barriers."
+- Site sign and ID card are reworked (26 Nov).
 - ID card: the whole back (IRATA number, level, expiry, first aid, emergency steps).
 - The example letter (made-up client, only there to show the type styles).
-- Email footer 4: "Managing Director, Two Points Rope Access".
+- Email footers 1 to 4: "Managing Director, Two Points Rope Access".
 
 **Things I assumed:**
 
@@ -60,7 +63,7 @@ Each has options A, B, C so you can pick. My pick is marked.
 **Things I could not check:**
 
 - The printed colour. Files are in screen colour (RGB). Bright teal and pink dull down in ordinary print, so ask for a proof.
-- Email footers in real Gmail and on an iPhone. They use the same build as your current footer. Footer 2 also uses `tagline.png` and `btn-quote5.png`, which are in the website's files but I could not confirm they are live on twopoints.co.nz from here.
+- Email footers in real Gmail and on an iPhone. They use the same build as your current footer. Footer 4 uses `btn-quote5.png`, which are in the website's files but I could not confirm they are live on twopoints.co.nz from here.
 - The Word letterheads in real Microsoft Word (checked in LibreOffice only). Install **Plus Jakarta Sans** (free, Google Fonts) or Word swaps in another font.
 - Van sizes. They are scaled from a photo. The signwriter sets the final sizes on their own template.
 
